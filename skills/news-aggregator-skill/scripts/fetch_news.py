@@ -312,9 +312,10 @@ def main():
     for func in to_run:
         try:
             fetched = func(args.limit, args.keyword)
+            print(f"Fetched {len(fetched)} items from {func.__name__}")
             results.extend(fetched)
         except Exception as e:
-            print(f"Error fetching from {func.__name__}: {e}\n")
+            print(f"Error fetching from {func.__name__}: {e}")
 
 
     if args.deep and results:
