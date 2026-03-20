@@ -2,10 +2,8 @@ import argparse
 import json
 import requests
 from bs4 import BeautifulSoup
-import sys
 import time
 import re
-import concurrent.futures
 from datetime import datetime
 
 # Headers for scraping to avoid basic bot detection
@@ -20,43 +18,6 @@ def filter_items(items, keyword=None):
     pattern = '|'.join([r'\b' + re.escape(k) + r'\b' for k in keywords])
     regex = r'(?i)(' + pattern + r')'
     return [item for item in items if re.search(regex, item['title'])]
-
-def fetch_url_content(url):
-    """
-    Fetches the content of a URL and extracts text from paragraphs.
-    Truncates to 3000 characters.
-    """
-    if not url or not url.startswith('http'):
-        return ""
-    try:
-        response = requests.get(url, headers=HEADERS, timeout=5)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, 'html.parser')
-         # Remove script and style elements
-        for script in soup(["script", "style", "nav", "footer", "header"]):
-            script.extract()
-        # Get text
-        text = soup.get_text(separator=' ', strip=True)
-        # Simple cleanup
-        lines = (line.strip() for line in text.splitlines())
-        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-        text = ' '.join(chunk for chunk in chunks if chunk)
-        return text[:3000]
-    except Exception:
-        return ""
-
-def enrich_items_with_content(items, max_workers=10):
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_item = {executor.submit(fetch_url_content, item['url']): item for item in items}
-        for future in concurrent.futures.as_completed(future_to_item):
-            item = future_to_item[future]
-            try:
-                content = future.result()
-                if content:
-                    item['content'] = content
-            except Exception:
-                item['content'] = ""
-    return items
 
 # --- Source Fetchers ---
 
@@ -296,7 +257,6 @@ def main():
     parser.add_argument('--source', default='all', help='Source(s) to fetch from (comma-separated)')
     parser.add_argument('--limit', type=int, default=10, help='Limit per source. Default 10')
     parser.add_argument('--keyword', help='Comma-sep keyword filter')
-    parser.add_argument('--deep', action='store_true', help='Download article content for detailed summarization')
 
     args = parser.parse_args()
 
@@ -312,15 +272,9 @@ def main():
     for func in to_run:
         try:
             fetched = func(args.limit, args.keyword)
-            print(f"Fetched {len(fetched)} items from {func.__name__}")
             results.extend(fetched)
         except Exception as e:
             print(f"Error fetching from {func.__name__}: {e}")
-
-
-    if args.deep and results:
-        sys.stderr.write(f"Deep fetching content for {len(results)} items...\n")
-        results = enrich_items_with_content(results)
 
     print(json.dumps(results, indent=2, ensure_ascii=False))
 
