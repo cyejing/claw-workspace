@@ -147,7 +147,7 @@ def fetch_weibo(limit=5, keyword=None):
             })
 
         return filter_items(all_items, keyword)[:limit]
-    except Exception:
+    except Exception as e:
         return []
 
 def fetch_github(limit=5, keyword=None):
@@ -311,8 +311,10 @@ def main():
     results = []
     for func in to_run:
         try:
-            results.extend(func(args.limit, args.keyword))
-        except: pass
+            fetched = func(args.limit, args.keyword)
+            results.extend(fetched)
+        except Exception as e:
+            print(f"Error fetching from {func.__name__}: {e}\n")
 
 
     if args.deep and results:
