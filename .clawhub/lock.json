@@ -28,6 +28,22 @@
     "openclaw-tavily-search": {
       "version": "0.1.0",
       "installedAt": 1773771883882
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1773999789735
+    },
+    "torrent-downloader": {
+      "version": "1.0.0",
+      "installedAt": 1774013117492
+    },
+    "multi-search-engine": {
+      "version": "2.0.1",
+      "installedAt": 1774013935346
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1774014360658
     }
   }
 }
