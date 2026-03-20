@@ -44,6 +44,22 @@
     "skill-vetter": {
       "version": "1.0.0",
       "installedAt": 1774014360658
+    },
+    "stock-market-pro": {
+      "version": "1.2.12",
+      "installedAt": 1774030316348
+    },
+    "us-stock-analysis": {
+      "version": "0.1.1",
+      "installedAt": 1774030323879
+    },
+    "news-aggregator-skill": {
+      "version": "0.1.0",
+      "installedAt": 1774030708970
+    },
+    "web-search": {
+      "version": "1.0.0",
+      "installedAt": 1774031459680
     }
   }
 }
