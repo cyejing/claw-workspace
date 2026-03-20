@@ -1,8 +1,8 @@
 {
   "version": 1,
   "skills": {
-       "self-improving-agent": {
-         "version": "3.0.1",
+    "self-improving-agent": {
+      "version": "3.0.1",
       "installedAt": 1773315970715
     },
     "humanizer": {
@@ -13,9 +13,21 @@
       "version": "1.0.0",
       "installedAt": 1773494351581
     },
-    "scrapling-web-fetch": {
-      "version": "1.0.2",
-      "installedAt": 1773496962519
+    "searxng": {
+      "version": "1.0.3",
+      "installedAt": 1773607577483
+    },
+    "news-summary": {
+      "version": "1.0.1",
+      "installedAt": 1773754160066
+    },
+    "stock-analysis": {
+      "version": "6.2.0",
+      "installedAt": 1773754211502
+    },
+    "openclaw-tavily-search": {
+      "version": "0.1.0",
+      "installedAt": 1773771883882
     }
   }
 }
