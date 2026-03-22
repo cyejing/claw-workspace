@@ -6,7 +6,7 @@ Search the web using DuckDuckGo's search API. Supports web search, news,
 images, and videos with various output formats.
 
 Requirements:
-    pip install duckduckgo-search
+    pip install ddgs
 """
 
 import argparse
@@ -17,10 +17,10 @@ from pathlib import Path
 from typing import List, Dict, Optional, Any
 
 try:
-    from duckduckgo_search import DDGS
+    from ddgs import DDGS
 except ImportError as e:
     print(f"Error: Missing required dependency: {e}", file=sys.stderr)
-    print("Install with: pip install duckduckgo-search", file=sys.stderr)
+    print("Install with: pip install ddgs", file=sys.stderr)
     sys.exit(1)
 
 
@@ -51,21 +51,10 @@ class WebSearch:
         max_results: int = 10,
         time_range: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
-        """
-        Perform a text/web search.
-
-        Args:
-            query: Search query
-            max_results: Maximum number of results (default: 10)
-            time_range: Time filter ("d" day, "w" week, "m" month, "y" year)
-
-        Returns:
-            List of search results with title, href, and body
-        """
         try:
             with DDGS() as ddgs:
                 results = list(ddgs.text(
-                    keywords=query,
+                    query,
                     region=self.region,
                     safesearch=self.safe_search,
                     timelimit=time_range,
@@ -82,21 +71,10 @@ class WebSearch:
         max_results: int = 10,
         time_range: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
-        """
-        Search for news articles.
-
-        Args:
-            query: Search query
-            max_results: Maximum number of results
-            time_range: Time filter ("d" day, "w" week, "m" month)
-
-        Returns:
-            List of news results with title, url, body, date, source
-        """
         try:
             with DDGS() as ddgs:
                 results = list(ddgs.news(
-                    keywords=query,
+                    query,
                     region=self.region,
                     safesearch=self.safe_search,
                     timelimit=time_range,
@@ -116,25 +94,10 @@ class WebSearch:
         type_image: Optional[str] = None,
         layout: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
-        """
-        Search for images.
-
-        Args:
-            query: Search query
-            max_results: Maximum number of results
-            size: Image size ("Small", "Medium", "Large", "Wallpaper")
-            color: Color filter ("color", "Monochrome", "Red", "Orange", "Yellow",
-                   "Green", "Blue", "Purple", "Pink", "Brown", "Black", "Gray", "Teal", "White")
-            type_image: Image type ("photo", "clipart", "gif", "transparent", "line")
-            layout: Layout ("Square", "Tall", "Wide")
-
-        Returns:
-            List of image results with title, image URL, thumbnail, source, etc.
-        """
         try:
             with DDGS() as ddgs:
                 results = list(ddgs.images(
-                    keywords=query,
+                    query,
                     region=self.region,
                     safesearch=self.safe_search,
                     size=size,
@@ -155,22 +118,10 @@ class WebSearch:
         duration: Optional[str] = None,
         resolution: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
-        """
-        Search for videos.
-
-        Args:
-            query: Search query
-            max_results: Maximum number of results
-            duration: Video duration ("short", "medium", "long")
-            resolution: Video resolution ("high", "standard")
-
-        Returns:
-            List of video results with title, content, description, publisher, etc.
-        """
         try:
             with DDGS() as ddgs:
                 results = list(ddgs.videos(
-                    keywords=query,
+                    query,
                     region=self.region,
                     safesearch=self.safe_search,
                     duration=duration,
