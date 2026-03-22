@@ -1,3 +1,6 @@
 [submodule "skills/skills/scrapling-web-fetch"]
 	path = skills/skills/scrapling-web-fetch
 	url = git@github.com:cyejing/scrapling-web-fetch.git
+[submodule "skills/scrapling-web-fetch"]
+	path = skills/scrapling-web-fetch
+	url = git@github.com:cyejing/scrapling-web-fetch.git
