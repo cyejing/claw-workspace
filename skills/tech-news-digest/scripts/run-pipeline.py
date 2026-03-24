@@ -153,6 +153,7 @@ def main() -> int:
     tmp_trending = Path(_run_dir) / "trending.json"
     tmp_reddit = Path(_run_dir) / "reddit.json"
     tmp_web = Path(_run_dir) / "web.json"
+    tmp_crawler = Path(_run_dir) / "crawler.json"
     logger.info(f"📁 Run directory: {_run_dir}")
 
     # Common args for all fetch scripts
@@ -162,7 +163,7 @@ def main() -> int:
     common += ["--hours", str(args.hours)]
     verbose_flag = ["--verbose"] if args.verbose else []
 
-    # Define the 5 parallel fetch steps
+    # Define the 7 parallel fetch steps
     steps = [
         ("RSS", "fetch-rss.py", common + verbose_flag, tmp_rss),
         ("Twitter", "fetch-twitter.py", common + verbose_flag + (["--backend", args.twitter_backend] if args.twitter_backend else []), tmp_twitter),
@@ -175,6 +176,7 @@ def main() -> int:
          + ["--freshness", args.freshness]
          + verbose_flag,
          tmp_web),
+        ("Crawler", "fetch-crawler.py", common + verbose_flag, tmp_crawler),
     ]
 
     # Filter steps by --skip and --reuse-dir
@@ -218,7 +220,7 @@ def main() -> int:
     merge_args = ["--verbose"] if args.verbose else []
     for flag, path in [("--rss", tmp_rss), ("--twitter", tmp_twitter),
                        ("--github", tmp_github), ("--trending", tmp_trending), ("--reddit", tmp_reddit),
-                       ("--web", tmp_web)]:
+                       ("--web", tmp_web), ("--crawler", tmp_crawler)]:
         if path.exists():
             merge_args += [flag, str(path)]
     if args.archive_dir:

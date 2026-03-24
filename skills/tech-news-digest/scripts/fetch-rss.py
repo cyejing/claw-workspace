@@ -19,9 +19,9 @@ import time
 import tempfile
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from urllib.request import urlopen, Request
-from urllib.error import URLError
-from urllib.parse import urljoin
+from urllib.request import urlopen, Request, build_opener, HTTPRedirectHandler
+from urllib.error import URLError, HTTPError
+from urllib.parse import urljoin, urlparse
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 import threading
@@ -41,6 +41,24 @@ RETRY_COUNT = 1
 RETRY_DELAY = 2.0  # seconds
 RSS_CACHE_PATH = "/tmp/tech-news-digest-rss-cache.json"
 RSS_CACHE_TTL_HOURS = 24
+
+
+class RedirectHandler308(HTTPRedirectHandler):
+    """Custom redirect handler that also handles 308 Permanent Redirect."""
+    
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if code in (301, 302, 303, 307, 308):
+            newurl = newurl.replace(' ', '%20')
+            new_headers = dict(req.headers)
+            return Request(newurl, headers=new_headers, method=req.get_method())
+        return None
+
+
+def fetch_with_redirects(url, headers, timeout=TIMEOUT):
+    """Fetch URL with support for 308 redirects."""
+    opener = build_opener(RedirectHandler308)
+    req = Request(url, headers=headers)
+    return opener.open(req, timeout=timeout)
 
 
 def setup_logging(verbose: bool) -> logging.Logger:
@@ -283,7 +301,7 @@ def fetch_feed_with_retry(source: Dict[str, Any], cutoff: datetime, no_cache: bo
     
     for attempt in range(RETRY_COUNT + 1):
         try:
-            req_headers = {"User-Agent": "TechDigest/2.0"}
+            req_headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"}
             
             # Add conditional headers from cache (thread-safe)
             with _rss_cache_lock:
@@ -300,7 +318,7 @@ def fetch_feed_with_retry(source: Dict[str, Any], cutoff: datetime, no_cache: bo
             
             req = Request(url, headers=req_headers)
             try:
-                with urlopen(req, timeout=TIMEOUT) as resp:
+                with fetch_with_redirects(url, req_headers, TIMEOUT) as resp:
                     # Update cache with response headers (thread-safe)
                     etag = resp.headers.get("ETag")
                     last_mod = resp.headers.get("Last-Modified")

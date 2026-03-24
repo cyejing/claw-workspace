@@ -100,7 +100,7 @@
       "id": "dwarkesh-rss",
       "type": "rss",
       "name": "Dwarkesh Patel",
-      "url": "https://www.dwarkeshpatel.com/feed",
+      "url": "https://dwarkesh.com/feed",
       "enabled": true,
       "priority": false,
       "topics": [
@@ -152,25 +152,13 @@
       "id": "coindesk-rss",
       "type": "rss",
       "name": "CoinDesk",
-      "url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "url": "https://www.coindesk.com/arc/outboundfeeds/rss",
       "enabled": true,
       "priority": true,
       "topics": [
         "crypto"
       ],
       "note": "Major crypto news"
-    },
-    {
-      "id": "theblock-rss",
-      "type": "rss",
-      "name": "The Block",
-      "url": "https://www.theblock.co/rss.xml",
-      "enabled": true,
-      "priority": true,
-      "topics": [
-        "crypto"
-      ],
-      "note": "Crypto news"
     },
     {
       "id": "decrypt-rss",
@@ -328,19 +316,6 @@
         "llm"
       ],
       "note": "tinygrad, AI infrastructure"
-    },
-    {
-      "id": "ml-reddit-rss",
-      "type": "rss",
-      "name": "r/MachineLearning",
-      "url": "https://www.reddit.com/r/MachineLearning/.rss",
-      "enabled": true,
-      "priority": false,
-      "topics": [
-        "llm",
-        "frontier-tech"
-      ],
-      "note": "Reddit ML community"
     },
     {
       "id": "36kr-rss",
@@ -805,7 +780,7 @@
       "id": "venturebeat-ai-rss",
       "type": "rss",
       "name": "VentureBeat AI",
-      "url": "https://venturebeat.com/category/ai/feed/",
+      "url": "https://venturebeat.com/category/ai/feed",
       "enabled": true,
       "priority": false,
       "topics": [
@@ -948,6 +923,176 @@
         "frontier-tech"
       ],
       "note": "Tech culture deep reporting"
+    },
+    {
+      "id": "bbc-home-rss",
+      "type": "rss",
+      "name": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/rss.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "BBC News homepage"
+    },
+    {
+      "id": "bbc-world-rss",
+      "type": "rss",
+      "name": "BBC World",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "BBC World news"
+    },
+    {
+      "id": "bbc-tech-rss",
+      "type": "rss",
+      "name": "BBC Technology",
+      "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["llm", "ai-agent", "frontier-tech"],
+      "note": "BBC Technology news"
+    },
+    {
+      "id": "bbc-business-rss",
+      "type": "rss",
+      "name": "BBC Business",
+      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": ["frontier-tech"],
+      "note": "BBC Business news"
+    },
+    {
+      "id": "bbc-science-rss",
+      "type": "rss",
+      "name": "BBC Science",
+      "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": ["frontier-tech"],
+      "note": "BBC Science & Environment"
+    },
+    {
+      "id": "bbc-health-rss",
+      "type": "rss",
+      "name": "BBC Health",
+      "url": "https://feeds.bbci.co.uk/news/health/rss.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": ["frontier-tech"],
+      "note": "BBC Health news"
+    },
+    {
+      "id": "npr-news-rss",
+      "type": "rss",
+      "name": "NPR News",
+      "url": "https://feeds.npr.org/1001/rss.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "NPR News homepage"
+    },
+    {
+      "id": "npr-world-rss",
+      "type": "rss",
+      "name": "NPR World",
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "NPR World news"
+    },
+    {
+      "id": "npr-tech-rss",
+      "type": "rss",
+      "name": "NPR Technology",
+      "url": "https://feeds.npr.org/1019/rss.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["llm", "ai-agent", "frontier-tech"],
+      "note": "NPR Technology"
+    },
+    {
+      "id": "npr-business-rss",
+      "type": "rss",
+      "name": "NPR Business",
+      "url": "https://feeds.npr.org/1006/rss.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": ["frontier-tech"],
+      "note": "NPR Business"
+    },
+    {
+      "id": "npr-science-rss",
+      "type": "rss",
+      "name": "NPR Science",
+      "url": "https://feeds.npr.org/1007/rss.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": ["frontier-tech"],
+      "note": "NPR Science"
+    },
+    {
+      "id": "nytimes-home-rss",
+      "type": "rss",
+      "name": "NYTimes Home",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "NYTimes homepage"
+    },
+    {
+      "id": "nytimes-world-rss",
+      "type": "rss",
+      "name": "NYTimes World",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "NYTimes World news"
+    },
+    {
+      "id": "nytimes-tech-rss",
+      "type": "rss",
+      "name": "NYTimes Technology",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["llm", "ai-agent", "frontier-tech"],
+      "note": "NYTimes Technology"
+    },
+    {
+      "id": "aljazeera-rss",
+      "type": "rss",
+      "name": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "Al Jazeera global news"
+    },
+    {
+      "id": "guardian-rss",
+      "type": "rss",
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/world/rss",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech"],
+      "note": "The Guardian world news"
+    },
+    {
+      "id": "wsj-rss",
+      "type": "rss",
+      "name": "Wall Street Journal",
+      "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": ["frontier-tech", "crypto"],
+      "note": "WSJ Markets"
     },
     {
       "id": "ieee-spectrum-rss",
@@ -1376,17 +1521,6 @@
       ]
     },
     {
-      "id": "bankless-rss",
-      "type": "rss",
-      "name": "Bankless",
-      "url": "https://newsletter.banklesshq.com/feed",
-      "enabled": true,
-      "priority": true,
-      "topics": [
-        "crypto"
-      ]
-    },
-    {
       "id": "twitter-clementdelangue",
       "type": "twitter",
       "name": "Clement Delangue",
@@ -1791,17 +1925,6 @@
       "type": "rss",
       "name": "The Old New Thing (Raymond Chen)",
       "url": "https://devblogs.microsoft.com/oldnewthing/feed",
-      "topics": [
-        "frontier-tech"
-      ],
-      "priority": false,
-      "enabled": true
-    },
-    {
-      "id": "rachelbythebay-rss",
-      "type": "rss",
-      "name": "Rachel by the Bay",
-      "url": "https://rachelbythebay.com/w/atom.xml",
       "topics": [
         "frontier-tech"
       ],

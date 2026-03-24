@@ -1,7 +1,7 @@
 ---
 name: tech-news-digest
-description: 生成科技新闻摘要，支持统一数据源模型、质量评分和多格式输出。从 RSS 订阅、Twitter/X KOL、GitHub 发布、GitHub Trending、Reddit 和网页搜索六大来源收集数据。基于管道的脚本架构，支持重试机制和去重。支持 Discord、邮件和 Markdown 模板输出。
-version: "3.15.0"
+description: 生成科技新闻摘要，支持统一数据源模型、质量评分和多格式输出。从 RSS 订阅、Twitter/X KOL、GitHub 发布、GitHub Trending、Reddit、网页搜索和爬虫/API 七大来源收集数据。基于管道的脚本架构，支持重试机制和去重。支持 Discord、邮件和 Markdown 模板输出。
+version: "3.16.0"
 homepage: https://github.com/draco-agent/tech-news-digest
 source: https://github.com/draco-agent/tech-news-digest
 metadata:
@@ -84,8 +84,8 @@ files:
 
 3. **生成摘要**:
    ```bash
-   # 统一管道 (推荐) — 并行运行全部 6 个数据源 + 合并
-   python3 scripts/run-pipeline.py \
+   # 统一管道 (推荐) — 并行运行全部 7 个数据源 + 合并
+   uv run scripts/run-pipeline.py \
      --defaults config/defaults \
      --config workspace/config \
      --hours 48 --freshness pd \
@@ -152,13 +152,13 @@ files:
 
 ### `run-pipeline.py` - 统一管道 (推荐)
 ```bash
-python3 scripts/run-pipeline.py \
+uv run scripts/run-pipeline.py \
   --defaults config/defaults [--config CONFIG_DIR] \
   --hours 48 --freshness pd \
   --archive-dir workspace/archive/tech-news-digest/ \
   --output /tmp/td-merged.json --verbose --force
 ```
-- **功能**: 并行运行全部 6 个抓取步骤，然后合并 + 去重 + 评分
+- **功能**: 并行运行全部 7 个抓取步骤，然后合并 + 去重 + 评分
 - **输出**: 准备好用于报告生成的合并 JSON (~30秒完成)
 - **元数据**: 保存每步耗时和数量到 `*.meta.json`
 - **GitHub 认证**: 如未设置 `$GITHUB_TOKEN`，自动生成 GitHub App token
@@ -168,28 +168,28 @@ python3 scripts/run-pipeline.py \
 
 #### `fetch-rss.py` - RSS 订阅抓取
 ```bash
-python3 scripts/fetch-rss.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE] [--verbose]
+uv run scripts/fetch-rss.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE] [--verbose]
 ```
 - 并行抓取 (10 工作线程)，带回退重试，feedparser + 正则备用
 - 超时: 每个订阅 30 秒，ETag/Last-Modified 缓存
 
 #### `fetch-twitter.py` - Twitter/X KOL 监控
 ```bash
-python3 scripts/fetch-twitter.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE] [--backend auto|official|twitterapiio]
+uv run scripts/fetch-twitter.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE] [--backend auto|official|twitterapiio]
 ```
 - 后端自动检测: 如设置 `TWITTERAPI_IO_KEY` 则使用 twitterapi.io，否则如设置 `X_BEARER_TOKEN` 则使用官方 X API v2
 - 速率限制处理，互动指标，带回退重试
 
 #### `fetch-web.py` - 网页搜索引擎
 ```bash
-python3 scripts/fetch-web.py [--defaults DIR] [--config DIR] [--freshness pd] [--output FILE]
+uv run scripts/fetch-web.py [--defaults DIR] [--config DIR] [--freshness pd] [--output FILE]
 ```
 - 自动检测 Brave API 速率限制: 付费计划 → 并行查询，免费 → 顺序查询
 - 无 API 时: 生成供 Agent 使用的搜索界面
 
 #### `fetch-github.py` - GitHub 发布监控
 ```bash
-python3 scripts/fetch-github.py [--defaults DIR] [--config DIR] [--hours 168] [--output FILE]
+uv run scripts/fetch-github.py [--defaults DIR] [--config DIR] [--hours 168] [--output FILE]
 ```
 - 并行抓取 (10 工作线程)，30 秒超时
 - 认证优先级: `$GITHUB_TOKEN` → GitHub App 自动生成 → `gh` CLI → 未认证 (60 请求/小时)
@@ -197,22 +197,30 @@ python3 scripts/fetch-github.py [--defaults DIR] [--config DIR] [--hours 168] [-
 
 #### `fetch-github.py --trending` - GitHub Trending 仓库
 ```bash
-python3 scripts/fetch-github.py --trending [--hours 48] [--output FILE] [--verbose]
+uv run scripts/fetch-github.py --trending [--hours 48] [--output FILE] [--verbose]
 ```
 - 搜索 GitHub API 获取 4 个主题 (LLM, AI Agent, Crypto, Frontier Tech) 的热门仓库
 - 质量评分: 基础 5 分 + daily_stars_est / 10，最高 15 分
 
 #### `fetch-reddit.py` - Reddit 帖子抓取
 ```bash
-python3 scripts/fetch-reddit.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE]
+uv run scripts/fetch-reddit.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE]
 ```
 - 并行抓取 (4 工作线程)，公共 JSON API (无需认证)
 - 13 个子版块，带评分过滤
 
+#### `fetch-crawler.py` - 爬虫/API 数据源抓取
+```bash
+uv run scripts/fetch-crawler.py [--defaults DIR] [--config DIR] [--limit 15] [--output FILE] [--verbose]
+```
+- 并行抓取 6 个爬虫/API 数据源
+- 支持: Hacker News (网页爬虫)、V2EX (API)、微博热搜 (API)、华尔街见闻 (API)、腾讯新闻 (API)、36Kr (网页爬虫)
+- 可选依赖: `requests`, `beautifulsoup4` (不可用时回退到 urllib + 正则)
+
 
 #### `enrich-articles.py` - 文章全文增强
 ```bash
-python3 scripts/enrich-articles.py --input merged.json --output enriched.json [--min-score 10] [--max-articles 15] [--verbose]
+uv run scripts/enrich-articles.py --input merged.json --output enriched.json [--min-score 10] [--max-articles 15] [--verbose]
 ```
 - 为高分文章抓取全文
 - Cloudflare Markdown for Agents (优先) → HTML 提取 (备用) → 跳过 (付费墙/社交)
@@ -221,41 +229,42 @@ python3 scripts/enrich-articles.py --input merged.json --output enriched.json [-
 
 #### `merge-sources.py` - 质量评分与去重
 ```bash
-python3 scripts/merge-sources.py --rss FILE --twitter FILE --web FILE --github FILE --reddit FILE
+uv run scripts/merge-sources.py --rss FILE --twitter FILE --web FILE --github FILE --reddit FILE --crawler FILE
 ```
-- 质量评分，标题相似度去重 (85%)，历史摘要惩罚
+- 质量评分，标题相似度去重 (75%)，历史摘要惩罚
+- 支持 7 种数据源: RSS, Twitter, GitHub, GitHub Trending, Reddit, Web Search, Crawler
 - 输出: 按评分排序的主题分组文章
 
 #### `validate-config.py` - 配置验证器
 ```bash
-python3 scripts/validate-config.py [--defaults DIR] [--config DIR] [--verbose]
+uv run scripts/validate-config.py [--defaults DIR] [--config DIR] [--verbose]
 ```
 - JSON schema 验证，主题引用检查，重复 ID 检测
 
 #### `generate-pdf.py` - PDF 报告生成器
 ```bash
-python3 scripts/generate-pdf.py --input report.md --output digest.pdf [--verbose]
+uv run scripts/generate-pdf.py --input report.md --output digest.pdf [--verbose]
 ```
 - 将 markdown 摘要转换为带样式的 A4 PDF，支持中文排版 (Noto Sans CJK SC)
 - Emoji 图标，页眉页脚，蓝色主题。需要 `weasyprint`。
 
 #### `sanitize-html.py` - 安全 HTML 邮件转换
 ```bash
-python3 scripts/sanitize-html.py --input report.md --output email.html [--verbose]
+uv run scripts/sanitize-html.py --input report.md --output email.html [--verbose]
 ```
 - 将 markdown 转换为 XSS 安全的 HTML 邮件，带内联 CSS
 - URL 白名单 (仅 http/https)，HTML 转义文本内容
 
 #### `source-health.py` - 数据源健康监控
 ```bash
-python3 scripts/source-health.py --rss FILE --twitter FILE --github FILE --reddit FILE --web FILE [--verbose]
+uv run scripts/source-health.py --rss FILE --twitter FILE --github FILE --reddit FILE --web FILE [--verbose]
 ```
 - 追踪每个数据源 7 天内的成功/失败历史
 - 报告不健康数据源 (>50% 失败率)
 
 #### `summarize-merged.py` - 合并数据摘要
 ```bash
-python3 scripts/summarize-merged.py --input merged.json [--top N] [--topic TOPIC]
+uv run scripts/summarize-merged.py --input merged.json [--top N] [--topic TOPIC]
 ```
 - 供 LLM 使用的人类可读合并数据摘要
 - 显示每个主题的热门文章，带评分和指标
@@ -312,40 +321,46 @@ python3 scripts/summarize-merged.py --input merged.json [--top N] [--topic TOPIC
 - Emoji 图标，带页码的页眉页脚
 - 通过 `scripts/generate-pdf.py` 生成 (需要 `weasyprint`)
 
-## 默认数据源 (共 151 个)
+## 默认数据源 (共 177 个)
 
-- **RSS 订阅 (62)**: AI 实验室、科技博客、加密货币新闻、中文科技媒体
+- **RSS 订阅 (79)**: AI 实验室、科技博客、加密货币新闻、中文科技媒体、BBC/NPR/NYTimes/WSJ 等主流媒体
 - **Twitter/X KOL (48)**: AI 研究员、加密货币领袖、科技高管
 - **GitHub 仓库 (28)**: 主要开源项目 (LangChain, vLLM, DeepSeek, Llama 等)
 - **Reddit (13)**: r/MachineLearning, r/LocalLLaMA, r/CryptoCurrency, r/ChatGPT, r/OpenAI 等
 - **网页搜索 (4 主题)**: LLM, AI Agent, Crypto, Frontier Tech
+- **爬虫/API (6)**: Hacker News, V2EX, 微博热搜, 华尔街见闻, 腾讯新闻, 36Kr
 
 所有数据源已预配置适当的主题标签和优先级。
 
 ## 依赖
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
-**可选但推荐**:
-- `feedparser>=6.0.0` - 更好的 RSS 解析 (不可用时回退到正则)
+**已安装的依赖**:
+- `feedparser>=6.0.0` - RSS 解析
 - `jsonschema>=4.0.0` - 配置验证
+- `requests>=2.28.0` - HTTP 请求 (爬虫脚本)
+- `beautifulsoup4>=4.12.0` - HTML 解析 (爬虫脚本)
 
-**所有脚本仅使用 Python 3.8+ 标准库即可运行。**
+**可选依赖 (PDF 生成)**:
+```bash
+uv sync --extra pdf
+```
 
 ## 监控与运维
 
 ### 健康检查
 ```bash
 # 验证配置
-python3 scripts/validate-config.py --verbose
+uv run scripts/validate-config.py --verbose
 
 # 测试 RSS 订阅
-python3 scripts/fetch-rss.py --hours 1 --verbose
+uv run scripts/fetch-rss.py --hours 1 --verbose
 
 # 检查 Twitter API
-python3 scripts/fetch-twitter.py --hours 1 --verbose
+uv run scripts/fetch-twitter.py --hours 1 --verbose
 ```
 
 ### 归档管理
@@ -526,7 +541,7 @@ Python 脚本向以下地址发起出站请求:
 如果你不希望自动凭证发现，只需设置 `$GITHUB_TOKEN`，脚本将直接使用它，不会尝试步骤 2-3。
 
 ### 依赖安装
-此 skill **不**安装任何包。`requirements.txt` 列出可选依赖 (`feedparser`, `jsonschema`) 仅供参考。所有脚本仅使用 Python 3.8+ 标准库即可运行。用户如需安装可选依赖，应在虚拟环境中进行 — skill 从不运行 `pip install`。
+此 skill 使用 `uv` 管理依赖。运行 `uv sync` 安装所需依赖。依赖定义在 `pyproject.toml` 中。skill 从不自动运行 `uv sync`，用户需手动执行。
 
 ### 输入清理
 - URL 解析拒绝非 HTTP(S) 协议 (javascript:, data: 等)

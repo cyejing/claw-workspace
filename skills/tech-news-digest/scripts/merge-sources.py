@@ -498,6 +498,12 @@ Examples:
     )
     
     parser.add_argument(
+        "--crawler",
+        type=Path,
+        help="Crawler/API sources results JSON file"
+    )
+    
+    parser.add_argument(
         "--output", "-o",
         type=Path,
         help="Output JSON path (default: auto-generated temp file)"
@@ -532,12 +538,14 @@ Examples:
         github_data = load_source_data(args.github)
         trending_data = load_source_data(args.trending) if hasattr(args, "trending") else None
         reddit_data = load_source_data(args.reddit)
+        crawler_data = load_source_data(args.crawler) if hasattr(args, "crawler") else None
         
         logger.info(f"Loaded sources - RSS: {rss_data.get('total_articles', 0)}, "
                    f"Twitter: {twitter_data.get('total_articles', 0)}, "
                    f"Web: {web_data.get('total_articles', 0)}, "
                    f"GitHub: {github_data.get('total_articles', 0)} releases + {trending_data.get('total', 0) if trending_data else 0} trending, "
-                   f"Reddit: {reddit_data.get('total_posts', 0)}")
+                   f"Reddit: {reddit_data.get('total_posts', 0)}, "
+                   f"Crawler: {crawler_data.get('total_articles', 0) if crawler_data else 0}")
         
         # Collect all articles with source context
         all_articles = []
@@ -605,6 +613,42 @@ Examples:
                     article["quality_score"] += 1
                 all_articles.append(article)
         
+        # Process Crawler articles (Hacker News, V2EX, Weibo, etc.)
+        if crawler_data:
+            for source in crawler_data.get("sources", []):
+                for article in source.get("articles", []):
+                    article["source_type"] = "crawler"
+                    article["source_name"] = source.get("name", "")
+                    article["source_id"] = source.get("source_id", "")
+                    crawler_source = {
+                        "source_type": "crawler",
+                        "priority": source.get("priority", False),
+                    }
+                    article["quality_score"] = calculate_base_score(article, crawler_source)
+                    # Crawler heat bonus (e.g., HN points, V2EX replies)
+                    heat = article.get("heat", "")
+                    if heat:
+                        try:
+                            if "points" in heat:
+                                points = int(heat.split()[0])
+                                if points >= 500:
+                                    article["quality_score"] += 5
+                                elif points >= 200:
+                                    article["quality_score"] += 3
+                                elif points >= 100:
+                                    article["quality_score"] += 2
+                            elif "replies" in heat:
+                                replies = int(heat.split()[0])
+                                if replies >= 100:
+                                    article["quality_score"] += 3
+                                elif replies >= 50:
+                                    article["quality_score"] += 2
+                                elif replies >= 20:
+                                    article["quality_score"] += 1
+                        except (ValueError, IndexError):
+                            pass
+                    all_articles.append(article)
+
 
         # Load GitHub trending repos
         if trending_data:
@@ -663,11 +707,12 @@ Examples:
             "generated": datetime.now(timezone.utc).isoformat(),
             "input_sources": {
                 "rss_articles": rss_data.get("total_articles", 0),
-                "twitter_articles": twitter_data.get("total_articles", 0),
-                "web_articles": web_data.get("total_articles", 0),
-                "github_articles": github_data.get("total_articles", 0),
-                "github_trending": trending_data.get("total", 0) if trending_data else 0,
-                "reddit_posts": reddit_data.get("total_posts", 0),
+                "twitter_articles": twitter_data.get('total_articles', 0),
+                "web_articles": web_data.get('total_articles', 0),
+                "github_articles": github_data.get('total_articles', 0),
+                "github_trending": trending_data.get('total', 0) if trending_data else 0,
+                "reddit_posts": reddit_data.get('total_posts', 0),
+                "crawler_articles": crawler_data.get('total_articles', 0) if crawler_data else 0,
                 "total_input": total_collected
             },
             "processing": {
