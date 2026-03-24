@@ -1,555 +1,436 @@
 {
-  "scan_time": "2026-03-18T16:32:18.319024+00:00",
+  "scan_time": "2026-03-24T07:59:51.658056+00:00",
   "top_trending": [
     {
       "symbol": "BTC",
-      "mentions": 7,
+      "mentions": 5,
       "sources": [
-        "Google News Crypto",
-        "CoinGecko Trending"
+        "CoinGecko Trending",
+        "Google News Crypto"
       ],
       "signals": [
-        "\ud83d\udcc9 bearish (-3.9%)"
+        "\ud83d\ude80 bullish (+3.6%)"
       ]
     },
     {
-      "symbol": "NVDA",
-      "mentions": 6,
+      "symbol": "SOL",
+      "mentions": 4,
       "sources": [
-        "Yahoo Losers",
-        "Google News",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
+        "CoinGecko Trending",
+        "CoinGecko Movers",
+        "Google News Crypto"
       ],
       "signals": [
-        "\ud83d\udcf0 Nvidia Isn\u2019t Moving. These Stocks Are th...",
-        "\ud83d\udcf0 Nvidia gets China's approval to sell H20...",
-        "\ud83d\udcf0 China\u2019s AI Stocks Rise as Nvidia\u2019s Huang..."
+        "\ud83d\ude80 bullish (+6.1%)",
+        "\ud83d\ude80 pumping (+6.2%)"
+      ]
+    },
+    {
+      "symbol": "TAO",
+      "mentions": 3,
+      "sources": [
+        "CoinGecko Trending",
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+16.1%)",
+        "\ud83d\ude80 pumping (+17.4%)"
+      ]
+    },
+    {
+      "symbol": "SIREN",
+      "mentions": 3,
+      "sources": [
+        "CoinGecko Trending",
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-66.3%)",
+        "\ud83d\udcc9 dumping (-66.3%)"
+      ]
+    },
+    {
+      "symbol": "FET",
+      "mentions": 3,
+      "sources": [
+        "CoinGecko Trending",
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+13.5%)",
+        "\ud83d\ude80 pumping (+14.1%)"
+      ]
+    },
+    {
+      "symbol": "ADA",
+      "mentions": 3,
+      "sources": [
+        "CoinGecko Trending",
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+5.4%)",
+        "\ud83d\ude80 pumping (+5.8%)"
+      ]
+    },
+    {
+      "symbol": "RENDER",
+      "mentions": 3,
+      "sources": [
+        "CoinGecko Trending",
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+10.4%)",
+        "\ud83d\ude80 pumping (+10.9%)"
+      ]
+    },
+    {
+      "symbol": "BP",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\udcc9 bearish (-21.0%)"
+      ]
+    },
+    {
+      "symbol": "AKT",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+3.4%)"
+      ]
+    },
+    {
+      "symbol": "PENGU",
+      "mentions": 2,
+      "sources": [
+        "CoinGecko Trending"
+      ],
+      "signals": [
+        "\ud83d\ude80 bullish (+3.5%)"
       ]
     },
     {
       "symbol": "ETH",
-      "mentions": 4,
+      "mentions": 2,
       "sources": [
         "CoinGecko Movers",
-        "Google News Crypto",
-        "CoinGecko Trending"
+        "Google News Crypto"
       ],
       "signals": [
-        "\ud83d\udcc9 bearish (-6.5%)",
-        "\ud83d\udcc9 dumping (-6.5%)"
+        "\ud83d\ude80 pumping (+5.9%)"
       ]
     },
     {
-      "symbol": "ASTER",
-      "mentions": 3,
+      "symbol": "CPM",
+      "mentions": 2,
       "sources": [
-        "CoinGecko Movers",
-        "CoinGecko Trending"
+        "Google News Crypto"
       ],
-      "signals": [
-        "\ud83d\udcc9 bearish (-9.0%)",
-        "\ud83d\udcc9 dumping (-9.0%)"
-      ]
+      "signals": []
     },
     {
-      "symbol": "CNBC",
-      "mentions": 3,
+      "symbol": "WSJ",
+      "mentions": 1,
       "sources": [
         "Google News"
       ],
       "signals": [
-        "\ud83d\udcf0 Expectations for the next Fed rate cut g...",
-        "\ud83d\udcf0 Macy's store revamp shows progress, but ...",
-        "\ud83d\udcf0 Dow falls 400 points after hot inflation..."
+        "\ud83d\udcf0 Est\u00e9e Lauder in Talks to Acquire Spain\u2019s..."
       ]
     },
     {
-      "symbol": "SWMR",
-      "mentions": 3,
+      "symbol": "BBC",
+      "mentions": 1,
       "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "TTD",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "DVLT",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "B",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "ANDG",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "KC",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "NN",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "RGC",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "SAIL",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "BGSI",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "NG",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "PAYP",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "SA",
-      "mentions": 3,
-      "sources": [
-        "Yahoo Losers",
-        "Yahoo Most Active",
-        "Yahoo Gainers"
-      ],
-      "signals": []
-    },
-    {
-      "symbol": "KAT",
-      "mentions": 2,
-      "sources": [
-        "CoinGecko Trending"
+        "Google News"
       ],
       "signals": [
-        "\ud83d\udcc9 bearish (-22.9%)"
+        "\ud83d\udcf0 Oil back above $100 as conflicting repor..."
       ]
     },
     {
-      "symbol": "HYPE",
-      "mentions": 2,
+      "symbol": "CNBC",
+      "mentions": 1,
       "sources": [
-        "CoinGecko Trending"
+        "Google News"
       ],
       "signals": [
-        "\ud83d\ude80 bullish (+4.3%)"
+        "\ud83d\udcf0 Apollo gives investors only 45% of reque..."
+      ]
+    },
+    {
+      "symbol": "AP",
+      "mentions": 1,
+      "sources": [
+        "Google News"
+      ],
+      "signals": [
+        "\ud83d\udcf0 Trump administration to pay French compa..."
+      ]
+    },
+    {
+      "symbol": "FCC",
+      "mentions": 1,
+      "sources": [
+        "Google News"
+      ],
+      "signals": [
+        "\ud83d\udcf0 FCC Bans Foreign-Made Routers as a 'Nati..."
+      ]
+    },
+    {
+      "symbol": "CNET",
+      "mentions": 1,
+      "sources": [
+        "Google News"
+      ],
+      "signals": [
+        "\ud83d\udcf0 FCC Bans Foreign-Made Routers as a 'Nati..."
+      ]
+    },
+    {
+      "symbol": "APT",
+      "mentions": 1,
+      "sources": [
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\ude80 pumping (+14.9%)"
+      ]
+    },
+    {
+      "symbol": "WLFI",
+      "mentions": 1,
+      "sources": [
+        "CoinGecko Movers"
+      ],
+      "signals": [
+        "\ud83d\ude80 pumping (+9.8%)"
       ]
     }
   ],
   "crypto_highlights": [
     {
-      "symbol": "KAT",
-      "name": "Katana",
-      "rank": 660,
-      "price_change_24h": -22.95,
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "rank": 1,
+      "price_change_24h": 3.61,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "HYPE",
-      "name": "Hyperliquid",
-      "rank": 13,
-      "price_change_24h": 4.29,
+      "symbol": "BP",
+      "name": "Backpack",
+      "rank": 461,
+      "price_change_24h": -21.0,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "BARD",
-      "name": "Lombard",
-      "rank": 216,
-      "price_change_24h": -44.57,
+      "symbol": "AKT",
+      "name": "Akash Network",
+      "rank": 210,
+      "price_change_24h": 3.42,
       "source": "coingecko_trending"
     },
     {
       "symbol": "TAO",
       "name": "Bittensor",
-      "rank": 38,
-      "price_change_24h": -1.93,
+      "rank": 34,
+      "price_change_24h": 16.09,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "BTC",
-      "name": "Bitcoin",
-      "rank": 1,
-      "price_change_24h": -3.88,
-      "source": "coingecko_trending"
-    },
-    {
-      "symbol": "NEIRO",
-      "name": "Neiro",
-      "rank": 664,
-      "price_change_24h": -7.4,
+      "symbol": "SIREN",
+      "name": "Siren",
+      "rank": 83,
+      "price_change_24h": -66.3,
       "source": "coingecko_trending"
     },
     {
       "symbol": "PENGU",
       "name": "Pudgy Penguins",
       "rank": 106,
-      "price_change_24h": -5.65,
+      "price_change_24h": 3.47,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "ASTER",
-      "name": "Aster",
-      "rank": 49,
-      "price_change_24h": -9.04,
+      "symbol": "FET",
+      "name": "Artificial Superintelligence Alliance",
+      "rank": 98,
+      "price_change_24h": 13.48,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "POL",
-      "name": "POL (ex-MATIC)",
-      "rank": 66,
-      "price_change_24h": -2.74,
+      "symbol": "SOL",
+      "name": "Solana",
+      "rank": 7,
+      "price_change_24h": 6.12,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "ETH",
-      "name": "Ethereum",
-      "rank": 2,
-      "price_change_24h": -6.51,
+      "symbol": "ADA",
+      "name": "Cardano",
+      "rank": 13,
+      "price_change_24h": 5.37,
       "source": "coingecko_trending"
     },
     {
-      "symbol": "SIREN",
-      "name": "Siren",
-      "price": 0.893676,
-      "change_24h": 20.2,
-      "volume": 29264590,
+      "symbol": "RENDER",
+      "name": "Render",
+      "rank": 71,
+      "price_change_24h": 10.35,
+      "source": "coingecko_trending"
+    },
+    {
+      "symbol": "APT",
+      "name": "Aptos",
+      "price": 1.052,
+      "change_24h": 14.86,
+      "volume": 251586576,
+      "source": "coingecko_movers"
+    },
+    {
+      "symbol": "WLFI",
+      "name": "World Liberty Financial",
+      "price": 0.105997,
+      "change_24h": 9.8,
+      "volume": 120335767,
+      "source": "coingecko_movers"
+    },
+    {
+      "symbol": "ZRO",
+      "name": "LayerZero",
+      "price": 2.2,
+      "change_24h": 9.6,
+      "volume": 122685597,
+      "source": "coingecko_movers"
+    },
+    {
+      "symbol": "STABLE",
+      "name": "\u200b\u200bStable",
+      "price": 0.02747589,
+      "change_24h": 9.17,
+      "volume": 34528412,
+      "source": "coingecko_movers"
+    },
+    {
+      "symbol": "FIL",
+      "name": "Filecoin",
+      "price": 0.922706,
+      "change_24h": 8.78,
+      "volume": 149014049,
       "source": "coingecko_movers"
     },
     {
       "symbol": "HASH",
       "name": "Provenance Blockchain",
-      "price": 0.01167331,
-      "change_24h": -12.89,
-      "volume": 5695.76,
+      "price": 0.0149533,
+      "change_24h": 8.36,
+      "volume": 148934,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "MNT",
-      "name": "Mantle",
-      "price": 0.762791,
-      "change_24h": -9.93,
-      "volume": 89474191,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "UNI",
-      "name": "Uniswap",
-      "price": 3.64,
-      "change_24h": -8.95,
-      "volume": 268775468,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "RIVER",
-      "name": "River",
-      "price": 24.34,
-      "change_24h": 8.76,
-      "volume": 40962923,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "WLD",
-      "name": "Worldcoin",
-      "price": 0.359326,
-      "change_24h": -8.74,
-      "volume": 97454632,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "ENA",
-      "name": "Ethena",
-      "price": 0.10723,
-      "change_24h": -7.67,
-      "volume": 101320712,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "AVAX",
-      "name": "Avalanche",
-      "price": 9.52,
-      "change_24h": -7.54,
-      "volume": 360581798,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "TRUMP",
-      "name": "Official Trump",
-      "price": 3.43,
-      "change_24h": -7.42,
-      "volume": 221121539,
+      "symbol": "TON",
+      "name": "Toncoin",
+      "price": 1.34,
+      "change_24h": 6.56,
+      "volume": 112647244,
       "source": "coingecko_movers"
     },
     {
       "symbol": "LINK",
       "name": "Chainlink",
-      "price": 9.13,
-      "change_24h": -7.17,
-      "volume": 392116677,
+      "price": 9.21,
+      "change_24h": 6.5,
+      "volume": 612956763,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "M",
-      "name": "MemeCore",
-      "price": 1.86,
-      "change_24h": 7.15,
-      "volume": 16623970,
+      "symbol": "SUI",
+      "name": "Sui",
+      "price": 0.955369,
+      "change_24h": 6.17,
+      "volume": 582978669,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "NIGHT",
-      "name": "Midnight",
-      "price": 0.04726516,
-      "change_24h": -7.06,
-      "volume": 191227730,
+      "symbol": "XLM",
+      "name": "Stellar",
+      "price": 0.166442,
+      "change_24h": 6.13,
+      "volume": 131808597,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "XDC",
-      "name": "XDC Network",
-      "price": 0.03184091,
-      "change_24h": -6.88,
-      "volume": 22247368,
+      "symbol": "AVAX",
+      "name": "Avalanche",
+      "price": 9.57,
+      "change_24h": 6.01,
+      "volume": 408966641,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "AAVE",
-      "name": "Aave",
-      "price": 113.28,
-      "change_24h": -6.87,
-      "volume": 343410602,
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "price": 2165.98,
+      "change_24h": 5.95,
+      "volume": 28140601094,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "BONK",
-      "name": "Bonk",
-      "price": 6.05e-06,
-      "change_24h": -6.81,
-      "volume": 133647444,
+      "symbol": "SHIB",
+      "name": "Shiba Inu",
+      "price": 6.11e-06,
+      "change_24h": 5.93,
+      "volume": 201898647,
       "source": "coingecko_movers"
     },
     {
-      "symbol": "ONDO",
-      "name": "Ondo",
-      "price": 0.26283,
-      "change_24h": -6.59,
-      "volume": 44939674,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "PUMP",
-      "name": "Pump.fun",
-      "price": 0.00194113,
-      "change_24h": -6.54,
-      "volume": 91352563,
-      "source": "coingecko_movers"
-    },
-    {
-      "symbol": "ARB",
-      "name": "Arbitrum",
-      "price": 0.100971,
-      "change_24h": -6.49,
-      "volume": 55789523,
+      "symbol": "ZEC",
+      "name": "Zcash",
+      "price": 231.74,
+      "change_24h": 5.91,
+      "volume": 392741500,
       "source": "coingecko_movers"
     }
   ],
-  "stock_highlights": [
-    {
-      "symbol": "SWMR",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "TTD",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "DVLT",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "B",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "ANDG",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "KC",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "NN",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "RGC",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "AXTI",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "SAIL",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "BGSI",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "NG",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "PAYP",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "SA",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "NVDA",
-      "category": "gainers",
-      "source": "yahoo_gainers"
-    },
-    {
-      "symbol": "AGRO",
-      "category": "losers",
-      "source": "yahoo_losers"
-    }
-  ],
+  "stock_highlights": [],
   "social_buzz": [],
   "breaking_news": [
     {
-      "title": "Expectations for the next Fed rate cut get pushed back after hot inflation report - CNBC",
+      "title": "Est\u00e9e Lauder in Talks to Acquire Spain\u2019s Puig to Create Global Beauty Giant - WSJ",
+      "tickers": [
+        "WSJ"
+      ]
+    },
+    {
+      "title": "Oil back above $100 as conflicting reports emerge on US-Iran talks - BBC",
+      "tickers": [
+        "BBC"
+      ]
+    },
+    {
+      "title": "Apollo gives investors only 45% of requested withdrawals from $15 billion private credit fund - CNBC",
       "tickers": [
         "CNBC"
       ]
     },
     {
-      "title": "Macy's store revamp shows progress, but company expects sales to fall this year - CNBC",
+      "title": "Trump administration to pay French company $1B to walk away from US offshore wind leases - AP News",
       "tickers": [
-        "CNBC"
+        "AP"
       ]
     },
     {
-      "title": "Nvidia Isn\u2019t Moving. These Stocks Are the Real Winners and Losers of GTC. - Barron's",
+      "title": "FCC Bans Foreign-Made Routers as a 'National Security Risk' - CNET",
       "tickers": [
-        "GTC",
-        "NVDA"
-      ]
-    },
-    {
-      "title": "Kalshi faces criminal charges in Arizona for running an illegal gambling business - NBC Sports",
-      "tickers": [
-        "NBC"
-      ]
-    },
-    {
-      "title": "Nvidia gets China's approval to sell H200 chips: report - Seeking Alpha",
-      "tickers": [
-        "NVDA"
-      ]
-    },
-    {
-      "title": "Dow falls 400 points after hot inflation reading, Fed decision looms: Live updates - CNBC",
-      "tickers": [
-        "CNBC"
+        "FCC",
+        "CNET"
       ]
     }
   ]
