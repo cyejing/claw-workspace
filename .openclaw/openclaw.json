@@ -139,7 +139,9 @@
       "workspace": "/home/clawd/.openclaw/workspace",
       "compaction": {
         "mode": "safeguard"
-      }
+      },
+      "timeoutSeconds": 72000,
+      "maxConcurrent": 3
     },
     "list": [
       {
