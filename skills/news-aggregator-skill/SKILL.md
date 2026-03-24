@@ -1,11 +1,11 @@
 ---
 name: news-aggregator-skill
-description: "综合新闻聚合器，从 8 大来源获取热点新闻：Hacker News、GitHub Trending、Product Hunt、36Kr、腾讯新闻、华尔街见闻、V2EX、微博。适用于每日扫描、科技新闻简报、财经更新等场景。"
+description: "综合新闻聚合器，从 14 大来源获取热点新闻：Hacker News、GitHub Trending、Product Hunt、36Kr、腾讯新闻、华尔街见闻、V2EX、微博、BBC、NPR、NYTimes、Al Jazeera、The Guardian、WSJ。支持按分类（国内、国际、科技、财经、健康、政治、科学）筛选。"
 ---
 
 # 新闻聚合器技能
 
-从多个来源获取实时热点新闻。
+从多个来源获取实时热点新闻，支持分类筛选。
 
 ## 工具
 
@@ -23,27 +23,69 @@ uv sync
 # 全局扫描 - 获取所有来源的热点
 uv run scripts/fetch_news.py --source all --limit 15
 
-# 单一来源 + 关键词过滤
-uv run scripts/fetch_news.py --source hackernews --limit 20 --keyword "AI,LLM,GPT"
+# 按分类获取
+uv run scripts/fetch_news.py --category tech --limit 10
+uv run scripts/fetch_news.py --category finance --limit 10
+uv run scripts/fetch_news.py --category international --limit 10
+
+# 单一来源
+uv run scripts/fetch_news.py --source hackernews --limit 20
+uv run scripts/fetch_news.py --source bbc-tech --limit 10
+uv run scripts/fetch_news.py --source npr-world --limit 10
 ```
-
-### 智能关键词扩展
-
-用户输入简单关键词时，自动扩展以覆盖整个领域：
-
-| 用户输入 | 扩展关键词 |
-|---------|-----------|
-| AI | `AI,LLM,GPT,Claude,Generative,Machine Learning,RAG,Agent` |
-| Android | `Android,Kotlin,Google,Mobile,App` |
-| 财经 | `Finance,Stock,Market,Economy,Crypto,Gold` |
 
 ### 参数说明
 
 | 参数 | 说明 |
 |------|------|
-| `--source` | 来源：`hackernews`、`weibo`、`github`、`36kr`、`producthunt`、`v2ex`、`tencent`、`wallstreetcn`、`all` |
+| `--source` | 来源（见下方列表），支持逗号分隔多选，默认 `all` |
+| `--category` | 分类：`domestic`、`international`、`tech`、`finance`、`health`、`politics`、`science` |
 | `--limit` | 每个来源的最大条目数（默认 10） |
-| `--keyword` | 逗号分隔的关键词过滤器 |
+
+### 数据源列表
+
+| 来源标识 | 说明 | 类型 |
+|---------|------|------|
+| `hackernews` | Hacker News 科技新闻 | 网页爬虫 |
+| `github` | GitHub Trending 开源趋势 | 网页爬虫 |
+| `weibo` | 微博热搜 | API |
+| `tencent` | 腾讯新闻 | API |
+| `36kr` | 36Kr 科技财经快讯 | 网页爬虫 |
+| `v2ex` | V2EX 热门话题 | API |
+| `wallstreetcn` | 华尔街见闻 | API |
+| `producthunt` | Product Hunt 产品发现 | RSS |
+| `bbc` | BBC 新闻首页 | RSS |
+| `bbc-world` | BBC 国际新闻 | RSS |
+| `bbc-tech` | BBC 科技新闻 | RSS |
+| `bbc-business` | BBC 商业新闻 | RSS |
+| `bbc-science` | BBC 科学新闻 | RSS |
+| `bbc-health` | BBC 健康新闻 | RSS |
+| `bbc-politics` | BBC 政治新闻 | RSS |
+| `npr` | NPR 新闻首页 | RSS |
+| `npr-world` | NPR 国际新闻 | RSS |
+| `npr-tech` | NPR 科技新闻 | RSS |
+| `npr-business` | NPR 商业新闻 | RSS |
+| `npr-science` | NPR 科学新闻 | RSS |
+| `npr-politics` | NPR 政治新闻 | RSS |
+| `npr-space` | NPR 太空新闻 | RSS |
+| `nytimes` | 纽约时报首页 | RSS |
+| `nytimes-world` | 纽约时报国际 | RSS |
+| `nytimes-tech` | 纽约时报科技 | RSS |
+| `aljazeera` | 半岛电视台 | RSS |
+| `guardian` | 卫报国际新闻 | RSS |
+| `wsj` | 华尔街日报市场 | RSS |
+
+### 分类映射
+
+| 分类 | 包含来源 |
+|------|---------|
+| `domestic` (国内) | weibo, tencent, 36kr |
+| `international` (国际) | bbc-world, npr-world, aljazeera, nytimes-world, guardian |
+| `tech` (科技) | hackernews, github, v2ex, producthunt, bbc-tech, npr-tech, nytimes-tech, 36kr |
+| `finance` (财经) | wallstreetcn, bbc-business, npr-business, wsj, 36kr |
+| `health` (健康) | bbc-health |
+| `politics` (政治) | bbc-politics, npr-politics |
+| `science` (科学) | bbc-science, npr-science, npr-space |
 
 ### 输出格式
 

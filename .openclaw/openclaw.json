@@ -299,12 +299,6 @@
       },
       "stock-market-pro": {
         "enabled": false
-      },
-      "searxng": {
-        "enabled": false
-      },
-      "news-summary": {
-        "enabled": false
       }
     }
   },
