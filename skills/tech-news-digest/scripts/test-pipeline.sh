@@ -133,7 +133,7 @@ run_step() {
 
 validate_json() {
     local file="$1" name="$2"
-    if [ -f "$file" ] && python3 -c "
+    if [ -f "$file" ] && uv run -c "
 import json, sys
 d = json.load(open(sys.argv[1]))
 # Print summary stats
@@ -164,7 +164,7 @@ EXTRA_ARGS=()
 if [ -n "$TOPICS" ] || [ -n "$IDS" ]; then
     FILTER_CONFIG="$OUTDIR/filter-config"
     mkdir -p "$FILTER_CONFIG"
-    python3 -c "
+    uv run -c "
 import json, sys
 topics_filter = '${TOPICS}'.split(',') if '${TOPICS}' else []
 ids_filter = '${IDS}'.split(',') if '${IDS}' else []
@@ -193,7 +193,7 @@ if [ -n "$VERBOSE" ]; then
 fi
 
 echo "🧪 Pipeline Test (hours=$HOURS, outdir=$OUTDIR)"
-echo "   Sources: $(python3 -c "import json; d=json.load(open('${DEFAULTS}/sources.json')); types={}
+echo "   Sources: $(uv run -c "import json; d=json.load(open('${DEFAULTS}/sources.json')); types={}
 for s in d['sources']: t=s['type']; types[t]=types.get(t,0)+1
 print(' | '.join(f'{t}:{n}' for t,n in sorted(types.items())))" 2>/dev/null)"
 echo ""
@@ -202,7 +202,7 @@ echo ""
 
 # RSS
 if should_run "rss"; then
-    run_step "fetch-rss" python3 "$SCRIPT_DIR/fetch-rss.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/rss.json" --force "${EXTRA_ARGS[@]}"
+    run_step "fetch-rss" uv run "$SCRIPT_DIR/fetch-rss.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/rss.json" --force "${EXTRA_ARGS[@]}"
     validate_json "$OUTDIR/rss.json" "rss"
 else
     echo "⏭  fetch-rss (skipped)"
@@ -211,7 +211,7 @@ fi
 
 # GitHub
 if should_run "github"; then
-    run_step "fetch-github" python3 "$SCRIPT_DIR/fetch-github.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/github.json" --force "${EXTRA_ARGS[@]}"
+    run_step "fetch-github" uv run "$SCRIPT_DIR/fetch-github.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/github.json" --force "${EXTRA_ARGS[@]}"
     validate_json "$OUTDIR/github.json" "github"
 else
     echo "⏭  fetch-github (skipped)"
@@ -224,7 +224,7 @@ if should_run "twitter"; then
     [ -n "$TWITTER_BACKEND" ] && TWITTER_ARGS+=("--backend" "$TWITTER_BACKEND")
 
     if [ -n "$X_BEARER_TOKEN" ] || [ -n "$TWITTERAPI_IO_KEY" ]; then
-        run_step "fetch-twitter" python3 "$SCRIPT_DIR/fetch-twitter.py" "${TWITTER_ARGS[@]}"
+        run_step "fetch-twitter" uv run "$SCRIPT_DIR/fetch-twitter.py" "${TWITTER_ARGS[@]}"
         validate_json "$OUTDIR/twitter.json" "twitter"
     else
         echo "⏭  fetch-twitter (no X_BEARER_TOKEN or TWITTERAPI_IO_KEY)"
@@ -238,7 +238,7 @@ fi
 # Reddit
 if should_run "reddit"; then
     if [ -f "$SCRIPT_DIR/fetch-reddit.py" ]; then
-        run_step "fetch-reddit" python3 "$SCRIPT_DIR/fetch-reddit.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/reddit.json" --force "${EXTRA_ARGS[@]}"
+        run_step "fetch-reddit" uv run "$SCRIPT_DIR/fetch-reddit.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/reddit.json" --force "${EXTRA_ARGS[@]}"
         validate_json "$OUTDIR/reddit.json" "reddit"
     else
         echo "⏭  fetch-reddit (script not found)"
@@ -252,7 +252,7 @@ fi
 # Web search
 if should_run "web"; then
     if [ -n "$BRAVE_API_KEY" ]; then
-        run_step "fetch-web" python3 "$SCRIPT_DIR/fetch-web.py" --defaults "$DEFAULTS" --freshness pd --output "$OUTDIR/web.json" --force "${EXTRA_ARGS[@]}"
+        run_step "fetch-web" uv run "$SCRIPT_DIR/fetch-web.py" --defaults "$DEFAULTS" --freshness pd --output "$OUTDIR/web.json" --force "${EXTRA_ARGS[@]}"
         validate_json "$OUTDIR/web.json" "web"
     else
         echo "⏭  fetch-web (no BRAVE_API_KEY)"
@@ -272,11 +272,11 @@ MERGE_ARGS=("--output" "$OUTDIR/merged.json")
 [ -f "$OUTDIR/reddit.json" ]  && MERGE_ARGS+=("--reddit" "$OUTDIR/reddit.json")
 
 if [ ${#MERGE_ARGS[@]} -gt 2 ]; then
-    run_step "merge-sources" python3 "$SCRIPT_DIR/merge-sources.py" "${MERGE_ARGS[@]}"
+    run_step "merge-sources" uv run "$SCRIPT_DIR/merge-sources.py" "${MERGE_ARGS[@]}"
     validate_json "$OUTDIR/merged.json" "merged"
 
     # Validate merged structure
-    if python3 -c "
+    if uv run -c "
 import json, sys
 d = json.load(open(sys.argv[1]))
 assert 'topics' in d and 'output_stats' in d
