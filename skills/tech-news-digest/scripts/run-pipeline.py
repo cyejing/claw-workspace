@@ -168,7 +168,12 @@ def main() -> int:
         ("RSS", "fetch-rss.py", common + verbose_flag, tmp_rss),
         ("Twitter", "fetch-twitter.py", common + verbose_flag + (["--backend", args.twitter_backend] if args.twitter_backend else []), tmp_twitter),
         ("GitHub", "fetch-github.py", common + verbose_flag, tmp_github),
-        ("GitHub Trending", "fetch-github.py", ["--trending", "--hours", str(args.hours)] + verbose_flag, tmp_trending),
+        ("GitHub Trending", "fetch-github-trending.py",
+         ["--hours", str(args.hours)]
+         + ["--defaults", str(args.defaults)]
+         + (["--config", str(args.config)] if args.config else [])
+         + verbose_flag,
+         tmp_trending),
         ("Reddit", "fetch-reddit.py", common + verbose_flag, tmp_reddit),
         ("Web", "fetch-web.py",
          ["--defaults", str(args.defaults)]

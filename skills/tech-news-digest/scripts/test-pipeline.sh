@@ -218,6 +218,15 @@ else
     SKIPPED=$((SKIPPED + 1))
 fi
 
+# GitHub Trending
+if should_run "github-trending" || should_run "github"; then
+    run_step "fetch-github-trending" uv run "$SCRIPT_DIR/fetch-github-trending.py" --defaults "$DEFAULTS" --hours "$HOURS" --output "$OUTDIR/trending.json" --force "${EXTRA_ARGS[@]}"
+    validate_json "$OUTDIR/trending.json" "github-trending"
+else
+    echo "⏭  fetch-github-trending (skipped)"
+    SKIPPED=$((SKIPPED + 1))
+fi
+
 # Twitter
 if should_run "twitter"; then
     TWITTER_ARGS=("--defaults" "$DEFAULTS" "--hours" "$HOURS" "--output" "$OUTDIR/twitter.json" "--force" "${EXTRA_ARGS[@]}")
@@ -269,6 +278,7 @@ MERGE_ARGS=("--output" "$OUTDIR/merged.json")
 [ -f "$OUTDIR/twitter.json" ] && MERGE_ARGS+=("--twitter" "$OUTDIR/twitter.json")
 [ -f "$OUTDIR/web.json" ]     && MERGE_ARGS+=("--web" "$OUTDIR/web.json")
 [ -f "$OUTDIR/github.json" ]  && MERGE_ARGS+=("--github" "$OUTDIR/github.json")
+[ -f "$OUTDIR/trending.json" ] && MERGE_ARGS+=("--trending" "$OUTDIR/trending.json")
 [ -f "$OUTDIR/reddit.json" ]  && MERGE_ARGS+=("--reddit" "$OUTDIR/reddit.json")
 
 if [ ${#MERGE_ARGS[@]} -gt 2 ]; then

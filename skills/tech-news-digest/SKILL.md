@@ -194,13 +194,14 @@ uv run scripts/fetch-github.py [--defaults DIR] [--config DIR] [--hours 168] [--
 - 并行抓取 (10 工作线程)，30 秒超时
 - 认证优先级: `$GITHUB_TOKEN` → GitHub App 自动生成 → `gh` CLI → 未认证 (60 请求/小时)
 
-
-#### `fetch-github.py --trending` - GitHub Trending 仓库
+#### `fetch-github-trending.py` - GitHub Trending 仓库
 ```bash
-uv run scripts/fetch-github.py --trending [--hours 48] [--output FILE] [--verbose]
+uv run scripts/fetch-github-trending.py [--defaults DIR] [--config DIR] [--hours 48] [--output FILE] [--verbose]
 ```
-- 搜索 GitHub API 获取 4 个主题 (LLM, AI Agent, Crypto, Frontier Tech) 的热门仓库
+- 从 `topics.json` 加载 GitHub 查询配置
+- 搜索 GitHub API 获取热门仓库（按主题分类）
 - 质量评分: 基础 5 分 + daily_stars_est / 10，最高 15 分
+- 支持多种认证方式（同 fetch-github.py）
 
 #### `fetch-reddit.py` - Reddit 帖子抓取
 ```bash
@@ -229,7 +230,7 @@ uv run scripts/enrich-articles.py --input merged.json --output enriched.json [--
 
 #### `merge-sources.py` - 质量评分与去重
 ```bash
-uv run scripts/merge-sources.py --rss FILE --twitter FILE --web FILE --github FILE --reddit FILE --crawler FILE
+uv run scripts/merge-sources.py --rss FILE --twitter FILE --web FILE --github FILE --trending FILE --reddit FILE --crawler FILE
 ```
 - 质量评分，标题相似度去重 (75%)，历史摘要惩罚
 - 支持 7 种数据源: RSS, Twitter, GitHub, GitHub Trending, Reddit, Web Search, Crawler

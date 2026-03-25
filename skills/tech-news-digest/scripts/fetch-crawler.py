@@ -217,7 +217,7 @@ def fetch_weibo(limit: int = 15) -> List[Dict[str, Any]]:
                 "source_id": "weibo-api",
                 "source_type": "crawler",
                 "source_name": "Weibo Hot Search",
-                "topics": ["frontier-tech"],
+                "topics": ["news"],
                 "heat": str(heat),
             })
     except Exception as e:
@@ -246,7 +246,7 @@ def fetch_wallstreetcn(limit: int = 15) -> List[Dict[str, Any]]:
                     "source_id": "wallstreetcn-api",
                     "source_type": "crawler",
                     "source_name": "Wall Street CN",
-                    "topics": ["frontier-tech", "crypto"],
+                    "topics": ["news"],
                 })
     except Exception as e:
         logging.debug(f"WallStreetCN fetch failed: {e}")
@@ -270,7 +270,7 @@ def fetch_tencent(limit: int = 15) -> List[Dict[str, Any]]:
                 "source_id": "tencent-api",
                 "source_type": "crawler",
                 "source_name": "Tencent News",
-                "topics": ["frontier-tech"],
+                "topics": ["news"],
             })
     except Exception as e:
         logging.debug(f"Tencent News fetch failed: {e}")
@@ -304,7 +304,7 @@ def fetch_36kr(limit: int = 15) -> List[Dict[str, Any]]:
                     "source_id": "36kr-crawler",
                     "source_type": "crawler",
                     "source_name": "36Kr",
-                    "topics": ["frontier-tech", "crypto"],
+                    "topics": ["news"],
                 })
         else:
             for item in re.finditer(r'<div class="newsflash-item".*?<a[^>]*href="([^"]*)"[^>]*class="item-title"[^>]*>([^<]+)</a>', html, re.DOTALL):
@@ -318,7 +318,7 @@ def fetch_36kr(limit: int = 15) -> List[Dict[str, Any]]:
                     "source_id": "36kr-crawler",
                     "source_type": "crawler",
                     "source_name": "36Kr",
-                    "topics": ["frontier-tech", "crypto"],
+                    "topics": ["frontier-tech"],
                 })
                 
                 if len(articles) >= limit:
@@ -347,12 +347,12 @@ def load_crawler_sources(defaults_dir: Path, config_dir: Optional[Path] = None) 
     
     if not crawler_sources:
         crawler_sources = [
-            {"id": "hackernews-crawler", "name": "Hacker News", "topics": ["frontier-tech"], "priority": True},
-            {"id": "v2ex-api", "name": "V2EX", "topics": ["frontier-tech"], "priority": True},
-            {"id": "weibo-api", "name": "Weibo Hot Search", "topics": ["frontier-tech"], "priority": False},
-            {"id": "wallstreetcn-api", "name": "Wall Street CN", "topics": ["frontier-tech", "crypto"], "priority": True},
-            {"id": "tencent-api", "name": "Tencent News", "topics": ["frontier-tech"], "priority": False},
-            {"id": "36kr-crawler", "name": "36Kr", "topics": ["frontier-tech", "crypto"], "priority": True},
+            {"id": "hackernews-crawler", "name": "Hacker News", "topics": ["news"], "priority": True},
+            {"id": "v2ex-api", "name": "V2EX", "topics": ["news"], "priority": True},
+            {"id": "weibo-api", "name": "Weibo Hot Search", "topics": ["news"], "priority": False},
+            {"id": "wallstreetcn-api", "name": "Wall Street CN", "topics": ["news"], "priority": True},
+            {"id": "tencent-api", "name": "Tencent News", "topics": ["news"], "priority": False},
+            {"id": "36kr-crawler", "name": "36Kr", "topics": ["news"], "priority": True},
         ]
     
     logging.info(f"Loaded {len(crawler_sources)} crawler sources")
@@ -455,6 +455,19 @@ def main():
         "--verbose", "-v",
         action="store_true",
         help="Enable verbose logging"
+    )
+    
+    parser.add_argument(
+        "--hours",
+        type=int,
+        default=48,
+        help="Time window in hours (ignored for crawler sources - they fetch real-time hot items)"
+    )
+    
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force re-fetch (ignored for crawler sources)"
     )
     
     args = parser.parse_args()

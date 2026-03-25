@@ -11,8 +11,8 @@ description: |
   - 用户问某个事件的最新进展
   - 用户需要验证某个事实或数据
   - 用户说 "search for"、"look up"、"find out"
-  - 当 QClaw 无法确认某个事实且该事实可通过搜索引擎验证时
-  - 当用户的问题涉及 QClaw 训练数据截止日期之后的事件时
+  - 当 OpenClaw 无法确认某个事实且该事实可通过搜索引擎验证时
+  - 当用户的问题涉及 OpenClaw 训练数据截止日期之后的事件时
 metadata:
   openclaw:
     emoji: "🔍"
@@ -33,7 +33,7 @@ metadata:
 
 ## Workflow
 
-QClaw uses this skill whenever the user needs real-time information from the internet.
+OpenClaw uses this skill whenever the user needs real-time information from the internet.
 
 ### Complete flow
 
@@ -46,7 +46,7 @@ User asks a question requiring real-time information
   → Step 4: Add analysis/summary after the result items (optional)
 ```
 
-> **CRITICAL — Anti-hallucination design**: The search API returns a pre-rendered `message` field containing the complete formatted search results (titles as clickable hyperlinks, snippets, URLs, sources). **QClaw MUST output `message` verbatim as the primary search results — NEVER skip the result items.** QClaw may then add analysis or summary AFTER the verbatim results, but must NOT fabricate or modify any URLs or source information.
+> **CRITICAL — Anti-hallucination design**: The search API returns a pre-rendered `message` field containing the complete formatted search results (titles as clickable hyperlinks, snippets, URLs, sources). **OpenClaw MUST output `message` verbatim as the primary search results — NEVER skip the result items.** OpenClaw may then add analysis or summary AFTER the verbatim results, but must NOT fabricate or modify any URLs or source information.
 
 ### Step 1: Determine search keyword
 
@@ -68,7 +68,7 @@ Convert the user's question into an effective search keyword:
 
 ### Step 1.5: Determine time freshness (IMPORTANT for recency)
 
-**When the user's question implies recency**, QClaw MUST add `from_time` to the search request to filter out stale results. This is critical for improving search result freshness.
+**When the user's question implies recency**, OpenClaw MUST add `from_time` to the search request to filter out stale results. This is critical for improving search result freshness.
 
 **Time freshness decision table:**
 
@@ -101,7 +101,7 @@ FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 2592000)")
 ```bash
 PORT=${AUTH_GATEWAY_PORT:-19000}
 PPID_VAL=$(python3 -c "import os; print(os.getppid())")
-echo "[QClaw] Parent PID: $PPID_VAL"
+echo "[OpenClaw] Parent PID: $PPID_VAL"
 
 curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
@@ -151,7 +151,7 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
 
 ### Step 3: Output search results — ALWAYS show result items with clickable links, then add analysis
 
-搜索接口返回 JSON 后，QClaw **必须** 按以下固定格式输出，**不可省略任何部分**：
+搜索接口返回 JSON 后，OpenClaw **必须** 按以下固定格式输出，**不可省略任何部分**：
 
 #### Part A: 搜索结果条目展示 [MANDATORY — 不可跳过]
 
@@ -162,11 +162,11 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
    摘要内容...
 ```
 
-> ⚠️ **CRITICAL**: QClaw **每次搜索都必须展示搜索结果条目列表**（最多 5 条），绝对不允许跳过结果条目直接输出总结。`message` 中的标题已经是 `[标题](url)` 格式的超链接，用户可以直接点击跳转到原文页面。
+> ⚠️ **CRITICAL**: OpenClaw **每次搜索都必须展示搜索结果条目列表**（最多 5 条），绝对不允许跳过结果条目直接输出总结。`message` 中的标题已经是 `[标题](url)` 格式的超链接，用户可以直接点击跳转到原文页面。
 
 #### Part B: 分析总结 [OPTIONAL — 在结果条目之后]
 
-输出完 `message` 后，QClaw **可以** 基于搜索结果对用户的问题给出分析和回答。
+输出完 `message` 后，OpenClaw **可以** 基于搜索结果对用户的问题给出分析和回答。
 
 **🌐 Response language rule [IMPORTANT]**: Match the language of your analysis/summary to the **keyword language**:
 - If the search keyword is **English** → write your analysis and summary in **English**
@@ -179,7 +179,7 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
 ```
 JSON 返回: {"success": true, "message": "搜索「今日白银价格」找到 10 条结果，展示前 5 条：\n\n**1. [今日白银价格行情](https://example.com/silver)** — 今日头条 (2026-03-22 04:13:11) ⭐\n   今日白银价格22.4元/克...\n\n**2. [白银实时走势](https://example.com/silver2)** — 金投网 (2026-03-22)\n   国际银价 88.23美元/盎司...\n\n**3. ...**\n\n**4. ...**\n\n**5. ...**\n\n> 还有 5 条结果未展示，完整数据已包含在搜索结果中供分析使用。", ...}
 
-QClaw 输出:
+OpenClaw 输出:
 
 搜索「今日白银价格」找到 10 条结果，展示前 5 条：
 
@@ -223,14 +223,14 @@ QClaw 输出:
 
 ```bash
 PORT=${AUTH_GATEWAY_PORT:-19000}
-echo "[QClaw] AUTH_GATEWAY_PORT: $PORT"
+echo "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
 $PORT = if ($env:AUTH_GATEWAY_PORT) { $env:AUTH_GATEWAY_PORT } else { "19000" }
-Write-Host "[QClaw] AUTH_GATEWAY_PORT: $PORT"
+Write-Host "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
 ```
 
 **Windows (CMD):**
@@ -238,7 +238,7 @@ Write-Host "[QClaw] AUTH_GATEWAY_PORT: $PORT"
 ```cmd
 if not defined AUTH_GATEWAY_PORT set AUTH_GATEWAY_PORT=19000
 set PORT=%AUTH_GATEWAY_PORT%
-echo [QClaw] AUTH_GATEWAY_PORT: %PORT%
+echo [OpenClaw] AUTH_GATEWAY_PORT: %PORT%
 ```
 
 > **说明**：`AUTH_GATEWAY_PORT` 环境变量由 Electron 主进程自动注入，子进程（包括 OpenClaw）启动时自动继承。若环境变量未设置，则回退到默认端口 `19000`。
@@ -251,17 +251,17 @@ echo [QClaw] AUTH_GATEWAY_PORT: %PORT%
 
 ```bash
 PPID_VAL=$(python3 -c "import os; print(os.getppid())")
-echo "[QClaw] Parent PID: $PPID_VAL"
+echo "[OpenClaw] Parent PID: $PPID_VAL"
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
 $PPID_VAL = python -c "import os; print(os.getppid())"
-Write-Host "[QClaw] Parent PID: $PPID_VAL"
+Write-Host "[OpenClaw] Parent PID: $PPID_VAL"
 ```
 
-> **说明**：使用 `python/python3` 的 `os.getppid()` 获取父进程 ID，跨平台兼容。打印格式为 `[QClaw] Parent PID: <ppid>`，便于日志追踪。
+> **说明**：使用 `python/python3` 的 `os.getppid()` 获取父进程 ID，跨平台兼容。打印格式为 `[OpenClaw] Parent PID: <ppid>`，便于日志追踪。
 
 ---
 
@@ -308,9 +308,9 @@ Content-Type: application/json
 ```bash
 # macOS / Linux: 获取 PORT 和父进程 ID
 PORT=${AUTH_GATEWAY_PORT:-19000}
-echo "[QClaw] AUTH_GATEWAY_PORT: $PORT"
+echo "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
 PPID_VAL=$(python3 -c "import os; print(os.getppid())")
-echo "[QClaw] Parent PID: $PPID_VAL"
+echo "[OpenClaw] Parent PID: $PPID_VAL"
 
 # 基础搜索
 curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
@@ -365,7 +365,7 @@ When search **succeeds**:
 }
 ```
 
-> **CRITICAL — `message` field (Anti-hallucination)**: The `message` field contains the **complete, pre-rendered search results** formatted with titles (as clickable `[title](url)` hyperlinks), snippets, URLs, and sources. **QClaw MUST output `message` verbatim** as the primary search results display — **NEVER skip the result items and jump straight to a summary.** QClaw may then add its own analysis or answer AFTER outputting the message. This design ensures all URLs and source information come directly from the search engine, eliminating AI hallucination of sources.
+> **CRITICAL — `message` field (Anti-hallucination)**: The `message` field contains the **complete, pre-rendered search results** formatted with titles (as clickable `[title](url)` hyperlinks), snippets, URLs, and sources. **OpenClaw MUST output `message` verbatim** as the primary search results display — **NEVER skip the result items and jump straight to a summary.** OpenClaw may then add its own analysis or answer AFTER outputting the message. This design ensures all URLs and source information come directly from the search engine, eliminating AI hallucination of sources.
 
 When search **fails**:
 
@@ -419,9 +419,9 @@ When search **fails**:
 - 搜索关键词要简洁有效，不要把用户的整句话当关键词
 - **时效性搜索策略 [IMPORTANT]**：当用户的问题涉及时效性（如"最新"、"今天"、"最近"、"现在"），**必须使用 `from_time` 参数**限制搜索时间范围，否则搜索引擎可能返回过时的结果。参见 Step 1.5 的时间判断表
 - 如果第一次搜索没有理想结果，可以换个关键词重试一次（最多重试 1 次）
-- 搜索结果中的链接直接来自互联网，QClaw 应提醒用户自行验证重要信息
-- `message` 原样输出后，QClaw 可以基于搜索结果给出自己的分析和总结
+- 搜索结果中的链接直接来自互联网，OpenClaw 应提醒用户自行验证重要信息
+- `message` 原样输出后，OpenClaw 可以基于搜索结果给出自己的分析和总结
 - 对于需要 VR 卡数据的查询（天气、金价、汇率等），建议使用 `mode: 2` 获取混合结果
-- **`message` 先原样输出 [CRITICAL]**：搜索接口返回的 `message` 字段包含完整的格式化搜索结果（标题为可点击超链接）。QClaw **必须先原样输出 `message`**，展示所有搜索结果条目，然后才可以添加自己的分析。**绝不允许跳过结果条目直接给总结**。这是防止 AI 幻觉的核心机制
+- **`message` 先原样输出 [CRITICAL]**：搜索接口返回的 `message` 字段包含完整的格式化搜索结果（标题为可点击超链接）。OpenClaw **必须先原样输出 `message`**，展示所有搜索结果条目，然后才可以添加自己的分析。**绝不允许跳过结果条目直接给总结**。这是防止 AI 幻觉的核心机制
 - **`cnt` 互斥规则**：`cnt` 参数和 `site`、`from_time`/`to_time` 参数存在互斥逻辑，不能同时使用。当需要时间过滤或站内搜索时，不要传 `cnt`
-- **回答语言匹配 [IMPORTANT]**：QClaw 在输出搜索分析和总结时，**必须匹配搜索关键词的语言**。英文关键词用英文回答，中文关键词用中文回答。`message` 字段始终原样输出不受此规则影响
+- **回答语言匹配 [IMPORTANT]**：OpenClaw 在输出搜索分析和总结时，**必须匹配搜索关键词的语言**。英文关键词用英文回答，中文关键词用中文回答。`message` 字段始终原样输出不受此规则影响
