@@ -221,7 +221,7 @@ uv run scripts/fetch-crawler.py [--defaults DIR] [--config DIR] [--limit 15] [--
 
 #### `enrich-articles.py` - 文章全文增强
 ```bash
-uv run scripts/enrich-articles.py --input merged.json --output enriched.json [--min-score 10] [--max-articles 15] [--verbose]
+uv run scripts/enrich-articles.py --input td-merged.json --output enriched.json [--min-score 10] [--max-articles 15] [--verbose]
 ```
 - 为高分文章抓取全文
 - Cloudflare Markdown for Agents (优先) → HTML 提取 (备用) → 跳过 (付费墙/社交)
@@ -265,7 +265,7 @@ uv run scripts/source-health.py --rss FILE --twitter FILE --github FILE --reddit
 
 #### `summarize-merged.py` - 合并数据摘要
 ```bash
-uv run scripts/summarize-merged.py --input merged.json [--top N] [--topic TOPIC]
+uv run scripts/summarize-merged.py --input td-merged.json [--top N] [--topic TOPIC]
 ```
 - 供 LLM 使用的人类可读合并数据摘要
 - 显示每个主题的热门文章，带评分和指标

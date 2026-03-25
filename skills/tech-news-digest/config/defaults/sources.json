@@ -12,8 +12,7 @@
       "priority": true,
       "topics": [
         "llm",
-        "ai-agent",
-        "frontier-tech"
+        "developer"
       ],
       "note": "LLM/AI tooling, prolific blogger"
     },
@@ -25,8 +24,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "AI critic, industry analysis"
     },
@@ -38,8 +36,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent"
+        "llm"
       ],
       "note": "Open source AI/ML"
     },
@@ -65,8 +62,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "LLM research and tutorials"
     },
@@ -78,8 +74,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "In-depth ML tutorials"
     },
@@ -117,8 +112,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "LLM benchmarks and experiments"
     },
@@ -144,6 +138,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
+        "developer",
         "frontier-tech"
       ],
       "note": "HN top stories"
@@ -156,7 +151,8 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "frontier-tech",
+        "security"
       ],
       "note": "Tech news"
     },
@@ -168,7 +164,8 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "frontier-tech",
+        "consumer-tech"
       ],
       "note": "Startup and tech news"
     },
@@ -180,6 +177,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "consumer-tech",
         "frontier-tech"
       ],
       "note": "Tech news"
@@ -192,7 +190,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "security"
       ],
       "note": "Cybersecurity"
     },
@@ -204,7 +202,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "consumer-tech"
       ],
       "note": "Apple/tech commentary"
     },
@@ -216,6 +214,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "developer",
         "frontier-tech"
       ],
       "note": "Startups and tech essays"
@@ -228,7 +227,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "security"
       ],
       "note": "Security, HIBP"
     },
@@ -240,7 +239,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "note": "Redis creator, systems"
     },
@@ -252,7 +251,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "note": "Ghostty, infrastructure"
     },
@@ -264,7 +263,6 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech",
         "llm"
       ],
       "note": "tinygrad, AI infrastructure"
@@ -277,7 +275,8 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "frontier-tech",
+        "finance"
       ],
       "note": "中文科技媒体"
     },
@@ -316,7 +315,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "note": "技术社区"
     },
@@ -328,9 +327,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent",
-        "frontier-tech"
+        "llm"
       ],
       "note": "OpenAI CEO"
     },
@@ -383,8 +380,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "Mistral AI official"
     },
@@ -437,9 +433,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent",
-        "frontier-tech"
+        "llm"
       ],
       "note": "AI researcher"
     },
@@ -451,8 +445,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent"
+        "llm"
       ],
       "note": "AI educator"
     },
@@ -464,8 +457,8 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "ai-agent",
-        "frontier-tech"
+        "llm",
+        "ai-agent"
       ],
       "note": "NVIDIA AI"
     },
@@ -502,6 +495,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "llm",
         "ai-agent"
       ],
       "note": "LlamaIndex official"
@@ -527,8 +521,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "AI researcher"
     },
@@ -627,6 +620,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "security",
         "frontier-tech"
       ],
       "note": "Independent tech investigative journalism"
@@ -652,6 +646,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "developer",
         "frontier-tech"
       ],
       "note": "System design + engineering by Alex Xu"
@@ -690,7 +685,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "consumer-tech"
       ],
       "note": "New product discovery, AI tools"
     },
@@ -702,7 +697,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "consumer-tech"
       ],
       "note": "Chinese tech product reviews"
     },
@@ -714,7 +709,8 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "consumer-tech",
+        "developer"
       ],
       "note": "Chinese productivity + tech depth"
     },
@@ -726,7 +722,8 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "frontier-tech",
+        "consumer-tech"
       ],
       "note": "Tech culture deep reporting"
     },
@@ -738,7 +735,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "BBC News homepage"
     },
@@ -750,7 +747,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "BBC World news"
     },
@@ -762,9 +759,9 @@
       "enabled": true,
       "priority": true,
       "topics": [
+        "news",
         "llm",
-        "ai-agent",
-        "frontier-tech"
+        "ai-agent"
       ],
       "note": "BBC Technology news"
     },
@@ -776,7 +773,8 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "finance",
+        "news"
       ],
       "note": "BBC Business news"
     },
@@ -788,6 +786,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "news",
         "frontier-tech"
       ],
       "note": "BBC Science & Environment"
@@ -800,7 +799,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "BBC Health news"
     },
@@ -812,7 +811,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "NPR News homepage"
     },
@@ -824,7 +823,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "NPR World news"
     },
@@ -836,9 +835,9 @@
       "enabled": true,
       "priority": true,
       "topics": [
+        "news",
         "llm",
-        "ai-agent",
-        "frontier-tech"
+        "ai-agent"
       ],
       "note": "NPR Technology"
     },
@@ -850,7 +849,8 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "finance",
+        "news"
       ],
       "note": "NPR Business"
     },
@@ -862,6 +862,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
+        "news",
         "frontier-tech"
       ],
       "note": "NPR Science"
@@ -874,7 +875,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "NYTimes homepage"
     },
@@ -886,7 +887,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "NYTimes World news"
     },
@@ -898,9 +899,9 @@
       "enabled": true,
       "priority": true,
       "topics": [
+        "news",
         "llm",
-        "ai-agent",
-        "frontier-tech"
+        "ai-agent"
       ],
       "note": "NYTimes Technology"
     },
@@ -912,7 +913,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "Al Jazeera global news"
     },
@@ -924,7 +925,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "news"
       ],
       "note": "The Guardian world news"
     },
@@ -936,7 +937,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "frontier-tech"
+        "finance"
       ],
       "note": "WSJ Markets"
     },
@@ -960,7 +961,6 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
         "ai-agent"
       ],
       "note": "AI newsletter founder, 567K followers"
@@ -986,8 +986,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "frontier-tech"
+        "llm"
       ],
       "note": "DeepMind CEO, Nobel laureate"
     },
@@ -999,8 +998,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent"
+        "llm"
       ],
       "note": "Anthropic CEO"
     },
@@ -1024,7 +1022,6 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "llm",
         "ai-agent"
       ],
       "note": "AI Engineer community, Latent Space podcast"
@@ -1062,7 +1059,7 @@
       "priority": true,
       "topics": [
         "llm",
-        "frontier-tech"
+        "developer"
       ],
       "note": "Leading deep learning framework from Meta"
     },
@@ -1206,7 +1203,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "note": "Linux kernel source code maintained by Linus Torvalds"
     },
@@ -1218,7 +1215,7 @@
       "enabled": true,
       "priority": false,
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "note": "The Rust programming language compiler and standard library"
     },
@@ -1382,8 +1379,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent"
+        "llm"
       ]
     },
     {
@@ -1411,8 +1407,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent"
+        "llm"
       ]
     },
     {
@@ -1441,8 +1436,7 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "llm",
-        "ai-agent"
+        "llm"
       ]
     },
     {
@@ -1480,8 +1474,8 @@
       "enabled": true,
       "priority": true,
       "topics": [
-        "ai-agent",
-        "frontier-tech"
+        "llm",
+        "ai-agent"
       ],
       "note": "OpenClaw creator, now at OpenAI"
     },
@@ -1551,7 +1545,7 @@
       "name": "Overreacted (Dan Abramov)",
       "url": "https://overreacted.io/rss.xml",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
@@ -1562,7 +1556,7 @@
       "name": "Eli Bendersky",
       "url": "https://eli.thegreenplace.net/feeds/all.atom.xml",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
@@ -1573,7 +1567,7 @@
       "name": "matklad (Alex Kladov)",
       "url": "https://matklad.github.io/feed.xml",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
@@ -1584,7 +1578,7 @@
       "name": "Armin Ronacher",
       "url": "https://lucumr.pocoo.org/feed.atom",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
@@ -1595,7 +1589,7 @@
       "name": "The Old New Thing (Raymond Chen)",
       "url": "https://devblogs.microsoft.com/oldnewthing/feed",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
@@ -1606,7 +1600,7 @@
       "name": "Xe Iaso",
       "url": "https://xeiaso.net/blog.rss",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
@@ -1628,7 +1622,7 @@
       "name": "lcamtuf (Michal Zalewski)",
       "url": "https://lcamtuf.substack.com/feed",
       "topics": [
-        "frontier-tech"
+        "security"
       ],
       "priority": false,
       "enabled": true
@@ -1672,10 +1666,240 @@
       "name": "Fabien Sanglard",
       "url": "https://fabiensanglard.net/rss.xml",
       "topics": [
-        "frontier-tech"
+        "developer"
       ],
       "priority": false,
       "enabled": true
+    },
+    {
+      "id": "pingwest-rss",
+      "type": "rss",
+      "name": "品玩 PingWest",
+      "url": "https://www.pingwest.com/feed",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "frontier-tech"
+      ],
+      "note": "科技产业与全球化商业报道"
+    },
+    {
+      "id": "v2ex-rss",
+      "type": "rss",
+      "name": "V2EX 综合",
+      "url": "https://www.v2ex.com/index.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "developer"
+      ],
+      "note": "开发者社区综合讨论"
+    },
+    {
+      "id": "v2ex-hot-rss",
+      "type": "rss",
+      "name": "V2EX 热门",
+      "url": "https://www.v2ex.com/feed/tab/hot.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "developer"
+      ],
+      "note": "开发者社区热门讨论"
+    },
+    {
+      "id": "v2ex-tech-rss",
+      "type": "rss",
+      "name": "V2EX 技术",
+      "url": "https://www.v2ex.com/feed/tab/tech.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "developer"
+      ],
+      "note": "开发者社区技术讨论"
+    },
+    {
+      "id": "linuxdo-rss",
+      "type": "rss",
+      "name": "LinuxDo",
+      "url": "https://linux.do/latest.rss",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "developer"
+      ],
+      "note": "Linux、开源、技术社区资讯"
+    },
+    {
+      "id": "juejin-rss",
+      "type": "rss",
+      "name": "掘金",
+      "url": "https://juejin.cn/rss",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "developer"
+      ],
+      "note": "前端、后端、全栈开发技术内容"
+    },
+    {
+      "id": "ftchinese-rss",
+      "type": "rss",
+      "name": "FT中文网",
+      "url": "https://www.ftchinese.com/rss/news",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "finance"
+      ],
+      "note": "全球财经、商业分析"
+    },
+    {
+      "id": "cnn-rss",
+      "type": "rss",
+      "name": "CNN 头条",
+      "url": "http://rss.cnn.com/rss/cnn_topstories.rss",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "news"
+      ],
+      "note": "CNN头条新闻"
+    },
+    {
+      "id": "nytimes-business-rss",
+      "type": "rss",
+      "name": "纽约时报财经",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "finance",
+        "news"
+      ],
+      "note": "纽约时报商业财经"
+    },
+    {
+      "id": "wapo-rss",
+      "type": "rss",
+      "name": "华盛顿邮报",
+      "url": "http://feeds.washingtonpost.com/rss/homepage",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "news"
+      ],
+      "note": "华盛顿邮报首页"
+    },
+    {
+      "id": "cnet-rss",
+      "type": "rss",
+      "name": "CNET",
+      "url": "https://www.cnet.com/rss/news/",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "consumer-tech"
+      ],
+      "note": "消费电子、数码产品资讯"
+    },
+    {
+      "id": "engadget-rss",
+      "type": "rss",
+      "name": "Engadget",
+      "url": "https://www.engadget.com/rss.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "consumer-tech"
+      ],
+      "note": "科技产品评测"
+    },
+    {
+      "id": "github-blog-rss",
+      "type": "rss",
+      "name": "GitHub Blog",
+      "url": "https://github.blog/feed/",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "developer"
+      ],
+      "note": "GitHub官方博客，开源与开发资讯"
+    },
+    {
+      "id": "arxiv-ai-rss",
+      "type": "rss",
+      "name": "arXiv AI",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "llm",
+        "ai-agent"
+      ],
+      "note": "人工智能领域最新学术论文"
+    },
+    {
+      "id": "arxiv-ml-rss",
+      "type": "rss",
+      "name": "arXiv ML",
+      "url": "https://rss.arxiv.org/rss/cs.LG",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "llm"
+      ],
+      "note": "机器学习领域最新学术论文"
+    },
+    {
+      "id": "chengst-rss",
+      "type": "rss",
+      "name": "Cheng.st",
+      "url": "https://cheng.st/atom.xml",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "developer"
+      ],
+      "note": "技术博客"
+    },
+    {
+      "id": "ft-uk-rss",
+      "type": "rss",
+      "name": "金融时报",
+      "url": "https://www.ft.com/rss/home/uk",
+      "enabled": true,
+      "priority": true,
+      "topics": [
+        "finance"
+      ],
+      "note": "金融时报英国版"
+    },
+    {
+      "id": "marketwatch-rss",
+      "type": "rss",
+      "name": "MarketWatch",
+      "url": "https://www.marketwatch.com/rss/topstories",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "finance"
+      ],
+      "note": "美股、全球投资市场资讯"
+    },
+    {
+      "id": "investing-rss",
+      "type": "rss",
+      "name": "Investing.com",
+      "url": "https://www.investing.com/rss/news.rss",
+      "enabled": true,
+      "priority": false,
+      "topics": [
+        "finance"
+      ],
+      "note": "全球金融市场、外汇、大宗商品资讯"
     }
   ]
 }

@@ -133,7 +133,7 @@ run_step() {
 
 validate_json() {
     local file="$1" name="$2"
-    if [ -f "$file" ] && uv run -c "
+    if [ -f "$file" ] && uv run python -c "
 import json, sys
 d = json.load(open(sys.argv[1]))
 # Print summary stats
@@ -164,7 +164,7 @@ EXTRA_ARGS=()
 if [ -n "$TOPICS" ] || [ -n "$IDS" ]; then
     FILTER_CONFIG="$OUTDIR/filter-config"
     mkdir -p "$FILTER_CONFIG"
-    uv run -c "
+    uv run python -c "
 import json, sys
 topics_filter = '${TOPICS}'.split(',') if '${TOPICS}' else []
 ids_filter = '${IDS}'.split(',') if '${IDS}' else []
@@ -193,7 +193,7 @@ if [ -n "$VERBOSE" ]; then
 fi
 
 echo "🧪 Pipeline Test (hours=$HOURS, outdir=$OUTDIR)"
-echo "   Sources: $(uv run -c "import json; d=json.load(open('${DEFAULTS}/sources.json')); types={}
+echo "   Sources: $(uv run python -c "import json; d=json.load(open('${DEFAULTS}/sources.json')); types={}
 for s in d['sources']: t=s['type']; types[t]=types.get(t,0)+1
 print(' | '.join(f'{t}:{n}' for t,n in sorted(types.items())))" 2>/dev/null)"
 echo ""
@@ -286,7 +286,7 @@ if [ ${#MERGE_ARGS[@]} -gt 2 ]; then
     validate_json "$OUTDIR/merged.json" "merged"
 
     # Validate merged structure
-    if uv run -c "
+    if uv run python -c "
 import json, sys
 d = json.load(open(sys.argv[1]))
 assert 'topics' in d and 'output_stats' in d
