@@ -284,24 +284,6 @@ bb-browser site platform/command "test query" --json
 bb-browser site platform/command "test query"
 ```
 
-## Step 5：贡献社区
-
-```bash
-# 方式 A：使用 gh CLI
-git clone https://github.com/epiral/bb-sites && cd bb-sites
-git checkout -b feat-platform
-# 添加 adapter 文件
-git push -u origin feat-platform
-gh pr create --repo epiral/bb-sites
-
-# 方式 B：使用 bb-browser 自身
-bb-browser site github/fork epiral/bb-sites
-git clone https://github.com/YOUR_USER/bb-sites && cd bb-sites
-git checkout -b feat-platform
-# 添加 adapter 文件
-git push -u origin feat-platform
-bb-browser site github/pr-create epiral/bb-sites --title "feat(platform): add adapters" --head "YOUR_USER:feat-platform"
-```
 
 ## 错误处理规范
 
