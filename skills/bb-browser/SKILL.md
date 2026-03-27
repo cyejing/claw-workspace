@@ -1,142 +1,112 @@
 ---
-name: bb-browser-openclaw
-description: Turn any website into a CLI command. 36 platforms, 103 commands — Twitter, Reddit, GitHub, YouTube, Zhihu, Bilibili, Weibo, and more. Uses OpenClaw's browser directly, no extra extension needed.
-requires:
-  bins: bb-browser
+name: bb-browser
+description: 强大的信息获取与浏览器自动化工具。通过浏览器 + 用户登录态，获取 site 网页数据（36 平台 103 命令一键调用）、带登录态的 fetch、网络请求拦截与 mock、操作录制等高级功能。
 allowed-tools: Bash(bb-browser:*)
 ---
 
-# bb-browser sites — The web as CLI
+# bb-browser sites 用法 —— 网页即命令行
 
-36 platforms, 103 commands. One-liner structured data from any website using your login state.
+36 个平台，103 个命令。使用您的登录状态，从任何网站获取一行结构化数据。
 
-**All commands use `--openclaw` to run through OpenClaw's browser. No Chrome extension or daemon needed.**
-
-## Quick Start
+## 快速开始
 
 ```bash
-# First time: pull community adapters
-bb-browser site update
+bb-browser site update                              # 首次使用：拉取社区适配器
+bb-browser site list                                # 查看所有适配器
+bb-browser site recommend                           # 查看与浏览习惯匹配的适配器
+bb-browser site info xueqiu/stock                   # 查看适配器参数
 
-# See what's available
-bb-browser site list
-
-# See which adapters match your browsing habits
-bb-browser site recommend
-
-# Run any adapter via OpenClaw's browser
-bb-browser site reddit/hot --openclaw
-bb-browser site hackernews/top 5 --openclaw
-bb-browser site v2ex/hot --openclaw
-```
-
-## IMPORTANT: Always use --openclaw
-
-Every `bb-browser site` command MUST include `--openclaw` to use OpenClaw's browser:
-
-```bash
-# Correct
-bb-browser site twitter/search "AI agent" --openclaw
-bb-browser site zhihu/hot 10 --openclaw --json
-bb-browser site xueqiu/hot-stock 5 --openclaw --jq '.items[] | {name, changePercent}'
-
-# Wrong (requires separate Chrome extension)
+bb-browser site reddit/hot
+bb-browser site hackernews/top 5
+bb-browser site v2ex/hot
 bb-browser site twitter/search "AI agent"
+bb-browser site zhihu/hot 10 --json
+bb-browser site xueqiu/hot-stock 5 --jq '.items[] | {name, changePercent}'
 ```
 
-## Data Extraction (most common use)
+## 数据提取示例
 
 ```bash
-# Social media
-bb-browser site twitter/search "OpenClaw" --openclaw
-bb-browser site twitter/thread <tweet-url> --openclaw
-bb-browser site reddit/thread <post-url> --openclaw
-bb-browser site weibo/hot --openclaw
-bb-browser site xiaohongshu/search "query" --openclaw
-
-# Developer
-bb-browser site github/repo owner/repo --openclaw
-bb-browser site github/issues owner/repo --openclaw
-bb-browser site hackernews/top 10 --openclaw
-bb-browser site stackoverflow/search "async await" --openclaw
-bb-browser site arxiv/search "transformer" --openclaw
-
-# Finance
-bb-browser site xueqiu/stock SH600519 --openclaw
-bb-browser site xueqiu/hot-stock 5 --openclaw
-bb-browser site eastmoney/stock "茅台" --openclaw
-
-# News & Knowledge
-bb-browser site zhihu/hot --openclaw
-bb-browser site 36kr/newsflash --openclaw
-bb-browser site wikipedia/summary "Python" --openclaw
-
-# Video
-bb-browser site youtube/transcript VIDEO_ID --openclaw
-bb-browser site bilibili/search "query" --openclaw
+bb-browser site twitter/search "AI agent"
+bb-browser site twitter/thread <tweet-url>
+bb-browser site reddit/thread <post-url>
+bb-browser site weibo/hot
+bb-browser site xiaohongshu/search "query"
+bb-browser site github/repo owner/repo
+bb-browser site github/issues owner/repo
+bb-browser site hackernews/top 10
+bb-browser site stackoverflow/search "async await"
+bb-browser site arxiv/search "transformer"
+bb-browser site xueqiu/stock SH600519
+bb-browser site xueqiu/hot-stock 5
+bb-browser site eastmoney/stock "茅台"
+bb-browser site zhihu/hot
+bb-browser site 36kr/newsflash
+bb-browser site wikipedia/summary "Python"
+bb-browser site youtube/transcript VIDEO_ID
+bb-browser site bilibili/search "query"
 ```
 
-## Filtering with --jq
-
-Use `--jq` to extract specific fields (no need for `--json`, it's implied):
+## --jq 过滤数据
 
 ```bash
-# Just stock names
-bb-browser site xueqiu/hot-stock 5 --openclaw --jq '.items[].name'
-
-# Specific fields as objects
-bb-browser site xueqiu/hot-stock 5 --openclaw --jq '.items[] | {name, changePercent, heat}'
-
-# Filter results
-bb-browser site reddit/hot --openclaw --jq '.posts[] | {title, score}'
+bb-browser site xueqiu/hot-stock 5 -jq '.items[].name'
+bb-browser site xueqiu/hot-stock 5 -jq '.items[] | {name, changePercent, heat}'
+bb-browser site reddit/hot -jq '.posts[] | {title, score}'
 ```
 
-## View adapter details
+## 查看适配器详情
 
 ```bash
-# Check what args an adapter takes
+# 检查适配器需要哪些参数
 bb-browser site info xueqiu/stock
 
-# Search adapters by keyword
+# 按关键词搜索适配器
 bb-browser site search reddit
 ```
 
-## Login State
+## 登录状态
 
-Adapters run inside OpenClaw's browser tabs. If a site requires login:
+适配器在浏览器标签页中运行。如果网站需要登录：
 
-1. The adapter will return an error like `{"error": "HTTP 401", "hint": "Not logged in?"}`
-2. Log in to the site in OpenClaw's browser:
-   ```bash
-   openclaw browser open https://twitter.com
-   ```
-3. Complete login manually in the browser window
-4. Retry the command
+1. 适配器返回 `{"error": "HTTP 401", "hint": "Not logged in?"}`
+2. 在浏览器窗口中手动登录
+3. 重试命令
 
-## Creating New Adapters
-
-Turn any website into a CLI command:
+## 创建新适配器
 
 ```bash
-# Read the guide
-bb-browser guide
-
-# Or just tell me: "turn notion.so into a bb-browser adapter"
-# I'll reverse-engineer the API, write the adapter, test it, and submit a PR.
+bb-browser guide                                    # 阅读开发指南
 ```
 
-## All 36 Platforms
+或直接告诉我："将 notion.so 变成 bb-browser 适配器"，我会逆向工程 API，编写适配器并提交 PR。
 
-| Category | Platforms |
-|----------|-----------|
-| Search | Google, Baidu, Bing, DuckDuckGo, Sogou WeChat |
-| Social | Twitter/X, Reddit, Weibo, Xiaohongshu, Jike, LinkedIn, Hupu |
-| News | BBC, Reuters, 36kr, Toutiao, Eastmoney |
-| Dev | GitHub, StackOverflow, HackerNews, CSDN, cnblogs, V2EX, Dev.to, npm, PyPI, arXiv |
-| Video | YouTube, Bilibili |
-| Entertainment | Douban, IMDb, Genius, Qidian |
-| Finance | Xueqiu, Eastmoney, Yahoo Finance |
-| Jobs | BOSS Zhipin, LinkedIn |
-| Knowledge | Wikipedia, Zhihu, Open Library |
-| Shopping | SMZDM |
-| Tools | Youdao, GSMArena, Product Hunt, Ctrip |
+## 全部 36 个平台
+
+| 类别   | 平台                                                                            |
+| ------ | ------------------------------------------------------------------------------- |
+| 搜索   | Google、百度、Bing、DuckDuckGo、搜狗微信                                        |
+| 社交   | Twitter/X、Reddit、微博、小红书、即刻、LinkedIn、虎扑                           |
+| 新闻   | BBC、Reuters、36氪、头条、东方财富                                              |
+| 开发者 | GitHub、StackOverflow、HackerNews、CSDN、博客园、V2EX、Dev.to、npm、PyPI、arXiv |
+| 视频   | YouTube、哔哩哔哩                                                               |
+| 娱乐   | 豆瓣、IMDb、Genius、起点                                                        |
+| 金融   | 雪球、东方财富、Yahoo Finance                                                   |
+| 招聘   | BOSS 直聘、LinkedIn                                                             |
+| 知识   | Wikipedia、知乎、Open Library                                                   |
+| 购物   | 什么值得买                                                                      |
+| 工具   | 有道、GSMArena、Product Hunt、携程                                              |
+
+# bb-browser 命令用法
+
+详细命令指南见 [references/commands-guide.md](references/commands-guide.md)。
+
+## 深入文档
+
+| 文档                                              | 说明                                                |
+| ------------------------------------------------- | --------------------------------------------------- |
+| [references/commands-guide.md](references/commands-guide.md) | 命令完整指南：导航、快照、元素交互、Tab 管理、网络调试 |
+| [references/site-system.md](references/site-system.md) | Site 系统完整指南：35 平台列表、命令用法、自动 tab 管理 |
+| [references/adapter-development.md](references/adapter-development.md) | 网页适配开发指南：API 逆向、三层复杂度、元数据格式 |
+| [references/fetch-and-network.md](references/fetch-and-network.md) | Fetch 与 Network 高级功能：带登录态请求、请求拦截与 mock |
+| [references/snapshot-refs.md](references/snapshot-refs.md) | Ref 生命周期、最佳实践、常见问题                    |
