@@ -79,7 +79,7 @@ bb-browser site search reddit
 bb-browser guide                                    # 阅读开发指南
 ```
 
-或直接告诉我："将 notion.so 变成 bb-browser 适配器"，我会逆向工程 API，编写适配器并提交 PR。
+或直接告诉我："将 notion.so 变成 bb-browser 适配器"，我会逆向工程 API，编写适配器。
 
 ## 全部 36 个平台
 
@@ -103,10 +103,10 @@ bb-browser guide                                    # 阅读开发指南
 
 ## 深入文档
 
-| 文档                                              | 说明                                                |
-| ------------------------------------------------- | --------------------------------------------------- |
-| [references/commands-guide.md](references/commands-guide.md) | 命令完整指南：导航、快照、元素交互、Tab 管理、网络调试 |
-| [references/site-system.md](references/site-system.md) | Site 系统完整指南：35 平台列表、命令用法、自动 tab 管理 |
-| [references/adapter-development.md](references/adapter-development.md) | 网页适配开发指南：API 逆向、三层复杂度、元数据格式 |
-| [references/fetch-and-network.md](references/fetch-and-network.md) | Fetch 与 Network 高级功能：带登录态请求、请求拦截与 mock |
-| [references/snapshot-refs.md](references/snapshot-refs.md) | Ref 生命周期、最佳实践、常见问题                    |
+| 文档                                                                   | 说明                                                     |
+| ---------------------------------------------------------------------- | -------------------------------------------------------- |
+| [references/commands-guide.md](references/commands-guide.md)           | 命令完整指南：导航、快照、元素交互、Tab 管理、网络调试   |
+| [references/site-system.md](references/site-system.md)                 | Site 系统完整指南：35 平台列表、命令用法、自动 tab 管理  |
+| [references/adapter-development.md](references/adapter-development.md) | 网页适配器开发指南：API 逆向、三层复杂度、元数据格式     |
+| [references/fetch-and-network.md](references/fetch-and-network.md)     | Fetch 与 Network 高级功能：带登录态请求、请求拦截与 mock |
+| [references/snapshot-refs.md](references/snapshot-refs.md)             | Ref 生命周期、最佳实践、常见问题                         |
