@@ -1,0 +1,2583 @@
+{
+  "generated_at": "2026-03-28T09:54:58.126539+00:00",
+  "total_articles": 637,
+  "topic_order": [
+    "technology",
+    "ai-models",
+    "developer-tools",
+    "github",
+    "ai-ecosystem",
+    "macro-policy",
+    "markets-business",
+    "world-affairs",
+    "ai-agents",
+    "cybersecurity"
+  ],
+  "source_breakdown": {
+    "rss": 73,
+    "twitter": 22,
+    "reddit": 4,
+    "google": 42,
+    "github": 5,
+    "api": 4
+  },
+  "topics": [
+    {
+      "id": "technology",
+      "title": "Technology",
+      "article_count": 114,
+      "items": [
+        {
+          "rank": 1,
+          "title": "CERN uses tiny AI models burned into silicon for real-time LHC data filtering",
+          "link": "https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering",
+          "score": 9.5,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T08:06:19+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "AMD's Ryzen 9 9950X3D2 Dual Edition crams 208MB of cache into a single chip",
+          "link": "https://arstechnica.com/gadgets/2026/03/amds-ryzen-9-9950x3d2-dual-edition-crams-208mb-of-cache-into-a-single-chip/",
+          "score": 9.0,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage",
+            "Ars Technica"
+          ],
+          "source_count": 2,
+          "metrics": {},
+          "published_at": "2026-03-28T02:17:04+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "Capability-Based Security for Redox: Namespace and CWD as Capabilities",
+          "link": "https://www.redox-os.org/news/nlnet-cap-nsmgr-cwd/",
+          "score": 9.0,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T19:06:44+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "Colorado House passes bill to limit surveillance pricing and wage setting",
+          "link": "https://coloradonewsline.com/briefs/surveillance-pricing-wage-setting/",
+          "score": 9.0,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T20:10:42+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "Go hard on agents, not on your filesystem",
+          "link": "https://jai.scs.stanford.edu/",
+          "score": 9.0,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T00:39:54+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "ISBN Visualization",
+          "link": "https://annas-archive.gd/isbn-visualization?",
+          "score": 9.0,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T20:02:05+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Installing a Let's Encrypt TLS certificate on a Brother printer with Certbot",
+          "link": "https://owltec.ca/Other/Installing+a+Let%27s+Encrypt+TLS+certificate+on+a+Brother+printer+automatically+with+Certbot+(%26+Cloudflare)",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T13:49:51+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Iran-linked hackers breach FBI director's personal email",
+          "link": "https://www.reuters.com/world/us/iran-linked-hackers-claim-breach-of-fbi-directors-personal-email-doj-official-2026-03-27/",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T14:38:28+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Meow.camera",
+          "link": "https://meow.camera/#4258783365322591678",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T14:41:02+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "Show HN: Twitch Roulette – Find live streamers who need views the most",
+          "link": "https://twitchroulette.net/",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T22:22:20+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "The Future of SCIP",
+          "link": "https://sourcegraph.com/blog/the-future-of-scip",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T15:46:50+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "Velxio 2.0 – Emulate Arduino, ESP32, and Raspberry Pi 3 in the Browser",
+          "link": "https://github.com/davidmonterocrespo24/velxio",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "Hacker News Frontpage",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Hacker News Frontpage"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T20:44:33+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "2026清明档新片预售票房破1500万",
+          "link": "https://36kr.com/newsflashes/3742360454332672?f=rss",
+          "score": 8.4,
+          "source_type": "rss",
+          "source_name": "36氪",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "36氪"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:30:18+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "What Is YouTube’s Dominance Doing to Us? We Asked Its C.E.O.",
+          "link": "https://www.nytimes.com/2026/03/28/magazine/neal-mohan-interview.html",
+          "score": 8.0,
+          "source_type": "rss",
+          "source_name": "NYTimes Technology",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NYTimes Technology"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:15:06+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "上海市人工智能行业协会：AI发展不能因噎废食 安全和风控要协同推进",
+          "link": "https://36kr.com/newsflashes/3742120135246089?f=rss",
+          "score": 8.0,
+          "source_type": "rss",
+          "source_name": "36氪",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "36氪"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T07:17:19+00:00"
+        }
+      ]
+    },
+    {
+      "id": "ai-models",
+      "title": "Ai Models",
+      "article_count": 197,
+      "items": [
+        {
+          "rank": 1,
+          "title": "STADLER reshapes knowledge work at a 230-year-old company",
+          "link": "https://openai.com/index/stadler",
+          "score": 8.9,
+          "source_type": "rss",
+          "source_name": "OpenAI Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "OpenAI Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T22:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "Judge rejects Pentagon's attempt to 'cripple' Anthropic",
+          "link": "https://www.bbc.com/news/articles/cvg4p02lvd0o?at_medium=RSS&at_campaign=rss",
+          "score": 8.7,
+          "source_type": "rss",
+          "source_name": "BBC Technology",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BBC Technology",
+            "BBC Business",
+            "r/artificial"
+          ],
+          "source_count": 3,
+          "metrics": {},
+          "published_at": "2026-03-27T00:44:24+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "We're rolling out plugins in Codex. Codex now works seamlessly out of the box with the most important tools builders already use, like @SlackHQ, @Figma, @NotionHQ, @gmail, and more. https://t.co/PQDsLqHGA6 https://t.co/TIbsIUAf6S",
+          "link": "https://x.com/OpenAI/status/2037298931907084568",
+          "score": 8.0,
+          "source_type": "twitter",
+          "source_name": "@OpenAI",
+          "display_name": "OpenAI official",
+          "summary": "",
+          "all_sources": [
+            "@OpenAI"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 4926,
+            "retweets": 516
+          },
+          "published_at": "2026-03-26T22:41:31+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "AGI is here",
+          "link": "https://i.redd.it/c5agjvi5nlrg1.jpeg",
+          "score": 8.0,
+          "source_type": "reddit",
+          "source_name": "r/ChatGPT",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "r/ChatGPT"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "comments": 139,
+            "score": 1134
+          },
+          "published_at": "2026-03-27T14:37:59+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "> open source model > is 7x cheaper than opus > is barely behind something you should defn use for all your general tasks https://t.co/QP5pvNlM22",
+          "link": "https://x.com/ClementDelangue/status/2037724706158043409",
+          "score": 8.0,
+          "source_type": "twitter",
+          "source_name": "@ClementDelangue",
+          "display_name": "Clement Delangue",
+          "summary": "",
+          "all_sources": [
+            "@ClementDelangue"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 1012,
+            "retweets": 30
+          },
+          "published_at": "2026-03-28T02:53:23+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "Gemini 3.1 Flash Live: Making audio AI more natural and reliable",
+          "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+          "score": 8.0,
+          "source_type": "rss",
+          "source_name": "Google AI Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Google AI Blog",
+            "Google DeepMind Blog"
+          ],
+          "source_count": 2,
+          "metrics": {},
+          "published_at": "2026-03-26T15:21:00+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Search Live is expanding globally",
+          "link": "https://blog.google/products-and-platforms/products/search/search-live-global-expansion/",
+          "score": 7.9,
+          "source_type": "rss",
+          "source_name": "Google AI Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Google AI Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T15:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Almost signed up for ElevenLabs to narrate my blog. $330/month. Then I tried running an open-source model on my own laptop. Qwen 3.5 14B. Sounds fine. 200 posts a month. Costs me electricity. I almost paid $4,000 a year to rent a model I can run myself. Most AI subscriptions r...",
+          "link": "https://x.com/ClementDelangue/status/2037720316500140245",
+          "score": 7.9,
+          "source_type": "twitter",
+          "source_name": "@ClementDelangue",
+          "display_name": "Clement Delangue",
+          "summary": "",
+          "all_sources": [
+            "@ClementDelangue"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 2277,
+            "retweets": 69
+          },
+          "published_at": "2026-03-28T02:35:57+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Transform your headphones into a live personal translator on iOS.",
+          "link": "https://blog.google/products-and-platforms/products/translate/live-translate-with-headphones/",
+          "score": 7.9,
+          "source_type": "rss",
+          "source_name": "Google AI Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Google AI Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T16:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "I watched a drunk guy have a phone call with ChatGPT on the bus",
+          "link": "https://www.reddit.com/r/ChatGPT/comments/1s5joi0/i_watched_a_drunk_guy_have_a_phone_call_with/",
+          "score": 7.8,
+          "source_type": "reddit",
+          "source_name": "r/ChatGPT",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "r/ChatGPT"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "comments": 245,
+            "score": 1808
+          },
+          "published_at": "2026-03-27T23:04:37+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "Judge blocks Pentagon’s effort to ‘punish’ Anthropic by labeling it a supply chain risk",
+          "link": "https://www.cnn.com/2026/03/26/business/anthropic-pentagon-injunction-supply-chain-risk",
+          "score": 7.8,
+          "source_type": "reddit",
+          "source_name": "r/Anthropic",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "r/Anthropic",
+            "Hacker News API"
+          ],
+          "source_count": 2,
+          "metrics": {
+            "score": 34
+          },
+          "published_at": "2026-03-27T14:04:36+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "Here’s a recap of everything we released this week: — Gemini 3.1 Flash Live, delivering our highest-quality audio experience yet with improved reasoning and latency for more natural voice interactions — An update to @GeminiApp on desktop that enables you to seamlessly transiti...",
+          "link": "https://x.com/GoogleAI/status/2037610464620810602",
+          "score": 7.8,
+          "source_type": "twitter",
+          "source_name": "@GoogleAI",
+          "display_name": "Google AI official",
+          "summary": "",
+          "all_sources": [
+            "@GoogleAI"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 275,
+            "retweets": 35
+          },
+          "published_at": "2026-03-27T19:19:26+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Qwen3.5-35B compressed 20% with 1%~ performance drop on average. Now you can fit this (4bits) with full context on 24GB of VRAM 700$~ or 1x 3090 https://t.co/7C4WORKFm5",
+          "link": "https://x.com/huggingface/status/2037663301732114622",
+          "score": 7.8,
+          "source_type": "twitter",
+          "source_name": "@huggingface",
+          "display_name": "Hugging Face official",
+          "summary": "",
+          "all_sources": [
+            "@huggingface",
+            "@ClementDelangue"
+          ],
+          "source_count": 2,
+          "metrics": {
+            "likes": 1912,
+            "retweets": 126
+          },
+          "published_at": "2026-03-27T22:49:23+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "The first steel beams went up this week at our Michigan Stargate site with Oracle and Related Digital https://t.co/Hl0NBqwfnS",
+          "link": "https://x.com/sama/status/2037610000122839116",
+          "score": 7.7,
+          "source_type": "twitter",
+          "source_name": "@sama",
+          "display_name": "Sam Altman (OpenAI CEO)",
+          "summary": "",
+          "all_sources": [
+            "@sama"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 5500,
+            "retweets": 310
+          },
+          "published_at": "2026-03-27T19:17:35+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "Quoting Richard Fontana",
+          "link": "https://simonwillison.net/2026/Mar/27/richard-fontana/#atom-everything",
+          "score": 7.6,
+          "source_type": "rss",
+          "source_name": "Simon Willison",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Simon Willison"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T21:11:17+00:00"
+        }
+      ]
+    },
+    {
+      "id": "developer-tools",
+      "title": "Developer Tools",
+      "article_count": 38,
+      "items": [
+        {
+          "rank": 1,
+          "title": "AWS Load Balancer Controller 正式发布，带来 Kubernetes Gateway API 支持",
+          "link": "https://www.infoq.cn/article/FFA1jSeBh45YZQRdFSSW?utm_source=rss&utm_medium=article",
+          "score": 8.3,
+          "source_type": "rss",
+          "source_name": "InfoQ 中文",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "InfoQ 中文"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T11:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "Agent 生产落地基石：可观测透视 + 评估飞轮的一体化建设实践｜QCon北京",
+          "link": "https://www.infoq.cn/article/59OoAMNcs0oUDFTqevSI?utm_source=rss&utm_medium=article",
+          "score": 8.3,
+          "source_type": "rss",
+          "source_name": "InfoQ 中文",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "InfoQ 中文"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T10:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "Uber 推出流式优先数据湖 IngestionNext ，将延迟和计算量降低 25%",
+          "link": "https://www.infoq.cn/article/cVKUGhBJrUTyumX4iHf8?utm_source=rss&utm_medium=article",
+          "score": 8.1,
+          "source_type": "rss",
+          "source_name": "InfoQ 中文",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "InfoQ 中文"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T10:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "01-Java语言核心-语法特性-泛型机制详解",
+          "link": "https://juejin.cn/post/7621830586782253107",
+          "score": 6.8,
+          "source_type": "rss",
+          "source_name": "掘金",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "掘金"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T06:42:10+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "AI coding tools become the default for software engineering teams",
+          "link": "https://www.msn.com/en-us/news/technology/ai-coding-tools-become-the-default-for-software-engineering-teams/ar-AA1ZvbmQ?uxmode=ruby",
+          "score": 6.7,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Over half of engineering teams now consistently use AI coding toolsTop adopters report double pull request throughput compared with low...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T20:25:19+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "Claude code 使用公益站API无法写入文件的问题",
+          "link": "https://linux.do/t/topic/1841640",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "LinuxDo",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "LinuxDo"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:42:37+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Claude卡皮巴拉可能要出了，请问大家对于AI渗透测试怎么看",
+          "link": "https://linux.do/t/topic/1841614",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "LinuxDo",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "LinuxDo"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:37:27+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Day4 Python的函数和参数机制",
+          "link": "https://juejin.cn/post/7621871037852745737",
+          "score": 6.5,
+          "source_type": "rss",
+          "source_name": "掘金",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "掘金"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T08:20:29+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "GLM 5.1 有实际测试过的吗",
+          "link": "https://www.v2ex.com/t/1201802#reply12",
+          "score": 6.4,
+          "source_type": "rss",
+          "source_name": "V2EX 技术",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "V2EX 技术"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T04:03:31+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "Gemini目前还有什么渠道？",
+          "link": "https://linux.do/t/topic/1841586",
+          "score": 6.4,
+          "source_type": "rss",
+          "source_name": "LinuxDo",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "LinuxDo"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:31:47+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "Claude 官网看个文档都被 ban，有没有解决办法？",
+          "link": "https://www.v2ex.com/t/1201789#reply14",
+          "score": 6.1,
+          "source_type": "rss",
+          "source_name": "V2EX 技术",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "V2EX 技术"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T03:06:22+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "Lexical依赖版本冲突与标题渲染",
+          "link": "https://juejin.cn/post/7621830194840453156",
+          "score": 6.0,
+          "source_type": "rss",
+          "source_name": "掘金",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "掘金"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T05:52:07+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "2025长沙1024程序员日：为开发者职业发展插上腾飞之翼",
+          "link": "https://m.tech.china.com/articles/20251026/202510261753669.html",
+          "score": 5.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "开发者目前最关注的是什么？相信大多数人的答案是：AI来了，我的工作怎么办？8月份，斯坦福发布的《关于AI近期就业影响的六个事实》报告显示，近年来，...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-10-26T07:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "Me Team LTD Announces Framework on QR Code Infrastructure for Physical and Digital System Integration",
+          "link": "https://www.manilatimes.net/2026/03/27/tmt-newswire/plentisoft/me-team-ltd-announces-framework-on-qr-code-infrastructure-for-physical-and-digital-system-integration/2309488",
+          "score": 5.8,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "London, England, United Kingdom, March 27, 2026 /MarketersMEDIA/ -- Me Team LTD announced the release of a framework examining how QR code...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T14:32:57+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "A Guide to Choosing Software Engineering Security Tools",
+          "link": "https://nationalcioreview.com/articles-insights/a-guide-to-choosing-software-engineering-security-tools/",
+          "score": 5.8,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "For CIOs, application security has quietly become one of the most complex portfolio management challenges in the enterprise.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T21:22:08+00:00"
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "title": "Github",
+      "article_count": 20,
+      "items": [
+        {
+          "rank": 1,
+          "title": "transformers v5.4.0",
+          "link": "https://github.com/huggingface/transformers/releases/tag/v5.4.0",
+          "score": 8.0,
+          "source_type": "github",
+          "source_name": "Hugging Face Transformers",
+          "display_name": null,
+          "summary": "New Model additions VidEoMT <img width=\"1480\" height=\"460\" alt=\"image\" src=\"https://github.com/user-attachments/assets/bec6fc25-b0ab-4227-8c2b-a838554f37f3\" /> Video Encoder-only Mask Transformer (VidEoMT) is a lightweight encoder-only model for online video segmentation built on a plain Vision Transformer (ViT). It eliminates the need for dedicated tracking modules by introducing a lightweight query propagation mechanism that carries information across frames and employs a query fusion...",
+          "all_sources": [
+            "Hugging Face Transformers"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T00:33:02+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "langchain langchain-core==1.2.23",
+          "link": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.2.23",
+          "score": 7.5,
+          "source_type": "github",
+          "source_name": "LangChain",
+          "display_name": null,
+          "summary": "Changes since langchain-core==1.2.22 release(core): 1.2.23 (#36323) revert: Revert \"fix(core): trace invocation params in metadata\" (#36322) chore: bump requests from 2.32.5 to 2.33.0 in /libs/core (#36243)",
+          "all_sources": [
+            "LangChain"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T23:28:27+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "A year of open source vulnerability trends: CVEs, advisories, and malware",
+          "link": "https://github.blog/security/supply-chain-security/a-year-of-open-source-vulnerability-trends-cves-advisories-and-malware/",
+          "score": 6.9,
+          "source_type": "rss",
+          "source_name": "GitHub Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "GitHub Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T16:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "What’s coming to our GitHub Actions 2026 security roadmap",
+          "link": "https://github.blog/news-insights/product-news/whats-coming-to-our-github-actions-2026-security-roadmap/",
+          "score": 6.5,
+          "source_type": "rss",
+          "source_name": "GitHub Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "GitHub Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T16:49:14+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "langchain langchain-exa==1.1.0",
+          "link": "https://github.com/langchain-ai/langchain/releases/tag/langchain-exa%3D%3D1.1.0",
+          "score": 6.0,
+          "source_type": "github",
+          "source_name": "LangChain",
+          "display_name": null,
+          "summary": "Changes since langchain-exa==1.0.0 release(exa): 1.1.0 (#36278) feat(exa): update default search type from neural to auto (#36125) chore: bump requests from 2.32.5 to 2.33.0 in /libs/partners/exa (#36255) chore(partners): bump langchain-core min to 1.2.21 (#36183) ci: suppress pytest streaming output in CI (#36092) ci: avoid unnecessary dep installs in lint targets (#36046) chore: bump orjson from 3.11.5 to 3.11.6 in /libs/partners/exa (#35869) chore(deps): bump langsmith from 0.4.31 to 0.6.3...",
+          "all_sources": [
+            "LangChain"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T17:00:22+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "ollama v0.19.0-rc1",
+          "link": "https://github.com/ollama/ollama/releases/tag/v0.19.0-rc1",
+          "score": 6.0,
+          "source_type": "github",
+          "source_name": "Ollama",
+          "display_name": null,
+          "summary": "What's Changed launch: hide cline integration by @ParthSareen in https://github.com/ollama/ollama/pull/15080 launch/vscode: prefer known vs code paths over code on PATH by @hoyyeva in https://github.com/ollama/ollama/pull/15073 tui: update chat title by @ParthSareen in https://github.com/ollama/ollama/pull/15082 ci: include mlx jit headers on linux by @dhiltgen in https://github.com/ollama/ollama/pull/15083 launch: warning when server context length is below 64k for local models by @hoyyeva in...",
+          "all_sources": [
+            "Ollama"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T17:07:30+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "10 Most Popular GitHub Repositories for Learning AI",
+          "link": "https://www.kdnuggets.com/10-most-popular-github-repositories-for-learning-ai",
+          "score": 6.0,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "# GitHub Repositories for Learning AI · // 1. microsoft/generative-ai-for-beginners · // 2. rasbt/LLMs-from-scratch · // 3. DataTalksClub/llm-...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-01-08T08:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "ollama v0.18.4-rc0",
+          "link": "https://github.com/ollama/ollama/releases/tag/v0.18.4-rc0",
+          "score": 5.5,
+          "source_type": "github",
+          "source_name": "Ollama",
+          "display_name": null,
+          "summary": "What's Changed ggml: force flash attention off for grok by @rick-github in https://github.com/ollama/ollama/pull/15050 mlx: fix KV cache snapshot memory leak by @jessegross in https://github.com/ollama/ollama/pull/15065 mlxrunner: schedule periodic snapshots during prefill by @jessegross in https://github.com/ollama/ollama/pull/15058 doc: update vscode doc by @hoyyeva in https://github.com/ollama/ollama/pull/15064 Full Changelog: https://github.com/ollama/ollama/compare/v0.18.3...v0.18.4-rc0",
+          "all_sources": [
+            "Ollama"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T23:11:43+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Clone, Compile, Compromise: Water Curse’s Open-Source Malware Trap on GitHub",
+          "link": "https://www.trendmicro.com/en_us/research/25/f/water-curse.html",
+          "score": 5.5,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "The Trend Micro™ Managed Detection and Response team uncovered a threat campaign orchestrated by an active group, Water Curse.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-06-16T07:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "GitHub’s 2025 Report Reveals Some Surprising Developer Trends",
+          "link": "https://itsfoss.com/news/github-octoverse-2025/",
+          "score": 5.2,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "630 million repositories and 36 million new developers mark GitHub's biggest year.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-11-03T08:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "Highlights from Git 2.52",
+          "link": "https://github.blog/open-source/git/highlights-from-git-2-52/",
+          "score": 5.2,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "The open source Git project just released Git 2.52. Here is GitHub's look at some of the most interesting features and changes introduced...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-11-17T08:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "Intel releases XeSS-3 SDK on GitHub, but open source remains a promise",
+          "link": "https://www.igorslab.de/en/intel-releases-xess-3-sdk-on-github-but-open-source-remains-a-promise/",
+          "score": 5.1,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Intel releases XeSS-3 SDK on GitHub, but open source remains a promise ... Intel has released the XeSS-3 SDK (Xe Super Sampling) on GitHub, giving...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-11T07:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Microsoft Delays VS Code May 2025 Release; Pushes Ahead on Copilot Chat Open Sourcing",
+          "link": "https://visualstudiomagazine.com/articles/2025/06/09/microsoft-delays-vs-code-may-2025-release-pushes-ahead-on-copilot-chat-open-sourcing.aspx",
+          "score": 4.8,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Microsoft has delayed its May 2025 VS Code release while advancing plans to open source its GitHub Copilot Chat extension, part of a broader...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-06-09T07:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "Microsoft open-sources VS Code Copilot Chat extension on GitHub",
+          "link": "https://www.bleepingcomputer.com/news/security/microsoft-open-sources-vs-code-copilot-chat-extension-on-github/",
+          "score": 4.8,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Microsoft has released the source code for the GitHub Copilot Chat extension for VS Code under the MIT license.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-07-01T07:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "Over 100 GitHub Repositories Distributing BoryptGrab Stealer",
+          "link": "https://www.securityweek.com/over-100-github-repositories-distributing-boryptgrab-stealer/",
+          "score": 4.5,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Distributed through over 100 GitHub repositories, the BoryptGrab stealer targets browser, wallet, system, and other user data.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-07T08:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "ai-ecosystem",
+      "title": "Ai Ecosystem",
+      "article_count": 68,
+      "items": [
+        {
+          "rank": 1,
+          "title": "Aivres NVIDIA Vera Rubin at its NVIDIA GTC 2026 Booth",
+          "link": "https://www.servethehome.com/aivres-nvidia-vera-rubin-at-its-nvidia-gtc-2026-booth/",
+          "score": 7.8,
+          "source_type": "rss",
+          "source_name": "ServeTheHome",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "ServeTheHome"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T01:00:08+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "In-Depth Analysis of 187 Publications on Hardware Reverse Engineering (Ruhr U., MPI)",
+          "link": "https://semiengineering.com/in-depth-analysis-of-187-publications-on-hardware-reverse-engineering-ruhr-u-mpi/",
+          "score": 7.7,
+          "source_type": "rss",
+          "source_name": "Semiconductor Engineering",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Semiconductor Engineering"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T21:18:04+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "Integrating Error Propagation Theory Into the FMEDA Framework (Robert Bosch GmbH)",
+          "link": "https://semiengineering.com/integrating-error-propagation-theory-into-the-fmeda-framework-robert-bosch-gmbh/",
+          "score": 7.7,
+          "source_type": "rss",
+          "source_name": "Semiconductor Engineering",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Semiconductor Engineering"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T21:23:09+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "Systematic Analysis of CPU-Induced Slowdowns in Multi-GPU LLM Inference (Georgia Tech)",
+          "link": "https://semiengineering.com/systematic-analysis-of-cpu-induced-slowdowns-in-multi-gpu-llm-inference-georgia-tech/",
+          "score": 7.6,
+          "source_type": "rss",
+          "source_name": "Semiconductor Engineering",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Semiconductor Engineering"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T20:29:54+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "Finally got to try Starlink on a United flight. Every airline needs this. https://t.co/XaGxjAgoIb",
+          "link": "https://x.com/elonmusk/status/2037769596510629970",
+          "score": 6.9,
+          "source_type": "twitter",
+          "source_name": "@elonmusk",
+          "display_name": "Elon Musk",
+          "summary": "",
+          "all_sources": [
+            "@elonmusk"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 2416,
+            "retweets": 339
+          },
+          "published_at": "2026-03-28T05:51:46+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "If you’re seeing a bunch of Japanese posts, here are some fun facts: Japan has more daily active users and more time spent on X than any other country in the world. Over two thirds of the country is monthly active on X. X in Japan has one of the highest penetration rates of an...",
+          "link": "https://x.com/elonmusk/status/2037770306409164808",
+          "score": 6.8,
+          "source_type": "twitter",
+          "source_name": "@elonmusk",
+          "display_name": "Elon Musk",
+          "summary": "",
+          "all_sources": [
+            "@elonmusk"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 23973,
+            "retweets": 2034
+          },
+          "published_at": "2026-03-28T05:54:35+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Judge Kathleen McCormick is the perfect example of our legal system rotting from within as she was seen publicly rooting for and supporting the plaintiff against Elon Musk on social media. Where is the impartiality expected of the bench? Such conduct undermines public trust an...",
+          "link": "https://x.com/elonmusk/status/2037755858051059841",
+          "score": 6.8,
+          "source_type": "twitter",
+          "source_name": "@elonmusk",
+          "display_name": "Elon Musk",
+          "summary": "",
+          "all_sources": [
+            "@elonmusk"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 3404,
+            "retweets": 785
+          },
+          "published_at": "2026-03-28T04:57:10+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Mostly true",
+          "link": "https://x.com/elonmusk/status/2037751946283819409",
+          "score": 6.8,
+          "source_type": "twitter",
+          "source_name": "@elonmusk",
+          "display_name": "Elon Musk",
+          "summary": "",
+          "all_sources": [
+            "@elonmusk"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 31451,
+            "retweets": 3747
+          },
+          "published_at": "2026-03-28T04:41:38+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Game On: Five New Titles Now Streaming on GeForce NOW",
+          "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-screamer/",
+          "score": 6.8,
+          "source_type": "rss",
+          "source_name": "NVIDIA AI Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NVIDIA AI Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T13:00:47+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "Into the Omniverse: NVIDIA GTC Showcases Virtual Worlds Powering the Physical AI Era",
+          "link": "https://blogs.nvidia.com/blog/gtc-2026-virtual-worlds-physical-ai/",
+          "score": 6.7,
+          "source_type": "rss",
+          "source_name": "NVIDIA AI Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NVIDIA AI Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T15:00:56+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "AGI has arrived",
+          "link": "https://v.redd.it/w454tow0klrg1",
+          "score": 6.7,
+          "source_type": "reddit",
+          "source_name": "r/singularity",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "r/singularity"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "comments": 434,
+            "score": 1640
+          },
+          "published_at": "2026-03-27T14:20:49+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "True",
+          "link": "https://x.com/elonmusk/status/2037747809424986593",
+          "score": 6.6,
+          "source_type": "twitter",
+          "source_name": "@elonmusk",
+          "display_name": "Elon Musk",
+          "summary": "",
+          "all_sources": [
+            "@elonmusk"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 36033,
+            "retweets": 6950
+          },
+          "published_at": "2026-03-28T04:25:11+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "SICSOLINK SFP-J06Q-HG2-US Review an 8-Port 10GbE Ethernet Switch",
+          "link": "https://www.servethehome.com/sicsolink-sfp-j06q-hg2-us-review-an-8-port-10gbe-ethernet-switch/",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "ServeTheHome",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "ServeTheHome"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T23:40:17+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "DIYer upcycles an old PC PSU into a flexible bench power supply — 20-year-old relic rescued from dusty neglect",
+          "link": "https://www.tomshardware.com/pc-components/power-supplies/diyer-upcycles-an-old-pc-psu-into-a-flexible-bench-power-supply-20-year-old-relic-rescued-from-dusty-neglect",
+          "score": 6.5,
+          "source_type": "rss",
+          "source_name": "Tom's Hardware",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Tom's Hardware"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:45:00+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "Absolutely",
+          "link": "https://x.com/elonmusk/status/2037582028393345442",
+          "score": 6.5,
+          "source_type": "twitter",
+          "source_name": "@elonmusk",
+          "display_name": "Elon Musk",
+          "summary": "",
+          "all_sources": [
+            "@elonmusk"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 48022,
+            "retweets": 4339
+          },
+          "published_at": "2026-03-27T17:26:26+00:00"
+        }
+      ]
+    },
+    {
+      "id": "macro-policy",
+      "title": "Macro Policy",
+      "article_count": 29,
+      "items": [
+        {
+          "rank": 1,
+          "title": "Isabel Schnabel: Monetary policy in times of geopolitical fragmentation",
+          "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260327~eca8717025.en.pdf",
+          "score": 7.7,
+          "source_type": "rss",
+          "source_name": "ECB Press Releases",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "ECB Press Releases"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T16:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "BIS extends term for John Williams as Chair of the Markets Committee",
+          "link": "https://www.bis.org/press/p260327.htm",
+          "score": 6.8,
+          "source_type": "rss",
+          "source_name": "BIS Press Releases",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BIS Press Releases"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T09:03:00+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "ECB Consumer Expectations Survey results – February 2026",
+          "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260327~d8261341ca.en.html",
+          "score": 6.8,
+          "source_type": "rss",
+          "source_name": "ECB Press Releases",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "ECB Press Releases"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T09:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "1. The Global Macro-financial Environment | Financial Stability Review – March 2026",
+          "link": "https://www.rba.gov.au/publications/fsr/2026/mar/the-global-macro-financial-environment.html",
+          "score": 6.0,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Global financial stability risks are elevated in a rapidly evolving international environment. Volatility has increased sharply in global financial markets...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-19T05:28:18+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "Frank Elderson, Piero Cipollone: Digital euro: an opportunity for banks",
+          "link": "https://www.ecb.europa.eu//press/blog/date/2026/html/ecb.blog20260327~51b0640c39.en.html",
+          "score": 5.9,
+          "source_type": "rss",
+          "source_name": "ECB Blog",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "ECB Blog"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T10:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "Central Banks’ Dilemma on Iran War Inflation: Look Through or Act Fast",
+          "link": "https://www.bloomberg.com/news/newsletters/2026-03-25/central-banks-dilemma-on-iran-war-inflation-look-through-or-act-fast",
+          "score": 5.6,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Australia's and New Zealand's central bank chiefs outline alternative approaches to dealing with inflation pressures.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-25T11:04:02+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Simple Tests for the Correct Specification of Conditional Predictive Densities",
+          "link": "https://www.bde.es/f/webbe/SES/Secciones/Publicaciones/PublicacionesSeriadas/DocumentosTrabajo/25/Files/dt2535e.pdf",
+          "score": 5.6,
+          "source_type": "rss",
+          "source_name": "BIS Research Hub",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BIS Research Hub"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2035-09-01T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Fed holds rates steady as war in Iran clouds outlook",
+          "link": "https://www.washingtonpost.com/business/2026/03/18/fed-interest-rates-iran-inflation/",
+          "score": 5.4,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "The Fed held interest rates steady as the Persian Gulf conflict threatens to reignite inflation, complicating the Fed's work.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-18T07:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Federal Reserve holds interest rates steady, signals one rate cut amid inflation uncertainty",
+          "link": "https://www.usbank.com/investing/financial-perspectives/market-news/federal-reserve-interest-rate.html",
+          "score": 5.3,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "The U.S. Federal Reserve (Fed) kept its policy interest rate at a range of 3.50%-3.75% as it navigates heightened inflation uncertainty and...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-18T07:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "Fiscal policy needs to be expanded amid limited room for monetary policy",
+          "link": "https://vietnamnews.vn/economy/1766201/fiscal-policy-needs-to-be-expanded-amid-limited-room-for-monetary-policy.html",
+          "score": 5.3,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Close coordination and mutual support between monetary policy, fiscal policy and other macroeconomic policies are necessary to maximise...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-02-25T08:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "Interest rates and monetary policy: Economic indicators",
+          "link": "https://commonslibrary.parliament.uk/research-briefings/sn02802/",
+          "score": 5.0,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "On 19 March, the Bank of England's Monetary Policy Committee (MPC) announced it had left interest rates unchanged at 3.75%. The MPC vote was...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-19T07:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "FEDS Paper: A User's Guide to Reducing the Federal Reserve's Balance Sheet",
+          "link": "https://www.federalreserve.gov/econres/feds/a-users-guide-to-reducing-the-federal-reserves-balance-sheet.htm",
+          "score": 4.9,
+          "source_type": "rss",
+          "source_name": "Federal Reserve FEDS",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Federal Reserve FEDS"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T22:30:00+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Federal Reserve Board announces it has made the joint findings with the Office of the Comptroller of the Currency required for the OCC to approve a request by Morgan Stanley Bank, N.A., for an exempti",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+          "score": 4.9,
+          "source_type": "rss",
+          "source_name": "Federal Reserve Press Releases",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Federal Reserve Press Releases"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T21:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "Macro-financial disconnect in the euro area: Assessing tail risks to euro area growth and equities",
+          "link": "https://cepr.org/voxeu/columns/macro-financial-disconnect-euro-area-assessing-tail-risks-euro-area-growth-and",
+          "score": 4.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "The euro area is experiencing a combination of low growth and persistently high policy uncertainty, but financial conditions are remarkably...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-12-16T08:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "Malaysia: Leveraging the Investment Upcycle for Durable Growth Amid Geoeconomic Fracturing",
+          "link": "https://amro-asia.org/malaysia-leveraging-the-investment-upcycle-for-durable-growth-amid-geoeconomic-fracturing/",
+          "score": 4.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "SINGAPORE, February 6, 2026 – The Malaysian economy has demonstrated notable resilience despite rising global trade protectionism and...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-02-06T08:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "markets-business",
+      "title": "Markets Business",
+      "article_count": 48,
+      "items": [
+        {
+          "rank": 1,
+          "title": "以军出动50余架战机打击伊朗核设施和武器基地",
+          "link": "https://wallstreetcn.com/livenews/3078551",
+          "score": 7.5,
+          "source_type": "api",
+          "source_name": "Wall Street CN",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Wall Street CN"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28 16:02"
+        },
+        {
+          "rank": 2,
+          "title": "以媒称也门胡塞武装“参战”",
+          "link": "https://wallstreetcn.com/livenews/3078538",
+          "score": 7.5,
+          "source_type": "api",
+          "source_name": "Wall Street CN",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Wall Street CN"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28 12:17"
+        },
+        {
+          "rank": 3,
+          "title": "市场血战，比亚迪单车利润见底了吗？",
+          "link": "https://wallstreetcn.com/articles/3768643",
+          "score": 7.4,
+          "source_type": "api",
+          "source_name": "Wall Street CN",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Wall Street CN"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28 13:49"
+        },
+        {
+          "rank": 4,
+          "title": "Beijing to host inaugural China International MICE Exchange 2026 offering global business events a dedicated platform for cross-border collaboration and industry growth",
+          "link": "https://www.travelandtourworld.com/news/article/beijing-to-host-inaugural-china-international-mice-exchange-2026-offering-global-business-events-a-dedicated-platform-for-cross-border-collaboration-and-industry-growth/",
+          "score": 7.1,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Beijing will host the inaugural China International MICE Exchange from 3 to 5 November 2026, establishing a dedicated gateway for...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T07:55:48+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "A ‘victim’ and a ‘dinosaur’: three days of Crispin Odey testimony",
+          "link": "https://www.ft.com/content/4fd5f10d-f161-4e77-8377-28239d9ab018",
+          "score": 6.8,
+          "source_type": "rss",
+          "source_name": "金融时报",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "金融时报"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T05:00:40+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "Can This Russian Bakery Survive a 3,500% Tax Increase?",
+          "link": "https://www.nytimes.com/2026/03/28/world/europe/russia-economy-small-business-tax-increase.html",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "NYTimes World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NYTimes World",
+            "纽约时报财经"
+          ],
+          "source_count": 2,
+          "metrics": {},
+          "published_at": "2026-03-28T09:00:07+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "End to two-child benefit cap offers £300-a-month lifeline to cash-strapped families",
+          "link": "https://www.theguardian.com/money/2026/mar/28/end-to-two-child-benefit-cap-offers-300-a-month-lifeline-to-cash-strapped-families",
+          "score": 6.5,
+          "source_type": "rss",
+          "source_name": "The Guardian Business",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "The Guardian Business"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T07:00:20+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Exclusive: UBS veteran banker L’Esperance to leave investment bank, memo says",
+          "link": "https://www.reuters.com/business/finance/ubs-veteran-banker-lesperance-leave-investment-bank-memo-says-2026-03-27/",
+          "score": 6.4,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Ros L'Esperance, one of UBS's most senior investment bankers, is leaving the ​Swiss bank at the end of the month, ‌according to an internal...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T21:24:11+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Firms with more women in top roles more likely to dismiss abusive men, study finds",
+          "link": "https://www.theguardian.com/world/2026/mar/28/firms-with-more-women-in-top-roles-more-likely-to-dismiss-abusive-men-study-finds",
+          "score": 6.4,
+          "source_type": "rss",
+          "source_name": "The Guardian Business",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "The Guardian Business"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:00:22+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "'Ripple of fear' over Iran war hits consumer confidence",
+          "link": "https://www.bbc.com/news/articles/c8957kqqdg4o?at_medium=RSS&at_campaign=rss",
+          "score": 6.3,
+          "source_type": "rss",
+          "source_name": "BBC Business",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BBC Business"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T12:13:36+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "How Pakistan put itself in the middle of US-Iran peace talks",
+          "link": "https://www.ft.com/content/5f946eff-3e9c-4feb-ab6b-60e15cc3e183",
+          "score": 6.2,
+          "source_type": "rss",
+          "source_name": "金融时报",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "金融时报"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T05:05:12+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "Hundreds of North Sea licences granted by Conservatives have ‘so far produced only 36  days worth of gas’",
+          "link": "https://www.theguardian.com/business/2026/mar/28/north-sea-oil-gas-licences-conservatives",
+          "score": 6.2,
+          "source_type": "rss",
+          "source_name": "The Guardian Business",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "The Guardian Business"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T07:00:23+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Asda boss rejects profiteering claims as petrol price tops 150p",
+          "link": "https://www.bbc.com/news/articles/cdxdnd87v78o?at_medium=RSS&at_campaign=rss",
+          "score": 6.2,
+          "source_type": "rss",
+          "source_name": "BBC Business",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BBC Business"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T18:28:34+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "Bank of America Pays $72.5 Million to Settle Lawsuit by Epstein Victims",
+          "link": "https://www.nytimes.com/2026/03/27/business/bank-of-america-epstein-victims-settlement.html",
+          "score": 6.1,
+          "source_type": "rss",
+          "source_name": "纽约时报财经",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "纽约时报财经"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T01:13:37+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "In an Asymmetrical War, Iran Seeks an Edge With Its Information War",
+          "link": "https://www.nytimes.com/2026/03/28/business/iran-propaganda-war-ai.html",
+          "score": 6.1,
+          "source_type": "rss",
+          "source_name": "纽约时报财经",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "纽约时报财经"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:03:26+00:00"
+        }
+      ]
+    },
+    {
+      "id": "world-affairs",
+      "title": "World Affairs",
+      "article_count": 44,
+      "items": [
+        {
+          "rank": 1,
+          "title": "'He would have been horrified' - error in drug warnings 'misled' families",
+          "link": "https://www.bbc.com/news/articles/ckg0xxwn041o?at_medium=RSS&at_campaign=rss",
+          "score": 6.9,
+          "source_type": "rss",
+          "source_name": "BBC News",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BBC News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T06:00:22+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "'No Kings' aims for record turnout in Saturday's anti-Trump protests",
+          "link": "https://www.npr.org/2026/03/28/nx-s1-5763702/no-kings-saturday-protests",
+          "score": 6.9,
+          "source_type": "rss",
+          "source_name": "NPR News",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NPR News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "'Our home is gone': BBC speaks to displaced families in Lebanon",
+          "link": "https://www.bbc.com/news/videos/clyr530yry5o?at_medium=RSS&at_campaign=rss",
+          "score": 6.9,
+          "source_type": "rss",
+          "source_name": "BBC News",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BBC News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T06:00:25+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "At CPAC, the ‘America First’ Crowd Ponders Giving War a Chance",
+          "link": "https://www.nytimes.com/2026/03/27/us/politics/cpac-trump-iran-war.html",
+          "score": 6.7,
+          "source_type": "rss",
+          "source_name": "NYTimes Home",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NYTimes Home"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T04:20:47+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "Bank of America settles Epstein case for $72.5 million",
+          "link": "https://www.dw.com/en/bank-of-america-settles-epstein-case-for-72-5-million/a-76573867?maca=en-rss-en-world-4025-rdf",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "DW World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "DW World"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T04:38:00+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "Before the LaGuardia Crash, Why Didn’t Truck 1 Stop?",
+          "link": "https://www.nytimes.com/2026/03/27/nyregion/laguardia-crash-air-canada-truck.html",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "NYTimes Home",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NYTimes Home"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T06:33:14+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Castro Heirs Emerge Across Cuba’s Political Scene Amid Energy Crisis and Trump Threats",
+          "link": "https://www.nytimes.com/2026/03/28/world/americas/castro-family-cuba-energy-crisis-trump.html",
+          "score": 6.6,
+          "source_type": "rss",
+          "source_name": "NYTimes World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NYTimes World"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:02:14+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Does the U.S. have a chance in the World Cup? 2 important games will provide clues",
+          "link": "https://www.npr.org/2026/03/28/nx-s1-5764272/world-cup-usmnt-us-soccer-belgium-portugal",
+          "score": 6.5,
+          "source_type": "rss",
+          "source_name": "NPR News",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NPR News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Doncic faces one-game ban after technical foul in Lakers win against Nets",
+          "link": "https://www.aljazeera.com/sports/2026/3/28/doncic-facing-one-game-ban-after-technical-foul-in-lakers-win-against-nets?traffic_source=rss",
+          "score": 6.5,
+          "source_type": "rss",
+          "source_name": "Al Jazeera",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Al Jazeera"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T06:52:31+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "'Memory of a generation': China mourns the sudden death of a controversial education influencer",
+          "link": "https://www.bbc.com/news/articles/c15dz7ql59yo?at_medium=RSS&at_campaign=rss",
+          "score": 6.4,
+          "source_type": "rss",
+          "source_name": "BBC World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "BBC World"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T23:19:46+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "Americans seek redemption at figure skating worlds, just weeks after the Olympics",
+          "link": "https://www.npr.org/2026/03/27/nx-s1-5761994/figure-skating-world-championships-malinin-glenn",
+          "score": 6.2,
+          "source_type": "rss",
+          "source_name": "NPR World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "NPR World"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T12:51:16+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "How the US-Israel war on Iran unfolded in its first four weeks",
+          "link": "https://www.aljazeera.com/news/2026/3/28/how-the-us-israel-war-on-iran-unfolded-in-its-first-four-weeks?traffic_source=rss",
+          "score": 6.2,
+          "source_type": "rss",
+          "source_name": "Al Jazeera",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Al Jazeera"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T04:15:55+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Austria plans to ban social media for under-14s",
+          "link": "https://www.dw.com/en/austria-plans-to-ban-social-media-for-under-14s/a-76571330?maca=en-rss-en-world-4025-rdf",
+          "score": 6.2,
+          "source_type": "rss",
+          "source_name": "DW World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "DW World"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T17:31:00+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "Indonesia rolls out social media ban for under-16s",
+          "link": "https://www.dw.com/en/indonesia-rolls-out-social-media-ban-for-under-16s/a-76574803?maca=en-rss-en-world-4025-rdf",
+          "score": 6.1,
+          "source_type": "rss",
+          "source_name": "DW World",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "DW World"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:05:00+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "45岁男子心梗离世2天前还在跑马拉松",
+          "link": "https://s.weibo.com/weibo?q=45岁男子心梗离世2天前还在跑马拉松",
+          "score": 5.9,
+          "source_type": "api",
+          "source_name": "Weibo Hot Search",
+          "display_name": null,
+          "summary": "",
+          "all_sources": [
+            "Weibo Hot Search"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T09:46:41.886326+00:00"
+        }
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "title": "Ai Agents",
+      "article_count": 59,
+      "items": [
+        {
+          "rank": 1,
+          "title": "Assessing GitLab (GTLB) Valuation After GitLab 18.10 Agentic AI Release",
+          "link": "https://simplywall.st/stocks/us/software/nasdaq-gtlb/gitlab/news/assessing-gitlab-gtlb-valuation-after-gitlab-1810-agentic-ai",
+          "score": 6.6,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "GitLab (GTLB) has drawn fresh attention after releasing GitLab 18.10, a product update centered on agentic AI features that could shape how...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-28T02:18:25+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "10 Cool AI And Agentic Tools Unveiled At RSAC 2026",
+          "link": "https://www.crn.com/news/security/2026/10-cool-ai-and-agentic-tools-unveiled-at-rsac-2026",
+          "score": 6.0,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "RSAC 2026 saw the launch of cool new AI and agentic security tools from vendors including Saviynt, CrowdStrike and Check Point.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-26T14:43:00+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "See how @Kensho built a multi-agent data retrieval system on LangGraph to give S&P Global customers a single entry point into verified financial data — equity research, macro, ESG, and more. The architecture consists of a central router + specialized Data Retrieval Agents, one...",
+          "link": "https://x.com/hwchase17/status/2037558047124697472",
+          "score": 5.9,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@LangChain",
+            "@hwchase17"
+          ],
+          "source_count": 2,
+          "metrics": {
+            "likes": 72,
+            "retweets": 9
+          },
+          "published_at": "2026-03-27T15:51:09+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "40+ Agentic AI Use Cases with Real-life Examples",
+          "link": "https://aimultiple.com/agentic-ai",
+          "score": 5.8,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Agentic AI Examples and Use Cases: Software Development, Gaming, Writing, Insurance Processing, Human Resources (HR) Assistance, Retail and...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-25T07:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "The Agent Evaluation Readiness Checklist Starting to think through how to test your agents? We put together a step-by-step checklist for building, running, and shipping agent evals. 🧪 We walk through: → How to read traces in LangSmith and analyze errors, before building evals...",
+          "link": "https://x.com/hwchase17/status/2037619189163384957",
+          "score": 5.8,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@LangChain",
+            "@hwchase17"
+          ],
+          "source_count": 2,
+          "metrics": {
+            "likes": 74,
+            "retweets": 20
+          },
+          "published_at": "2026-03-27T19:54:06+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "@VictorMoreira16 actually walks through his screen recording in this one, man is that detailed about good evals lol “Before you build evals read 20-30 traces” bunch of gold nuggets in this one to go from no agent to no evals to some evals to good evals to a system for managing...",
+          "link": "https://x.com/hwchase17/status/2037619217374335039",
+          "score": 5.7,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 24,
+            "retweets": 5
+          },
+          "published_at": "2026-03-27T19:54:13+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Alibaba Creates AI Tool for Companies to Ride China Agent Craze",
+          "link": "https://www.bloomberg.com/news/articles/2026-03-16/alibaba-creates-ai-tool-for-companies-to-ride-china-agent-craze",
+          "score": 5.7,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Alibaba Group Holding Ltd. plans to release an agentic AI service for companies, banking on national enthusiasm around artificial...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-15T07:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Deep Agents middleware is legit, it has enabled many of the features that power Fleet. the DX is great, it is easy to grasp yet remarkably powerful",
+          "link": "https://x.com/hwchase17/status/2037619151704101321",
+          "score": 5.6,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 14,
+            "retweets": 4
+          },
+          "published_at": "2026-03-27T19:53:57+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Environments in LangSmith Prompt Hub Environments give you a proper promotion workflow for your prompts: - Assign any commit to Staging or Production - Promote between environments instantly - Roll back with a single click from a full deployment history - Reference reserved ta...",
+          "link": "https://x.com/hwchase17/status/2037698514185261270",
+          "score": 5.6,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@LangChain",
+            "@hwchase17"
+          ],
+          "source_count": 2,
+          "metrics": {
+            "likes": 33,
+            "retweets": 7
+          },
+          "published_at": "2026-03-28T01:09:19+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "Great post from @Vtrivedy10 and other folks at @langchain on building evals for agents. Some concept I really liked: - Self-documenting them with docstrings and adding tags, so that you can selectively run them - Be thoughtful around a 'taxonomy' of evals. What is a logical gr...",
+          "link": "https://x.com/hwchase17/status/2037574699891490885",
+          "score": 5.6,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 21,
+            "retweets": 2
+          },
+          "published_at": "2026-03-27T16:57:19+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "I am currently building a agent harness on top of the primitive one for my company so that we can build various agents that are very robust and capable. I originally started off on the Claude agent SDK because of how much I love Claude and Claude Code but for reasons beyond my...",
+          "link": "https://x.com/hwchase17/status/2037666595162792376",
+          "score": 5.6,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 33,
+            "retweets": 8
+          },
+          "published_at": "2026-03-27T23:02:28+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "RETRANSMISSION: Shuttle Pharmaceuticals Launches Autonomous Self Reasoning AI Agent for Scientific Workflows",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/retransmission-shuttle-pharmaceuticals-launches-autonomous-120000724.html",
+          "score": 5.4,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Gaithersburg, Maryland--(Newsfile Corp. - March 27, 2026) - Shuttle Pharmaceuticals Holdings, Inc. (NASDAQ: SHPH) (\"Shuttle Pharma\" or the...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-27T12:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Your coding agent shouldn’t live in a chat box 🤖 Give it a real workspace: sandboxed filesystem, live file tree, diffs, terminal, chat. New Deep Agents guide shows how to build an IDE-style agent UI end-to-end ↓ https://t.co/Fu0mivu354 https://t.co/aCSrZx1MbY",
+          "link": "https://x.com/hwchase17/status/2037563973827240424",
+          "score": 5.3,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 21,
+            "retweets": 4
+          },
+          "published_at": "2026-03-27T16:14:42+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "come join us!",
+          "link": "https://x.com/hwchase17/status/2037570500021674132",
+          "score": 5.3,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 8,
+            "retweets": 1
+          },
+          "published_at": "2026-03-27T16:40:38+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "make Deep Agents your harness of choice! we think it's pretty alright ;)",
+          "link": "https://x.com/hwchase17/status/2037698525967069577",
+          "score": 5.3,
+          "source_type": "twitter",
+          "source_name": "@hwchase17",
+          "display_name": "Harrison Chase (LangChain)",
+          "summary": "",
+          "all_sources": [
+            "@hwchase17"
+          ],
+          "source_count": 1,
+          "metrics": {
+            "likes": 5,
+            "retweets": 1
+          },
+          "published_at": "2026-03-28T01:09:21+00:00"
+        }
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity",
+      "article_count": 20,
+      "items": [
+        {
+          "rank": 1,
+          "title": "17 Security Risks of Cloud Computing in 2026",
+          "link": "https://www.sentinelone.com/cybersecurity-101/cloud-security/security-risks-of-cloud-computing/",
+          "score": 5.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Security risks in cloud computing may occur from several factors, including technical vulnerabilities, human errors, and continuously changing attack vectors.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-01-16T08:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "title": "AI Risks, Critical Vulnerabilities, and Data Breaches Define This Week in Cybersecurity",
+          "link": "https://www.esecurityplanet.com/weekly-roundup/ai-risks-critical-vulnerabilities-and-data-breaches-define-this-week-in-cybersecurity/",
+          "score": 5.7,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "A SQL injection flaw in Elementor's Ally accessibility plugin exposed over 400,000 WordPress sites to potential data theft.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-13T17:02:39+00:00"
+        },
+        {
+          "rank": 3,
+          "title": "CVE-2026-3888: Important Snap Flaw Enables Local Privilege Escalation to Root",
+          "link": "https://blog.qualys.com/vulnerabilities-threat-research/2026/03/17/cve-2026-3888-important-snap-flaw-enables-local-privilege-escalation-to-root",
+          "score": 5.6,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "The Qualys Threat Research Unit has identified a Local Privilege Escalation (LPE) vulnerability affecting default installations of Ubuntu...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-18T07:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "title": "Crunchyroll Hack Exposes Customer Support Data in Vendor Security Incident",
+          "link": "https://www.cxtoday.com/security-privacy-compliance/crunchyroll-hack-exposes-customer-support-data-in-vendor-security-incident/",
+          "score": 5.5,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Crunchyroll investigates cyberattack after a vendor breach exposed millions of support records, raising concerns over customer data...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-25T17:54:19+00:00"
+        },
+        {
+          "rank": 5,
+          "title": "FortiGate Devices Exploited to Breach Networks and Steal Service Account Credentials",
+          "link": "https://thehackernews.com/2026/03/fortigate-devices-exploited-to-breach.html",
+          "score": 5.3,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Attackers exploit FortiGate vulnerabilities to steal LDAP credentials and breach networks, enabling AD access and malware deployment.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-10T07:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "title": "Healthcare breaches reach new cost highs as adversaries exploit expanding clinical attack surfaces, Trellix reports",
+          "link": "https://industrialcyber.co/medical/healthcare-breaches-reach-new-cost-highs-as-adversaries-exploit-expanding-clinical-attack-surfaces-trellix-reports/",
+          "score": 5.2,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "New analysis from Trellix underscores how cybersecurity has become a boardroom issue for healthcare organizations as digital transformation...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-01-30T08:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "title": "Ledger 新闻：Ledger 客户数据泄露后如何保持安全：专家敦促优先保护隐私",
+          "link": "https://www.coindesk.com/zh/tech/2026/01/06/how-to-stay-safe-after-the-ledger-leak-experts-urge-privacy-first",
+          "score": 4.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Ledger， 作为加密领域最受欢迎的硬件钱包制造商之一， 周一证实一批客户数据被泄露 在与其第三方电子商务合作伙伴Global-e 相关的安全漏洞中，引发了...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-01-06T08:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "title": "Mail2Shell – CVE-2026-28289: New Zero-Click RCE On FreeScout",
+          "link": "https://www.ox.security/blog/freescout-rce-cve-2026-28289/",
+          "score": 4.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "OX Research found a filename validation bypass that escalates a prior patched authenticated RCE into Zero‑Click Unauthenticated RCE...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-03T08:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "title": "Mazda Data Breach Exposing Employee and Partner Records Via System Vulnerability",
+          "link": "https://cybersecuritynews.com/mazda-data-breach/",
+          "score": 4.9,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Mazda Motor Corporation has officially disclosed a security incident involving unauthorized external access to an internal warehouse...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-24T03:28:32+00:00"
+        },
+        {
+          "rank": 10,
+          "title": "NZ meds portal MediMap goes offline after hack",
+          "link": "https://www.healthcareitnews.com/news/anz/nz-meds-portal-medimap-goes-offline-after-hack",
+          "score": 4.7,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "A widely used medication management platform in New Zealand has gone offline following a major hack into its system.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-02-26T08:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "title": "Patch Now: Active Exploitation Underway for Critical HPE OneView Vulnerability",
+          "link": "https://blog.checkpoint.com/research/patch-now-active-exploitation-underway-for-critical-hpe-oneview-vulnerability/",
+          "score": 4.5,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Executive Summary Check Point Research identified active, large-scale exploitation of CVE-2025-37164, a critical remote code execution...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-01-15T08:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "title": "Prince Harry accuses Daily Mail of ‘terrifying’ privacy intrusion in phone hacking trial",
+          "link": "https://www.ft.com/content/33d56ce5-b563-477e-ac8e-7a969a08c801?syn-25a6b1a6=1",
+          "score": 4.5,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "Newspaper publisher claims evidence for celebrity cases obtained through 'financial inducements and threats'",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-01-19T08:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "title": "Privacy fears and multimillion-dollar losses: Korean celebrities sound alarm over hacking risks",
+          "link": "https://www.koreatimes.co.kr/entertainment/others/20260224/privacy-fears-and-multimillion-dollar-losses-korean-celebrities-sound-alarm-over-hacking-risks",
+          "score": 4.5,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "From hacked YouTube channels to leaked private photos and crushing debt, a wave of cyberattacks targeting Korean celebrities is raising...",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-02-24T08:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "title": "Should Security Solutions Be Secure? Maybe We're All Wrong - Fortinet FortiSIEM Pre-Auth Command Injection (CVE-2025-25256)",
+          "link": "https://labs.watchtowr.com/should-security-solutions-be-secure-maybe-were-all-wrong-fortinet-fortisiem-pre-auth-command-injection-cve-2025-25256/",
+          "score": 4.2,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "It's Friday, but we're here today with unscheduled content - pushing our previously scheduled shenanigans to next week.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2025-08-15T07:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "title": "The CVE Program, a bedrock of global cyber defense, is teetering on the brink",
+          "link": "https://www.cybersecuritydive.com/news/cve-program-ai-vulnerability-reports-funding/815594/",
+          "score": 4.1,
+          "source_type": "google",
+          "source_name": "Google News",
+          "display_name": null,
+          "summary": "A funding scare, AI and similar international initiatives are raising existential questions about the program's future.",
+          "all_sources": [
+            "Google News"
+          ],
+          "source_count": 1,
+          "metrics": {},
+          "published_at": "2026-03-24T20:49:07+00:00"
+        }
+      ]
+    }
+  ]
+}
