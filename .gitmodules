@@ -5,4 +5,4 @@
 [submodule "skills/news-digest"]
 	path = skills/news-digest
 	url = git@github.com:cyejing/news-digest.git
-    branch = main
+	branch = main
