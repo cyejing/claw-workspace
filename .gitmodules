@@ -2,7 +2,7 @@
 	path = skills/scrapling-web-fetch
 	url = git@github.com:cyejing/scrapling-web-fetch.git
     branch = main
-[submodule "skills/news-digest"]
-	path = skills/news-digest
-	url = git@github.com:cyejing/news-digest.git
+[submodule "skills/news-hotspots"]
+	path = skills/news-hotspots
+	url = git@github.com:cyejing/news-hotspots.git
 	branch = main
