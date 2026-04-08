@@ -100,10 +100,11 @@ FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 2592000)")
 
 ```bash
 PORT=${AUTH_GATEWAY_PORT:-19000}
+HOST=${AUTH_GATEWAY_HOST:-localhost}
 PPID_VAL=$(python3 -c "import os; print(os.getppid())")
 echo "[OpenClaw] Parent PID: $PPID_VAL"
 
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"搜索关键词"}'
 ```
@@ -113,13 +114,13 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
 ```bash
 # 搜索最近 7 天的结果（适用于"最新"、"最近"类查询）
 FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 604800)")
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d "{\"keyword\":\"搜索关键词\",\"from_time\":$FROM_TIME}"
 
 # 搜索最近 24 小时的结果（适用于"今天"、"刚刚"类查询）
 FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 86400)")
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d "{\"keyword\":\"搜索关键词\",\"from_time\":$FROM_TIME}"
 ```
@@ -128,23 +129,23 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
 
 ```bash
 # 指定返回数量 (10/20/30/40/50) — ⚠️ 不能与 from_time/to_time/site 同时使用
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"搜索关键词","cnt":20}'
 
 # 指定时间范围 — 动态计算最近 7 天（⚠️ 不要同时传 cnt）
 FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 604800)")
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d "{\"keyword\":\"搜索关键词\",\"from_time\":$FROM_TIME}"
 
 # 站内搜索（⚠️ 不要同时传 cnt）
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"搜索关键词","site":"github.com"}'
 
 # 垂类搜索 (gov/news/acad)
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"搜索关键词","industry":"news"}'
 ```
@@ -308,32 +309,33 @@ Content-Type: application/json
 ```bash
 # macOS / Linux: 获取 PORT 和父进程 ID
 PORT=${AUTH_GATEWAY_PORT:-19000}
+HOST=${AUTH_GATEWAY_HOST:-localhost}
 echo "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
 PPID_VAL=$(python3 -c "import os; print(os.getppid())")
 echo "[OpenClaw] Parent PID: $PPID_VAL"
 
 # 基础搜索
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"最新AI新闻"}'
 
 # 搜索更多结果
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"React 19 features","cnt":20}'
 
 # 搜索新闻类网站
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"2026年两会","industry":"news"}'
 
 # GitHub 站内搜索
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"electron vite template","site":"github.com"}'
 
 # 获取 VR 卡数据（天气、金价等）
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
+curl -s -X POST http://$HOST:$PORT/proxy/prosearch/search \
   -H 'Content-Type: application/json' \
   -d '{"keyword":"今日黄金价格","mode":2}'
 ```
