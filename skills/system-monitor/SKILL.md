@@ -28,10 +28,31 @@ uv run <SKILL_DIR>/scripts/collect_stats.py
 - **物理核心：** `<cpu_count_physical>` 核 | **逻辑核心：** `<cpu_count>` 个
 - **温度：** `<temp_celsius>°C`
 
+### 🖥️ CPU 高消耗进程
+- 如果存在 CPU > 10% 的进程，显示：
+```
+  <序号>. <进程名> (PID: <pid>) - <cpu_percent>%
+```
+- 如果都很低，输出：`无明显高消耗进程`
+
+### 🖥️ CPU 高消耗进程
+- 如果存在 CPU > 10% 的进程，显示：
+```
+  <序号>. <进程名> (PID: <pid>) - <cpu_percent>%
+```
+- 如果都很低，输出：`无明显高消耗进程`
+
 ### 💾 内存
 - **使用率：** `<mem_percent>%` `███████░░░` `<level>`
 - **已用 / 总计：** `<mem_used_gb> GB` / `<mem_total_gb> GB`
 - **可用：** `<mem_available_gb> GB`
+
+### 🧠 内存高消耗进程
+- 显示内存占用 Top 5 进程：
+```
+  <序号>. <进程名> (PID: <pid>) - <mem_percent>% (<rss_mb> MB)
+```
+- 如果都低于 1%，输出：`无明显高消耗进程`
 
 ### 🔄 交换分区
 - **使用率：** `<swap_percent>%`

@@ -15,6 +15,48 @@ import platform
 import subprocess
 import sys
 
+def get_top_cpu_processes(limit=5):
+    """获取CPU使用率最高的进程"""
+    processes = []
+    for p in psutil.process_iter(['pid', 'name', 'cpu_percent']):
+        try:
+            # 首次调用cpu_percent需要一定时间累积，设置较短等待
+            cpu = p.cpu_percent(interval=0.1)
+            if cpu > 0:
+                processes.append({
+                    'pid': p.info['pid'],
+                    'name': p.info['name'],
+                    'cpu_percent': round(cpu, 1)
+                })
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    # 按CPU使用率排序，取前N个
+    processes.sort(key=lambda x: x['cpu_percent'], reverse=True)
+    return processes[:limit]
+
+
+def get_top_mem_processes(limit=5):
+    """获取内存使用率最高的进程"""
+    processes = []
+    for p in psutil.process_iter(['pid', 'name', 'memory_percent', 'memory_info']):
+        try:
+            mem_percent = p.info['memory_percent']
+            if mem_percent and mem_percent > 0:
+                # 获取内存信息用于展示 RSS
+                mem_info = p.info['memory_info']
+                rss_mb = mem_info.rss / 1024**2 if mem_info else 0
+                processes.append({
+                    'pid': p.info['pid'],
+                    'name': p.info['name'],
+                    'mem_percent': round(mem_percent, 1),
+                    'rss_mb': round(rss_mb, 1)
+                })
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    # 按内存使用率排序，取前N个
+    processes.sort(key=lambda x: x['mem_percent'], reverse=True)
+    return processes[:limit]
+
 def get_temps():
     """获取CPU温度（支持多平台）"""
     try:
@@ -96,6 +138,11 @@ def main():
         vals = [s[key] for s in samples if s[key] is not None]
         return max(vals) if vals else None
 
+    # 获取CPU使用最高的进程
+    top_cpu_processes = get_top_cpu_processes(limit=5)
+    # 获取内存使用最高的进程
+    top_mem_processes = get_top_mem_processes(limit=5)
+
     result = {
         "cpu_percent": maxv("cpu_percent"),
         "mem_percent": maxv("mem_percent"),
@@ -119,6 +166,8 @@ def main():
         "cpu_count_physical": psutil.cpu_count(logical=False),
         "platform": platform.system(),
         "samples": N,
+        "top_cpu_processes": top_cpu_processes,
+        "top_mem_processes": top_mem_processes,
     }
 
     print(json.dumps(result, indent=2))
