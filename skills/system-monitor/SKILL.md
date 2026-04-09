@@ -8,11 +8,13 @@ version: "1.0"
 
 ## 执行脚本
 
-运行采集脚本（uv 自动管理 psutil 依赖）：
+运行采集脚本：
 
 ```bash
-uv run <SKILL_DIR>/scripts/collect_stats.py
+python3 <SKILL_DIR>/scripts/collect_stats.py
 ```
+
+> 采样5次/5秒峰值，使用 `os._exit(0)` 避免僵尸进程。
 
 ## 输出格式（固定模板）
 
@@ -28,31 +30,10 @@ uv run <SKILL_DIR>/scripts/collect_stats.py
 - **物理核心：** `<cpu_count_physical>` 核 | **逻辑核心：** `<cpu_count>` 个
 - **温度：** `<temp_celsius>°C`
 
-### 🖥️ CPU 高消耗进程
-- 如果存在 CPU > 10% 的进程，显示：
-```
-  <序号>. <进程名> (PID: <pid>) - <cpu_percent>%
-```
-- 如果都很低，输出：`无明显高消耗进程`
-
-### 🖥️ CPU 高消耗进程
-- 如果存在 CPU > 10% 的进程，显示：
-```
-  <序号>. <进程名> (PID: <pid>) - <cpu_percent>%
-```
-- 如果都很低，输出：`无明显高消耗进程`
-
 ### 💾 内存
 - **使用率：** `<mem_percent>%` `███████░░░` `<level>`
 - **已用 / 总计：** `<mem_used_gb> GB` / `<mem_total_gb> GB`
 - **可用：** `<mem_available_gb> GB`
-
-### 🧠 内存高消耗进程
-- 显示内存占用 Top 5 进程：
-```
-  <序号>. <进程名> (PID: <pid>) - <mem_percent>% (<rss_mb> MB)
-```
-- 如果都低于 1%，输出：`无明显高消耗进程`
 
 ### 🔄 交换分区
 - **使用率：** `<swap_percent>%`
@@ -71,6 +52,15 @@ uv run <SKILL_DIR>/scripts/collect_stats.py
 ### 🌐 网络（实时速率）
 - **下载：** `<net_rx_mbps>` MB/s
 - **上传：** `<net_tx_mbps>` MB/s
+
+### 🔥 高消耗进程 Top 5
+- **阈值：** CPU > 5% 或 内存 > 5%
+- **显示格式：**
+```
+  <序号>. <进程名> (PID: <pid>)
+      CPU: <cpu_percent>% | 内存: <mem_percent>% (<rss_mb> MB)
+```
+- 如果没有进程超过阈值，输出：`无高消耗进程（CPU/内存均 < 5%）`
 
 ---
 

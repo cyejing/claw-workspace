@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
 """
-系统状态采集脚本：采集5秒内5次数据并输出平均值（JSON格式）
-依赖：psutil（自动通过uv安装）
+系统状态采集脚本：采集数据并输出报告
+依赖：psutil（已安装于系统）
 """
-# /// script
-# requires-python = ">=3.8"
-# dependencies = ["psutil"]
-# ///
 
 import json
 import time
@@ -15,47 +11,39 @@ import platform
 import subprocess
 import sys
 
-def get_top_cpu_processes(limit=5):
-    """获取CPU使用率最高的进程"""
-    processes = []
+def get_top_processes(limit=5, threshold=5.0):
+    """获取 CPU 或内存任一超过阈值的进程，去重后按消耗程度综合排序，取前N个"""
+    processes = {}
+    # 先拿 CPU
     for p in psutil.process_iter(['pid', 'name', 'cpu_percent']):
         try:
-            # 首次调用cpu_percent需要一定时间累积，设置较短等待
             cpu = p.cpu_percent(interval=0.1)
             if cpu > 0:
-                processes.append({
-                    'pid': p.info['pid'],
-                    'name': p.info['name'],
-                    'cpu_percent': round(cpu, 1)
-                })
+                pid = p.info['pid']
+                processes[pid] = processes.get(pid, {'pid': pid, 'name': p.info['name'], 'cpu_percent': 0.0, 'mem_percent': 0.0, 'rss_mb': 0.0})
+                processes[pid]['cpu_percent'] = round(cpu, 1)
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
-    # 按CPU使用率排序，取前N个
-    processes.sort(key=lambda x: x['cpu_percent'], reverse=True)
-    return processes[:limit]
-
-
-def get_top_mem_processes(limit=5):
-    """获取内存使用率最高的进程"""
-    processes = []
+    # 再拿内存（可能和上面重叠）
     for p in psutil.process_iter(['pid', 'name', 'memory_percent', 'memory_info']):
         try:
             mem_percent = p.info['memory_percent']
             if mem_percent and mem_percent > 0:
-                # 获取内存信息用于展示 RSS
+                pid = p.info['pid']
                 mem_info = p.info['memory_info']
                 rss_mb = mem_info.rss / 1024**2 if mem_info else 0
-                processes.append({
-                    'pid': p.info['pid'],
-                    'name': p.info['name'],
-                    'mem_percent': round(mem_percent, 1),
-                    'rss_mb': round(rss_mb, 1)
-                })
+                if pid not in processes:
+                    processes[pid] = {'pid': pid, 'name': p.info['name'], 'cpu_percent': 0.0, 'mem_percent': round(mem_percent, 1), 'rss_mb': round(rss_mb, 1)}
+                else:
+                    processes[pid]['mem_percent'] = round(mem_percent, 1)
+                    processes[pid]['rss_mb'] = round(rss_mb, 1)
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
-    # 按内存使用率排序，取前N个
-    processes.sort(key=lambda x: x['mem_percent'], reverse=True)
-    return processes[:limit]
+    # 过滤：CPU > threshold 或 内存 > threshold
+    filtered = [v for v in processes.values() if v['cpu_percent'] > threshold or v['mem_percent'] > threshold]
+    # 按 max(cpu, mem) 排序
+    filtered.sort(key=lambda x: max(x['cpu_percent'], x['mem_percent']), reverse=True)
+    return filtered[:limit]
 
 def get_temps():
     """获取CPU温度（支持多平台）"""
@@ -117,8 +105,8 @@ def sample_once():
     }
 
 def main():
-    N = 5
-    INTERVAL = 1.0  # 每次间隔1秒，共5次 = 5秒
+    N = 5  # 5次采样取峰值
+    INTERVAL = 1.0  # 每次间隔1秒，共5秒
 
     # 先初始化CPU采集（第一次调用interval=None需要先调用一次）
     psutil.cpu_percent(interval=0.1)
@@ -138,10 +126,8 @@ def main():
         vals = [s[key] for s in samples if s[key] is not None]
         return max(vals) if vals else None
 
-    # 获取CPU使用最高的进程
-    top_cpu_processes = get_top_cpu_processes(limit=5)
-    # 获取内存使用最高的进程
-    top_mem_processes = get_top_mem_processes(limit=5)
+    # 获取高消耗进程（CPU或内存 > 5%）
+    top_processes = get_top_processes(limit=5, threshold=5.0)
 
     result = {
         "cpu_percent": maxv("cpu_percent"),
@@ -166,11 +152,73 @@ def main():
         "cpu_count_physical": psutil.cpu_count(logical=False),
         "platform": platform.system(),
         "samples": N,
-        "top_cpu_processes": top_cpu_processes,
-        "top_mem_processes": top_mem_processes,
+        "top_processes": top_processes,
     }
 
-    print(json.dumps(result, indent=2))
+    # 格式化输出报告
+    import datetime
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    
+    def level(pct):
+        if pct < 50: return "✅ 正常"
+        if pct < 75: return "⚠️ 偏高"
+        if pct < 90: return "🔶 警告"
+        return "🔴 危险"
+    
+    def bar(pct, total=10):
+        filled = int(pct / 100 * total)
+        return "█" * filled + "░" * (total - filled)
+    
+    cpu = result["cpu_percent"]
+    mem = result["mem_percent"]
+    
+    report = f"""## 🖥️ 系统状态报告
+> 采集时间：`{now}` | 采样：5次 / 5秒峰值
+
+### 📊 CPU
+- **使用率：** `{cpu:.1f}%` `{bar(cpu)}` {level(cpu)}
+- **物理核心：** `{result['cpu_count_physical']}` 核 | **逻辑核心：** `{result['cpu_count']}` 个
+- **温度：** `{result['temp_celsius']:.1f}°C`
+
+### 💾 内存
+- **使用率：** `{mem:.1f}%` `{bar(mem)}` {level(mem)}
+- **已用 / 总计：** `{result['mem_used_gb']:.1f} GB` / `{result['mem_total_gb']:.1f} GB`
+- **可用：** `{result['mem_available_gb']:.1f} GB`
+
+### 🔄 交换分区
+- **使用率：** `{result['swap_percent']:.1f}%`
+- **已用 / 总计：** `{result['swap_used_gb']:.2f} GB` / `{result['swap_total_gb']:.2f} GB`
+
+### ⚖️ 系统负载（Load Average）
+- **1分钟：** `{result['load_1']:.2f}` {'✅' if result['load_1'] < result['cpu_count'] else '⚠️'}（< {result['cpu_count']}核=正常）
+- **5分钟：** `{result['load_5']:.2f}`
+- **15分钟：** `{result['load_15']:.2f}`
+
+### 💿 磁盘（根分区 /）
+- **使用率：** `{result['disk_percent']:.1f}%` `{bar(result['disk_percent'])}` {level(result['disk_percent'])}
+- **已用 / 总计：** `{result['disk_used_gb']:.1f} GB` / `{result['disk_total_gb']:.1f} GB`
+- **可用：** `{result['disk_free_gb']:.1f} GB`
+
+### 🌐 网络（实时速率）
+- **下载：** `{result['net_rx_mbps']:.2f} MB/s`
+- **上传：** `{result['net_tx_mbps']:.3f} MB/s`
+
+"""
+    
+    # 高消耗进程
+    if result["top_processes"]:
+        report += "### 🔥 高消耗进程 Top 5（阈值: CPU>5% 或 内存>5%）\n"
+        for i, p in enumerate(result["top_processes"], 1):
+            report += f"""{i}. {p['name']} (PID: {p['pid']})
+    CPU: {p['cpu_percent']:.1f}% | 内存: {p['mem_percent']:.1f}% ({p['rss_mb']:.0f} MB)
+
+"""
+    else:
+        report += "### 🔥 高消耗进程 Top 5\n无高消耗进程（CPU/内存均 < 5%）\n\n"
+    
+    print(report, flush=True)
 
 if __name__ == "__main__":
     main()
+    import os
+    os._exit(0)
