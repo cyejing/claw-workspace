@@ -5,4 +5,5 @@
 logs
 temp
 archive
+memory
 __pycache__
