@@ -29,3 +29,47 @@ Need a different supported admin path/documented mechanism for changing protecte
 - Related Files: /home/clawd/.openclaw/openclaw.json
 
 ---
+
+## [ERR-20260411-002] stock-analysis watchlist check interrupted during uv dependency install
+
+**Logged**: 2026-04-11T21:46:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Running the stock-analysis watchlist monitor via `uv run .../watchlist.py check` was interrupted twice with SIGTERM while `uv` was still downloading/building first-run dependencies.
+
+### Error
+```text
+Exec failed (good-orbit, signal SIGTERM)
+Building multitasking==0.0.12
+Downloading pygments (1.2MiB)
+Downloading numpy (15.9MiB)
+Downloading pandas (10.4MiB)
+Downloading curl-cffi (10.6MiB)
+
+Exec failed (quick-sable, signal SIGTERM)
+Building multitasking==0.0.12
+Downloading numpy (15.9MiB)
+Downloading pandas (10.4MiB)
+Downloading pygments (1.2MiB)
+Downloading curl-cffi (10.6MiB)
+Built multitasking==0.0.12
+```
+
+### Context
+- Operation attempted: `uv run /home/clawd/.openclaw/workspace/skills/stock-analysis/scripts/watchlist.py check`
+- User intent: execute stock price monitoring on existing watchlist
+- Environment: first run of the skill needed to fetch Python dependencies
+- Result: monitoring script never reached alert evaluation before runtime interruption
+
+### Suggested Fix
+Pre-warm heavy `uv`-based finance skills before user-facing runs, or use a lighter fallback quote fetch when only a quick watchlist snapshot is needed.
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /home/clawd/.openclaw/workspace/skills/stock-analysis/SKILL.md, /home/clawd/.openclaw/workspace/skills/stock-analysis/scripts/watchlist.py
+- See Also: none
+
+---

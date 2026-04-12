@@ -6,4 +6,5 @@ logs
 temp
 archive
 memory
+.learnings
 __pycache__
