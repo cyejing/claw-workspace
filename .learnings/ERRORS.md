@@ -73,3 +73,60 @@ Pre-warm heavy `uv`-based finance skills before user-facing runs, or use a light
 - See Also: none
 
 ---
+## [ERR-20260412-001] archive-clear-zsh-shell-mismatch
+
+**Logged**: 2026-04-12T22:26:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Tried to use bash-specific `shopt` in the default zsh shell while clearing the archive directory.
+
+### Error
+```
+zsh:7: command not found: shopt
+```
+
+### Context
+- Command/operation attempted: clear `/home/clawd/.openclaw/workspace/archive` contents while preserving the directory
+- Shell environment: zsh
+- Cause: used bash-only `shopt -s dotglob nullglob`
+
+### Suggested Fix
+Use zsh-compatible options like `setopt local_options null_glob glob_dots` when writing shell commands for this runtime.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /home/clawd/.openclaw/workspace/TOOLS.md
+
+---
+## [ERR-20260412-002] sessions_spawn-subagent-streamto-incompatibility
+
+**Logged**: 2026-04-12T22:27:30+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+Attempting to use `sessions_spawn` with `runtime=subagent` failed because the tool rejected `streamTo`, even though the structured schema exposes it.
+
+### Error
+```
+streamTo is only supported for runtime=acp; got runtime=subagent
+```
+
+### Context
+- Operation attempted: spawn subagent for news-hotspots daily pipeline
+- Tool: sessions_spawn
+- Runtime: subagent
+- Result: incompatible parameter validation/runtime behavior
+
+### Suggested Fix
+Use a subagent-compatible spawn shape without `streamTo`, or update the tool schema/runtime contract so they agree.
+
+### Metadata
+- Reproducible: yes
+- Related Files: /home/clawd/.openclaw/workspace/skills/news-hotspots/references/execution-guide.md
+
+---
