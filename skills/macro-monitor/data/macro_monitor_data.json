@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "timestamp": "2026-04-13T01:48:25.464517",
+      "command": "monitor",
+      "input": "--indicators CPI,PMI",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-04-13T01:49:45.633260",
+      "command": "policy",
+      "input": "--latest",
+      "status": "completed"
+    }
+  ],
+  "created": "2026-04-13T01:48:25.464499",
+  "tool": "macro-monitor"
+}
