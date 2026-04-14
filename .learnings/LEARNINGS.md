@@ -47,3 +47,25 @@ For future review of scoring in news-hotspots output JSON, map terms explicitly:
 
 ---
 
+## [LRN-20260413-002] correction
+
+**Logged**: 2026-04-12T17:41:47.714228+00:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+不要仅凭 RSS 排序和运行时长就把 Chrome / next-server / openclaw-gateway 判定为“无效浪费内存”的进程；这些在该机器上属于正常且需要保留的常驻进程。
+
+### Details
+我根据 RSS、ELAPSED 和命令行参数推断 Chrome remote-debugging 进程与 next-server 可能是长期空转，但用户明确说明这些都是正常且需要用到的进程。对这台机器来说，Chrome 自动化/调试实例、next-server、本地 OpenClaw gateway 都可能是长期服务的一部分，不能因为占内存或运行天数长就默认建议清理。
+
+### Suggested Action
+以后在这台机器做“哪些进程浪费内存”的判断时，先把 Chrome（含 remote-debugging）、next-server、openclaw-gateway 视为默认白名单；除非用户明确说不用了，或先进一步核实对应用途，再建议关闭。
+
+### Metadata
+- Source: user_feedback
+- Related Files: /home/clawd/.openclaw/workspace/TOOLS.md
+- Tags: correction, process-audit, chrome, next-server, openclaw-gateway
+
+---

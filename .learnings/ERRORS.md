@@ -130,3 +130,33 @@ Use a subagent-compatible spawn shape without `streamTo`, or update the tool sch
 - Related Files: /home/clawd/.openclaw/workspace/skills/news-hotspots/references/execution-guide.md
 
 ---
+## [ERR-20260413-001] system-monitor-script-timeout
+
+**Logged**: 2026-04-12T17:36:12.719892+00:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+system-monitor 技能脚本在当前 exec 环境中连续两次未返回输出并被 SIGTERM 终止。
+
+### Error
+```
+Exec failed (nova-sea, signal SIGTERM)
+Exec failed (glow-har, signal SIGTERM)
+```
+
+### Context
+- Command/operation attempted: python3 /home/clawd/.openclaw/workspace/skills/system-monitor/scripts/collect_stats.py
+- The script should sample for ~6s and print a formatted report, but no output was captured before termination.
+- A manual fallback sampler using /proc succeeded and was used to answer the user.
+
+### Suggested Fix
+排查该脚本在当前运行时为何没有稳定输出；必要时让技能默认输出 JSON，或缩短采样/改成先写文件再输出，避免被 exec 截断。
+
+### Metadata
+- Reproducible: unknown
+- Related Files: /home/clawd/.openclaw/workspace/skills/system-monitor/scripts/collect_stats.py
+- See Also: none
+
+---
