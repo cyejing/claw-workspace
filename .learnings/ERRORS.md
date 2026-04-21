@@ -160,3 +160,33 @@ Exec failed (glow-har, signal SIGTERM)
 - See Also: none
 
 ---
+## [ERR-20260420-001] pkill_pgrep_pattern_option_conflict
+
+**Logged**: 2026-04-20T15:13:07.771559+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+使用 pkill/pgrep 按完整命令行匹配带 `--remote-debugging-port=...` 的参数时，未加稳妥处理会把模式误识别成命令自身选项，导致重启浏览器失败。
+
+### Error
+```
+pkill: 未识别的选项 "--remote-debugging-port=19825 --user-data-dir=/home/clawd/.bb-browser/browser/user-data"
+pgrep: 未识别的选项 "--remote-debugging-port=19825 --user-data-dir=/home/clawd/.bb-browser/browser/user-data"
+```
+
+### Context
+- Command/operation attempted: 重启 bb-browser 使用的 Chrome 调试实例
+- Input or parameters used: `pkill -TERM -f "--remote-debugging-port=19825 --user-data-dir=/home/clawd/.bb-browser/browser/user-data"`
+- Environment details: Ubuntu procps-ng；模式字符串以 `--` 开头
+
+### Suggested Fix
+优先使用 Python 遍历 `/proc/*/cmdline` 按子串匹配并发信号，避免依赖 pkill/pgrep 对 `--` 开头模式的歧义处理；若继续用 pkill/pgrep，必须验证 `--` 分隔在目标环境下是否可靠。
+
+### Metadata
+- Reproducible: yes
+- Related Files: /home/clawd/.openclaw/workspace/.learnings/ERRORS.md
+
+---
+

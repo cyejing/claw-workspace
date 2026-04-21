@@ -69,3 +69,51 @@ For future review of scoring in news-hotspots output JSON, map terms explicitly:
 - Tags: correction, process-audit, chrome, next-server, openclaw-gateway
 
 ---
+## [LRN-20260420-002] correction
+
+**Logged**: 2026-04-20T16:10:00+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+browser-restart 技能中的 Chrome profile 路径必须写死为 `/home/clawd/.cache/chrome`，不要暴露成可选参数。
+
+### Details
+用户明确要求“必须使用 --user-data-dir /home/clawd/.cache/chrome 应该写死到脚本里”。这说明该技能依赖固定 profile 中的登录态、cookie、扩展和页面环境；把 `user-data-dir` 做成参数会引入不一致状态，影响 bb-browser 抓取稳定性。
+
+### Suggested Action
+后续维护 browser-restart 技能时：
+- 在脚本中固定 `--user-data-dir=/home/clawd/.cache/chrome`
+- 不要再提供 `--user-data-dir` CLI 参数
+- 在 SKILL.md 和测试说明里同步写明这是固定约束
+
+### Metadata
+- Source: user_feedback
+- Related Files: /home/clawd/.openclaw/workspace/skills/browser-restart/scripts/restart_browser.py, /home/clawd/.openclaw/workspace/skills/browser-restart/SKILL.md
+- Tags: correction, browser-restart, chrome-profile, bb-browser
+
+---
+## [LRN-20260420-001] correction
+
+**Logged**: 2026-04-20T15:21:17.418275+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+涉及 bb-browser 管理的 Chrome 实例时，应优先使用 bb-browser skill，而不是直接用通用 shell 重启进程。
+
+### Details
+用户指出“重启 chrome 应该使用这个技能去完成”。这说明当前工作流应先检查是否存在专用 skill/工具链可安全管理浏览器生命周期。直接用 shell 虽然完成了重启，但绕过了更合适的 skill 入口，不够规范，也可能漏掉 skill 内封装的状态处理或约束。
+
+### Suggested Action
+后续凡是浏览器实例由 bb-browser 提供或关联，优先读取并遵循 bb-browser 的 SKILL.md，再决定是否需要底层命令作为兜底。
+
+### Metadata
+- Source: user_feedback
+- Related Files: /home/clawd/.openclaw/workspace/.learnings/LEARNINGS.md
+- Tags: correction, bb-browser, workflow
+
+---
+
