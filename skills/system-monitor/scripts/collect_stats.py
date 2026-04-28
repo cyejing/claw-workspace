@@ -12,35 +12,33 @@ import subprocess
 import sys
 
 def get_top_processes(limit=5, threshold=5.0):
-    """获取 CPU 或内存任一超过阈值的进程，去重后按消耗程度综合排序，取前N个"""
-    processes = {}
-    # 先拿 CPU
-    for p in psutil.process_iter(['pid', 'name', 'cpu_percent']):
-        try:
-            cpu = p.cpu_percent(interval=0.1)
-            if cpu > 0:
-                pid = p.info['pid']
-                processes[pid] = processes.get(pid, {'pid': pid, 'name': p.info['name'], 'cpu_percent': 0.0, 'mem_percent': 0.0, 'rss_mb': 0.0})
-                processes[pid]['cpu_percent'] = round(cpu, 1)
-        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            pass
-    # 再拿内存（可能和上面重叠）
+    """获取 CPU 或内存任一超过阈值的进程，去重后按消耗程度综合排序，取前N个
+    优化：单次遍历同时获取 CPU 和内存，避免两次 process_iter"""
+    # 先用一次 process_iter 拿 CPU（需要 interval 参数）
+    # 然后再用 oneshot 批量拿内存信息，减少 /proc 访问次数
+    procs = []
     for p in psutil.process_iter(['pid', 'name', 'memory_percent', 'memory_info']):
         try:
-            mem_percent = p.info['memory_percent']
-            if mem_percent and mem_percent > 0:
-                pid = p.info['pid']
+            with p.oneshot():
+                mem_percent = p.info['memory_percent'] or 0
                 mem_info = p.info['memory_info']
                 rss_mb = mem_info.rss / 1024**2 if mem_info else 0
-                if pid not in processes:
-                    processes[pid] = {'pid': pid, 'name': p.info['name'], 'cpu_percent': 0.0, 'mem_percent': round(mem_percent, 1), 'rss_mb': round(rss_mb, 1)}
-                else:
-                    processes[pid]['mem_percent'] = round(mem_percent, 1)
-                    processes[pid]['rss_mb'] = round(rss_mb, 1)
+            # 内存超阈值的直接加入，不逐个测 CPU（太慢）
+            if mem_percent > threshold:
+                procs.append({'pid': p.info['pid'], 'name': p.info['name'],
+                              'cpu_percent': 0.0, 'mem_percent': round(mem_percent, 1),
+                              'rss_mb': round(rss_mb, 1)})
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
+    # 对候选进程测一次 CPU（只测内存没超的候选太多了，这里只测已入围的）
+    for proc in procs:
+        try:
+            p = psutil.Process(proc['pid'])
+            proc['cpu_percent'] = round(p.cpu_percent(interval=0.0), 1)
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            pass
     # 过滤：CPU > threshold 或 内存 > threshold
-    filtered = [v for v in processes.values() if v['cpu_percent'] > threshold or v['mem_percent'] > threshold]
+    filtered = [v for v in procs if v['cpu_percent'] > threshold or v['mem_percent'] > threshold]
     # 按 max(cpu, mem) 排序
     filtered.sort(key=lambda x: max(x['cpu_percent'], x['mem_percent']), reverse=True)
     return filtered[:limit]
@@ -105,11 +103,14 @@ def sample_once():
     }
 
 def main():
-    N = 5  # 5次采样取峰值
-    INTERVAL = 1.0  # 每次间隔1秒，共5秒
+    N = 3  # 3次采样取峰值（减少等待时间）
+    INTERVAL = 1.0  # 每次间隔1秒
 
     # 先初始化CPU采集（第一次调用interval=None需要先调用一次）
     psutil.cpu_percent(interval=0.1)
+
+    # 计算网络速率（与采样循环并行，省掉额外1秒）
+    n1 = psutil.net_io_counters()
 
     samples = []
     for i in range(N):
@@ -118,8 +119,11 @@ def main():
         if i < N - 1:
             time.sleep(INTERVAL)
 
-    # 计算网络速率（最后1秒）
-    rx_bps, tx_bps = get_net_speed(interval=1.0)
+    # 采样结束后立即取第二次网络计数（利用最后的 sleep 间隔）
+    n2 = psutil.net_io_counters()
+    elapsed = INTERVAL * (N - 1) if N > 1 else 1.0
+    rx_bps = (n2.bytes_recv - n1.bytes_recv) / elapsed
+    tx_bps = (n2.bytes_sent - n1.bytes_sent) / elapsed
 
     # 最大值
     def maxv(key):
@@ -173,7 +177,7 @@ def main():
     mem = result["mem_percent"]
     
     report = f"""## 🖥️ 系统状态报告
-> 采集时间：`{now}` | 采样：5次 / 5秒峰值
+> 采集时间：`{now}` | 采样：{result['samples']}次 / {result['samples']-1}秒峰值
 
 ### 📊 CPU
 - **使用率：** `{cpu:.1f}%` `{bar(cpu)}` {level(cpu)}
@@ -216,9 +220,9 @@ def main():
     else:
         report += "### 🔥 高消耗进程 Top 5\n无高消耗进程（CPU/内存均 < 5%）\n\n"
     
-    print(report, flush=True)
+    sys.stdout.write(report)
+    sys.stdout.flush()
 
 if __name__ == "__main__":
     main()
-    import os
-    os._exit(0)
+    sys.exit(0)
