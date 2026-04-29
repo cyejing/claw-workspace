@@ -1,24 +1,11 @@
 ---
 name: online-search
 description: |
-  联网搜索工具。通过天集 ProSearch 搜索引擎获取实时互联网信息。
-  使用场景：
-  - 用户说 "搜一下"、"帮我搜索"、"查一下"
-  - 用户说 "最近/最新的XXX是什么"、"现在XXX怎么样了"
-  - 用户问 "XXX是多少"、"XXX价格"、"XXX什么时候"
-  - 用户需要实时信息：天气、股价、新闻、赛事比分、汇率等
-  - 用户说 "网上有什么关于XXX的信息"
-  - 用户问某个事件的最新进展
-  - 用户需要验证某个事实或数据
-  - 用户说 "search for"、"look up"、"find out"
-  - 当 OpenClaw 无法确认某个事实且该事实可通过搜索引擎验证时
-  - 当用户的问题涉及 OpenClaw 训练数据截止日期之后的事件时
+  元宝搜索标准版工具。是腾讯元宝的联网搜索服务，提供实时、精准的互联网内容检索能力。
+  核心特性：覆盖大量中文网站，包括官方媒体、政府网站等高权威性来源，以及腾讯系核心内容资源。多层精调排序策略，提供准确的内容匹配和排序。
 metadata:
   openclaw:
     emoji: "🔍"
-    requires:
-      bins:
-        - curl
 ---
 
 # 联网搜索工具 (ProSearch)
@@ -27,26 +14,26 @@ metadata:
 
 ## Setup
 
-无需额外安装依赖。搜索通过本地 HTTP 接口 `/proxy/prosearch` 完成，鉴权由后台网关自动处理（基于用户登录态），无需手动配置凭证。
+无需额外安装依赖。搜索通过 Node.js 脚本 `<SCRIPT_PATH>/scripts/prosearch.cjs` 调用本地 HTTP 接口 `/proxy/prosearch` 完成，鉴权由后台网关自动处理（基于用户登录态），无需手动配置凭证。
 
 ---
 
 ## Workflow
 
-OpenClaw uses this skill whenever the user needs real-time information from the internet.
+QClaw uses this skill whenever the user needs real-time information from the internet.
 
 ### Complete flow
 
 ```
 User asks a question requiring real-time information
   → Step 1: Determine search keyword (concise, specific)
-  → Step 1.5: Determine time freshness — add from_time if recency matters
-  → Step 2: Call search API via curl
+  → Step 1.5: Determine time freshness — add from_time/to_time if recency matters
+  → Step 2: Call search API via node script
   → Step 3: Output the `message` field from JSON response VERBATIM (search result items with clickable links) — NEVER skip this
   → Step 4: Add analysis/summary after the result items (optional)
 ```
 
-> **CRITICAL — Anti-hallucination design**: The search API returns a pre-rendered `message` field containing the complete formatted search results (titles as clickable hyperlinks, snippets, URLs, sources). **OpenClaw MUST output `message` verbatim as the primary search results — NEVER skip the result items.** OpenClaw may then add analysis or summary AFTER the verbatim results, but must NOT fabricate or modify any URLs or source information.
+> **CRITICAL — Anti-hallucination design**: The search API returns a pre-rendered `message` field containing the complete formatted search results (titles as clickable hyperlinks, snippets, URLs, sources). **QClaw MUST output `message` verbatim as the primary search results — NEVER skip the result items.** QClaw may then add analysis or summary AFTER the verbatim results, but must NOT fabricate or modify any URLs or source information.
 
 ### Step 1: Determine search keyword
 
@@ -68,90 +55,77 @@ Convert the user's question into an effective search keyword:
 
 ### Step 1.5: Determine time freshness (IMPORTANT for recency)
 
-**When the user's question implies recency**, OpenClaw MUST add `from_time` to the search request to filter out stale results. This is critical for improving search result freshness.
+**When the user's question implies recency**, QClaw MUST add `--freshness` 参数 to the search request to filter out stale results. This is critical for improving search result freshness.
 
 **Time freshness decision table:**
 
-| User intent signal | `from_time` value | Example |
+| User intent signal | `--freshness` value | Example |
 |---|---|---|
-| "今天"、"today"、"刚刚" | Current time − 24 hours | Stock price today |
-| "最近"、"最新"、"recently"、"latest" | Current time − 7 days | Latest AI news |
-| "这周"、"this week" | Current time − 7 days | This week's events |
-| "这个月"、"this month" | Current time − 30 days | This month's policy |
-| "今年"、"2026年" | January 1st of the year | 2026 events |
-| No time signal (general facts) | Do NOT add `from_time` | "What is React?" |
+| "今天"、"today"、"刚刚" | `--freshness=24h` | Stock price today |
+| "最近"、"最新"、"recently"、"latest" | `--freshness=7d` | Latest AI news |
+| "这周"、"this week" | `--freshness=7d` | This week's events |
+| "这个月"、"this month" | `--freshness=30d` | This month's policy |
+| "今年"、"2026年" | `--freshness=1y` | 2026 events |
+| No time signal (general facts) | 不加 `--freshness` | "What is React?" |
 
-**How to compute `from_time` in bash:**
+**`--freshness` 快捷参数**：脚本内部自动计算 `from_time`/`to_time` 时间戳，**无需手动计算**。
 
-```bash
-# Last 24 hours (for "今天"、"today")
-FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 86400)")
+支持的值：
+- `--freshness=24h` 或 `--freshness=1d` → 最近 24 小时
+- `--freshness=7d` → 最近 7 天
+- `--freshness=30d` → 最近 30 天
+- `--freshness=1y` → 最近 1 年
 
-# Last 7 days (for "最近"、"最新"、"this week")
-FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 604800)")
-
-# Last 30 days (for "这个月"、"this month")
-FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 2592000)")
-```
-
-> **⚠️ 互斥规则**: 当使用 `from_time`/`to_time` 时，**不要传 `cnt` 参数**，它们存在互斥逻辑。服务端会自动处理此互斥关系。
+> **⚠️ 互斥规则**: `--freshness`（或 `--from_time`/`--to_time`）与 `--cnt` 互斥，不能同时使用。
 
 ### Step 2: Search
 
-```bash
-PORT=${AUTH_GATEWAY_PORT:-19000}
-PPID_VAL=$(python3 -c "import os; print(os.getppid())")
-echo "[OpenClaw] Parent PID: $PPID_VAL"
+> **所有平台统一使用 `--key=value` 参数模式**，macOS / Linux / Windows 命令完全一致，无需区分操作系统。
 
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"搜索关键词"}'
+```bash
+# 基础搜索
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词
 ```
 
-**⏰ Freshness search (RECOMMENDED for time-sensitive queries):**
+**⏰ Freshness search — 使用 `--freshness` 快捷参数（脚本自动计算时间戳）:**
 
 ```bash
-# 搜索最近 7 天的结果（适用于"最新"、"最近"类查询）
-FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 604800)")
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d "{\"keyword\":\"搜索关键词\",\"from_time\":$FROM_TIME}"
-
 # 搜索最近 24 小时的结果（适用于"今天"、"刚刚"类查询）
-FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 86400)")
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d "{\"keyword\":\"搜索关键词\",\"from_time\":$FROM_TIME}"
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词 --freshness=24h
+
+# 搜索最近 7 天的结果（适用于"最新"、"最近"类查询）
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词 --freshness=7d
+
+# 搜索最近 30 天的结果（适用于"这个月"类查询）
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词 --freshness=30d
 ```
 
 **With optional parameters:**
 
 ```bash
-# 指定返回数量 (10/20/30/40/50) — ⚠️ 不能与 from_time/to_time/site 同时使用
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"搜索关键词","cnt":20}'
+# 指定返回数量 (10/20/30/40/50) — ⚠️ 不能与 --freshness/--site 同时使用
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词 --cnt=20
 
-# 指定时间范围 — 动态计算最近 7 天（⚠️ 不要同时传 cnt）
-FROM_TIME=$(python3 -c "import time; print(int(time.time()) - 604800)")
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d "{\"keyword\":\"搜索关键词\",\"from_time\":$FROM_TIME}"
-
-# 站内搜索（⚠️ 不要同时传 cnt）
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"搜索关键词","site":"github.com"}'
+# 站内搜索（⚠️ 不要同时传 --cnt）
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词 --site=github.com
 
 # 垂类搜索 (gov/news/acad)
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"搜索关键词","industry":"news"}'
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=搜索关键词 --industry=news
+
+# 获取 VR 卡数据（天气、金价等）
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=今日黄金价格 --mode=2
+
+# 组合：新闻类 + 最近 24 小时
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=国内最新新闻 --freshness=24h --industry=news
 ```
+
+> **关键词含空格时**：用双引号包裹值部分，如 `--keyword="React 19 features"`
+>
+> **`--freshness` 和 `--cnt` 互斥**，不能同时使用。也可用 `--from_time=秒级时间戳 --to_time=秒级时间戳` 精确指定时间范围。
 
 ### Step 3: Output search results — ALWAYS show result items with clickable links, then add analysis
 
-搜索接口返回 JSON 后，OpenClaw **必须** 按以下固定格式输出，**不可省略任何部分**：
+搜索接口返回 JSON 后，QClaw **必须** 按以下固定格式输出，**不可省略任何部分**：
 
 #### Part A: 搜索结果条目展示 [MANDATORY — 不可跳过]
 
@@ -162,11 +136,11 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
    摘要内容...
 ```
 
-> ⚠️ **CRITICAL**: OpenClaw **每次搜索都必须展示搜索结果条目列表**（最多 5 条），绝对不允许跳过结果条目直接输出总结。`message` 中的标题已经是 `[标题](url)` 格式的超链接，用户可以直接点击跳转到原文页面。
+> ⚠️ **CRITICAL**: QClaw **每次搜索都必须展示搜索结果条目列表**（最多 5 条），绝对不允许跳过结果条目直接输出总结。`message` 中的标题已经是 `[标题](url)` 格式的超链接，用户可以直接点击跳转到原文页面。
 
 #### Part B: 分析总结 [OPTIONAL — 在结果条目之后]
 
-输出完 `message` 后，OpenClaw **可以** 基于搜索结果对用户的问题给出分析和回答。
+输出完 `message` 后，QClaw **可以** 基于搜索结果对用户的问题给出分析和回答。
 
 **🌐 Response language rule [IMPORTANT]**: Match the language of your analysis/summary to the **keyword language**:
 - If the search keyword is **English** → write your analysis and summary in **English**
@@ -179,7 +153,7 @@ curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
 ```
 JSON 返回: {"success": true, "message": "搜索「今日白银价格」找到 10 条结果，展示前 5 条：\n\n**1. [今日白银价格行情](https://example.com/silver)** — 今日头条 (2026-03-22 04:13:11) ⭐\n   今日白银价格22.4元/克...\n\n**2. [白银实时走势](https://example.com/silver2)** — 金投网 (2026-03-22)\n   国际银价 88.23美元/盎司...\n\n**3. ...**\n\n**4. ...**\n\n**5. ...**\n\n> 还有 5 条结果未展示，完整数据已包含在搜索结果中供分析使用。", ...}
 
-OpenClaw 输出:
+QClaw 输出:
 
 搜索「今日白银价格」找到 10 条结果，展示前 5 条：
 
@@ -215,53 +189,19 @@ OpenClaw 输出:
 
 ---
 
-## PORT 获取方式
+## 脚本说明
 
-所有 HTTP 请求中的 `PORT` 从环境变量 `AUTH_GATEWAY_PORT` 获取，该变量由 Electron 主进程在启动 Auth Gateway 时自动设置，子进程会自动继承。
+搜索通过 Node.js 脚本 `<SCRIPT_PATH>/scripts/prosearch.cjs` 完成，替代 curl 命令，解决 Windows 环境下的 UTF-8 编码问题。
 
-**macOS / Linux (bash):**
+- **端口获取**：脚本内部自动从环境变量 `AUTH_GATEWAY_PORT` 读取端口（默认 `19000`），无需手动获取
+- **编码处理**：Node.js 原生 UTF-8 支持，不依赖系统 code page
+- **错误处理**：超时、网络错误等均返回标准 JSON 格式 `{"success": false, "message": "..."}`
+- **跨平台**：所有平台统一使用 `--key=value` 参数模式，macOS / Linux / Windows 命令完全一致
+- **`--freshness` 快捷参数**：支持 `24h`/`7d`/`30d`/`1y`，脚本内部自动计算 `from_time`/`to_time` 时间戳，无需手动计算
 
-```bash
-PORT=${AUTH_GATEWAY_PORT:-19000}
-echo "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
-```
-
-**Windows (PowerShell):**
-
-```powershell
-$PORT = if ($env:AUTH_GATEWAY_PORT) { $env:AUTH_GATEWAY_PORT } else { "19000" }
-Write-Host "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
-```
-
-**Windows (CMD):**
-
-```cmd
-if not defined AUTH_GATEWAY_PORT set AUTH_GATEWAY_PORT=19000
-set PORT=%AUTH_GATEWAY_PORT%
-echo [OpenClaw] AUTH_GATEWAY_PORT: %PORT%
-```
-
-> **说明**：`AUTH_GATEWAY_PORT` 环境变量由 Electron 主进程自动注入，子进程（包括 OpenClaw）启动时自动继承。若环境变量未设置，则回退到默认端口 `19000`。
-
-## 父进程 ID 获取方式
-
-在执行 curl 命令前，获取当前进程的父进程 ID 并打印到控制台。
-
-**macOS / Linux (bash):**
-
-```bash
-PPID_VAL=$(python3 -c "import os; print(os.getppid())")
-echo "[OpenClaw] Parent PID: $PPID_VAL"
-```
-
-**Windows (PowerShell):**
-
-```powershell
-$PPID_VAL = python -c "import os; print(os.getppid())"
-Write-Host "[OpenClaw] Parent PID: $PPID_VAL"
-```
-
-> **说明**：使用 `python/python3` 的 `os.getppid()` 获取父进程 ID，跨平台兼容。打印格式为 `[OpenClaw] Parent PID: <ppid>`，便于日志追踪。
+> **说明**：`AUTH_GATEWAY_PORT` 环境变量由 Electron 主进程自动注入，子进程（包括 OpenClaw）启动时自动继承。脚本内部已处理默认值回退。
+>
+> 脚本也向后兼容 JSON 参数模式（如 `'{"keyword":"xxx"}'`），但 **`--key=value` 是推荐且唯一在文档中展示的用法**。
 
 ---
 
@@ -303,39 +243,29 @@ Content-Type: application/json
 
 > **注意**：`cnt` 参数和 `site`、`from_time`/`to_time` 参数存在互斥逻辑，不能同时使用。如需使用 `site` 或时间过滤，不要传 `cnt` 参数。
 
-**Examples:**
+**Examples（所有平台通用）:**
 
 ```bash
-# macOS / Linux: 获取 PORT 和父进程 ID
-PORT=${AUTH_GATEWAY_PORT:-19000}
-echo "[OpenClaw] AUTH_GATEWAY_PORT: $PORT"
-PPID_VAL=$(python3 -c "import os; print(os.getppid())")
-echo "[OpenClaw] Parent PID: $PPID_VAL"
-
 # 基础搜索
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"最新AI新闻"}'
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=最新AI新闻
 
-# 搜索更多结果
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"React 19 features","cnt":20}'
+# 搜索更多结果（关键词含空格时用双引号包裹值）
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword="React 19 features" --cnt=20
 
 # 搜索新闻类网站
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"2026年两会","industry":"news"}'
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=2026年两会 --industry=news
 
 # GitHub 站内搜索
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"electron vite template","site":"github.com"}'
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword="electron vite template" --site=github.com
 
 # 获取 VR 卡数据（天气、金价等）
-curl -s -X POST http://localhost:$PORT/proxy/prosearch/search \
-  -H 'Content-Type: application/json' \
-  -d '{"keyword":"今日黄金价格","mode":2}'
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=今日黄金价格 --mode=2
+
+# 搜索最近 7 天结果（时效性查询）
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=最新AI新闻 --freshness=7d
+
+# 搜索最近 24 小时 + 新闻类
+node '<SCRIPT_PATH>/scripts/prosearch.cjs' --keyword=国内最新新闻 --freshness=24h --industry=news
 ```
 
 **Output (JSON):**
@@ -365,7 +295,7 @@ When search **succeeds**:
 }
 ```
 
-> **CRITICAL — `message` field (Anti-hallucination)**: The `message` field contains the **complete, pre-rendered search results** formatted with titles (as clickable `[title](url)` hyperlinks), snippets, URLs, and sources. **OpenClaw MUST output `message` verbatim** as the primary search results display — **NEVER skip the result items and jump straight to a summary.** OpenClaw may then add its own analysis or answer AFTER outputting the message. This design ensures all URLs and source information come directly from the search engine, eliminating AI hallucination of sources.
+> **CRITICAL — `message` field (Anti-hallucination)**: The `message` field contains the **complete, pre-rendered search results** formatted with titles (as clickable `[title](url)` hyperlinks), snippets, URLs, and sources. **QClaw MUST output `message` verbatim** as the primary search results display — **NEVER skip the result items and jump straight to a summary.** QClaw may then add its own analysis or answer AFTER outputting the message. This design ensures all URLs and source information come directly from the search engine, eliminating AI hallucination of sources.
 
 When search **fails**:
 
@@ -417,11 +347,11 @@ When search **fails**:
 
 - 用户问的问题如果你已经有把握回答，**不需要搜索**。只在需要实时信息或你不确定的事实时才搜索
 - 搜索关键词要简洁有效，不要把用户的整句话当关键词
-- **时效性搜索策略 [IMPORTANT]**：当用户的问题涉及时效性（如"最新"、"今天"、"最近"、"现在"），**必须使用 `from_time` 参数**限制搜索时间范围，否则搜索引擎可能返回过时的结果。参见 Step 1.5 的时间判断表
+- **时效性搜索策略 [IMPORTANT]**：当用户的问题涉及时效性（如"最新"、"今天"、"最近"、"现在"），**必须使用 `--freshness` 参数**限制搜索时间范围，否则搜索引擎可能返回过时的结果。参见 Step 1.5 的时间判断表
 - 如果第一次搜索没有理想结果，可以换个关键词重试一次（最多重试 1 次）
-- 搜索结果中的链接直接来自互联网，OpenClaw 应提醒用户自行验证重要信息
-- `message` 原样输出后，OpenClaw 可以基于搜索结果给出自己的分析和总结
+- 搜索结果中的链接直接来自互联网，QClaw 应提醒用户自行验证重要信息
+- `message` 原样输出后，QClaw 可以基于搜索结果给出自己的分析和总结
 - 对于需要 VR 卡数据的查询（天气、金价、汇率等），建议使用 `mode: 2` 获取混合结果
-- **`message` 先原样输出 [CRITICAL]**：搜索接口返回的 `message` 字段包含完整的格式化搜索结果（标题为可点击超链接）。OpenClaw **必须先原样输出 `message`**，展示所有搜索结果条目，然后才可以添加自己的分析。**绝不允许跳过结果条目直接给总结**。这是防止 AI 幻觉的核心机制
-- **`cnt` 互斥规则**：`cnt` 参数和 `site`、`from_time`/`to_time` 参数存在互斥逻辑，不能同时使用。当需要时间过滤或站内搜索时，不要传 `cnt`
-- **回答语言匹配 [IMPORTANT]**：OpenClaw 在输出搜索分析和总结时，**必须匹配搜索关键词的语言**。英文关键词用英文回答，中文关键词用中文回答。`message` 字段始终原样输出不受此规则影响
+- **`message` 先原样输出 [CRITICAL]**：搜索接口返回的 `message` 字段包含完整的格式化搜索结果（标题为可点击超链接）。QClaw **必须先原样输出 `message`**，展示所有搜索结果条目，然后才可以添加自己的分析。**绝不允许跳过结果条目直接给总结**。这是防止 AI 幻觉的核心机制
+- **`cnt` 互斥规则**：`--cnt` 参数和 `--site`、`--freshness`（或 `--from_time`/`--to_time`）参数存在互斥逻辑，不能同时使用。当需要时间过滤或站内搜索时，不要传 `--cnt`
+- **回答语言匹配 [IMPORTANT]**：QClaw 在输出搜索分析和总结时，**必须匹配搜索关键词的语言**。英文关键词用英文回答，中文关键词用中文回答。`message` 字段始终原样输出不受此规则影响
