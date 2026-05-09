@@ -23,3 +23,31 @@
 - 完成任务需要记录的临时文件应该放到 temp 目录下
 
 ---
+
+## Promoted From Short-Term Memory (2026-04-29)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-21.md:3:6 -->
+- 1. `daily*.md` / `daily*.json` 顶部 summary 的 `fail=` 计数与新 meta（如 `twitter1.meta.json` 的 `failed_calls=1`）不一致，优先查 `scripts/merge-hotspots.py` 对 source overview / meta 选择或 summary 拼接逻辑 2. `local_extra_score` 仅参考、不参与 `final_score` 的语义尚未透传到最终对外产物，需覆盖 `merge-hotspots.py` / `daily*.json` / Markdown 输出链路 3. 修复入口以 `scripts/merge-hotspots.py` 为主，并同步补 `tests/test_hotspots.py` 回归用例 ## Light Sleep <!-- openclaw:dreaming:light:start --> - Candidate: 2026-04-21 新会话开始: 时间：Tuesday, April 21st, 2026 - 00:57 (Asia/Shanghai); 从 2026-04-20 的 pre-compaction 状态接续（session 已被压缩，context 从 summary 恢复）; workspace bootstrap 文件（SOUL.md / USER.md / MEMORY.md / AGENTS.md / TOOLS.md / IDENTITY.md / HEARTBEAT.md）均未变更，内容与上一 session 相同; 本 session [score=0.845 recalls=0 avg=0.620 source=memory/2026-04-21.md:9-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-21.md:10:12 -->
+- ## Light Sleep <!-- openclaw:dreaming:light:start --> - Candidate: 2026-04-21 新会话开始: 时间：Tuesday, April 21st, 2026 - 00:57 (Asia/Shanghai); 从 2026-04-20 的 pre-compaction 状态接续（session 已被压缩，context 从 summary 恢复）; workspace bootstrap 文件（SOUL.md / USER.md / MEMORY.md / AGENTS.md / TOOLS.md / IDENTITY.md / HEARTBEAT.md）均未变更，内容与上一 session 相同; 本 session - confidence: 0.62 - evidence: memory/2026-04-21.md:3-6 - recalls: 0 - status: staged - Candidate: 待跟进尾巴（来自 2026-04-20 的 news-hotspots 修复）: `daily*.md` / `daily*.json` 顶部 summary 的 `fail=` 计数与新 meta（如 `twitter1.meta.json` 的 `failed_calls=1`）不一致，优先查 `scripts/merge-hotspots.py` 对 source overview / meta 选择或 summary 拼接逻辑; `local_extra_score` 仅参考、不参与 `final_score` 的语义尚未透传到最终对外产物，需覆 [score=0.845 recalls=0 avg=0.620 source=memory/2026-04-21.md:14-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-21.md:192:194 -->
+- - Candidate: Possible Lasting Truths: 老板新增偏好：长任务/异步任务完成后，若完成通知被静默，需要主动补一句简短回执；若未静默，则直接发送原始结果，不重复补发。 [confidence=0.58 evidence=memory/2026-04-13.md:1-1]; 系统监控脚本修复: 问题：system-monitor 脚本执行后被 SIGKILL 杀死; 原因：exec session 处理 stdout 有问题，脚本内 sleep 会导致 session 卡住; 解决：脚本末尾使用 `os._exit(0)` 强制退出，通过 backg - confidence: 0.62 - evidence: memory/2026-04-20.md:199-201 [score=0.840 recalls=0 avg=0.620 source=memory/2026-04-21.md:31-33]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-22.md:89:91 -->
+- - Candidate: Possible Lasting Truths: 老板新增偏好：长任务/异步任务完成后，若完成通知被静默，需要主动补一句简短回执；若未静默，则直接发送原始结果，不重复补发。 [confidence=0.58 evidence=memory/2026-04-13.md:1-1]; 系统监控脚本修复: 问题：system-monitor 脚本执行后被 SIGKILL 杀死; 原因：exec session 处理 stdout 有问题，脚本内 sleep 会导致 session 卡住; 解决：脚本末尾使用 `os._exit(0)` 强制退出，通过 backg - confidence: 0.62 - evidence: memory/2026-04-21.md:192-194 [score=0.840 recalls=0 avg=0.620 source=memory/2026-04-22.md:18-20]
+
+## Promoted From Short-Term Memory (2026-04-30)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-24.md:419:421 -->
+- - Candidate: Possible Lasting Truths: 2026-04-16 会话记录: `~/.openclaw/openclaw.json` 已写入 `session.maintenance`：`mode=enforce`、`pruneAfter=7d`、`maxEntries=80`、`rotateBytes=10mb`。; `plugins.entries.memory-core.config.dreaming.enabled` 已改为 `false`，关闭 dreaming。; Node.js 内存上限已为 gateway 设置为 1GB，配置位置是 - confidence: 0.62 - evidence: memory/2026-04-23.md:149-151 [score=0.856 recalls=0 avg=0.620 source=memory/2026-04-24.md:8-10]
+
+## Promoted From Short-Term Memory (2026-05-01)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-25.md:419:421 -->
+- - Candidate: Possible Lasting Truths: 2026-04-16 会话记录: `~/.openclaw/openclaw.json` 已写入 `session.maintenance`：`mode=enforce`、`pruneAfter=7d`、`maxEntries=80`、`rotateBytes=10mb`。; `plugins.entries.memory-core.config.dreaming.enabled` 已改为 `false`，关闭 dreaming。; Node.js 内存上限已为 gateway 设置为 1GB，配置位置是 - confidence: 0.62 - evidence: memory/2026-04-23.md:149-151 [score=0.856 recalls=0 avg=0.620 source=memory/2026-04-25.md:298-300]
+
+## Promoted From Short-Term Memory (2026-05-02)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-04-26.md:439:441 -->
+- - Candidate: Possible Lasting Truths: 2026-04-16 会话记录: `~/.openclaw/openclaw.json` 已写入 `session.maintenance`：`mode=enforce`、`pruneAfter=7d`、`maxEntries=80`、`rotateBytes=10mb`。; `plugins.entries.memory-core.config.dreaming.enabled` 已改为 `false`，关闭 dreaming。; Node.js 内存上限已为 gateway 设置为 1GB，配置位置是 - confidence: 0.62 - evidence: memory/2026-04-24.md:419-421 [score=0.856 recalls=0 avg=0.620 source=memory/2026-04-26.md:168-170]
+<!-- openclaw-memory-promotion:memory:memory/2026-04-27.md:444:446 -->
+- - Candidate: Possible Lasting Truths: 2026-04-16 会话记录: `~/.openclaw/openclaw.json` 已写入 `session.maintenance`：`mode=enforce`、`pruneAfter=7d`、`maxEntries=80`、`rotateBytes=10mb`。; `plugins.entries.memory-core.config.dreaming.enabled` 已改为 `false`，关闭 dreaming。; Node.js 内存上限已为 gateway 设置为 1GB，配置位置是 - confidence: 0.62 - evidence: memory/2026-04-24.md:419-421 [score=0.827 recalls=0 avg=0.620 source=memory/2026-04-27.md:223-225]

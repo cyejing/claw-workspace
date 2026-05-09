@@ -1,0 +1,12 @@
+{
+  "records": [
+    {
+      "timestamp": "2026-04-29T17:29:33.915758",
+      "command": "review",
+      "input": "TSLA --quarter Q1 2026",
+      "status": "completed"
+    }
+  ],
+  "created": "2026-04-29T17:29:33.915739",
+  "tool": "earnings-tracker"
+}

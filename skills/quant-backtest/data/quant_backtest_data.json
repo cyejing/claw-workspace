@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "timestamp": "2026-04-29T15:33:45.090505",
+      "command": "backtest",
+      "input": "--strategy ma_cross --symbol TSLA --period 1y",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-04-29T15:33:51.893394",
+      "command": "report",
+      "input": "--format markdown --symbol TSLA --period 1y",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-04-29T15:33:59.886408",
+      "command": "optimize",
+      "input": "--strategy ma_cross --symbol TSLA --period 1y --fast 5-20 --slow 20-60",
+      "status": "completed"
+    }
+  ],
+  "created": "2026-04-29T15:33:45.090486",
+  "tool": "quant-backtest"
+}

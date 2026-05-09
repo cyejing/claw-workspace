@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "timestamp": "2026-04-29T17:29:54.188227",
+      "command": "compete",
+      "input": "--products Tesla,BYD,Xiaomi SU7",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-04-29T17:30:57.626686",
+      "command": "research",
+      "input": "--market Tesla electric vehicle EV competition 2026",
+      "status": "completed"
+    }
+  ],
+  "created": "2026-04-29T17:29:54.188209",
+  "tool": "market-researcher"
+}
