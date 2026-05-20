@@ -51,3 +51,10 @@
 - - Candidate: Possible Lasting Truths: 2026-04-16 会话记录: `~/.openclaw/openclaw.json` 已写入 `session.maintenance`：`mode=enforce`、`pruneAfter=7d`、`maxEntries=80`、`rotateBytes=10mb`。; `plugins.entries.memory-core.config.dreaming.enabled` 已改为 `false`，关闭 dreaming。; Node.js 内存上限已为 gateway 设置为 1GB，配置位置是 - confidence: 0.62 - evidence: memory/2026-04-24.md:419-421 [score=0.856 recalls=0 avg=0.620 source=memory/2026-04-26.md:168-170]
 <!-- openclaw-memory-promotion:memory:memory/2026-04-27.md:444:446 -->
 - - Candidate: Possible Lasting Truths: 2026-04-16 会话记录: `~/.openclaw/openclaw.json` 已写入 `session.maintenance`：`mode=enforce`、`pruneAfter=7d`、`maxEntries=80`、`rotateBytes=10mb`。; `plugins.entries.memory-core.config.dreaming.enabled` 已改为 `false`，关闭 dreaming。; Node.js 内存上限已为 gateway 设置为 1GB，配置位置是 - confidence: 0.62 - evidence: memory/2026-04-24.md:419-421 [score=0.827 recalls=0 avg=0.620 source=memory/2026-04-27.md:223-225]
+
+## Promoted From Short-Term Memory (2026-05-13)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-08.md:3:3 -->
+- Today I checked the fund purchase restrictions for three funds: [score=0.857 recalls=0 avg=0.620 source=memory/2026-05-08.md:3-3]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-08.md:8:8 -->
+- These limits represent the maximum single-day purchase amounts allowed for each fund. [score=0.857 recalls=0 avg=0.620 source=memory/2026-05-08.md:8-8]
