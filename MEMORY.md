@@ -58,3 +58,18 @@
 - Today I checked the fund purchase restrictions for three funds: [score=0.857 recalls=0 avg=0.620 source=memory/2026-05-08.md:3-3]
 <!-- openclaw-memory-promotion:memory:memory/2026-05-08.md:8:8 -->
 - These limits represent the maximum single-day purchase amounts allowed for each fund. [score=0.857 recalls=0 avg=0.620 source=memory/2026-05-08.md:8-8]
+
+## Promoted From Short-Term Memory (2026-05-27)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-22.md:6:9 -->
+- | 股票 | 当前价 | 买入价 | 涨跌幅 | |------|--------|--------|--------| | AAPL | $304.99 | $258.53 | **+17.97%** | | NVDA | $219.51 | $181.68 | **+20.82%** | [score=0.872 recalls=0 avg=0.620 source=memory/2026-05-22.md:6-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-22.md:10:13 -->
+- | TSLA | $417.85 | $348.36 | **+19.95%** | | MSFT | $419.09 | $424.16 | **-1.20%** | | AMD | $449.59 | $284.49 | **+58.03%** | | META | $607.38 | $668.84 | **-9.19%** | [score=0.872 recalls=0 avg=0.620 source=memory/2026-05-22.md:10-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-22.md:14:15 -->
+- | TSM | $407.15 | $368.08 | **+10.61%** | | MU | $762.10 | $449.38 | **+69.59%** | [score=0.872 recalls=0 avg=0.620 source=memory/2026-05-22.md:14-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-22.md:18:21 -->
+- | 基金 | 限购金额 | |------|----------| | 270042 广发纳斯达克100联接A | **每日10元** | | 017731 嘉实全球产业升级(QDII)C | **每日100元** | [score=0.822 recalls=0 avg=0.620 source=memory/2026-05-22.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-22.md:22:22 -->
+- | 018147 建信新兴市场混合(QDII)C | **每日20元** | [score=0.822 recalls=0 avg=0.620 source=memory/2026-05-22.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-22.md:24:24 -->
+- > ⚠️ QDII额度依然极度紧张，广发纳斯达克仅剩10元/天额度。 [score=0.822 recalls=0 avg=0.620 source=memory/2026-05-22.md:24-24]
