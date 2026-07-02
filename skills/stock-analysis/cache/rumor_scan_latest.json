@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-29T09:31:34.622035+00:00",
+  "timestamp": "2026-06-17T04:00:11.685097+00:00",
   "rumors": [
     {
       "source": "google_news",
@@ -7,6 +7,16 @@
       "title": "Is airline merger mania back? That's the question as United-American rumors swirl - The Points Guy",
       "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1HLVBBRjNqdFZJNFo3RXhSbTJQZ2sycDB1NlpkQUZMRXlOS2NWXzliZDdWQ0pkQ0U4SzgyV2cwMFRaa1hPSkZWRjJiTzNDTEstbGpnNnVFTW9KaGpwMWwzN3J2NGR0WERUQlEwd3hsc1U?oc=5",
       "date": "Tue, 14 Apr 2026 07:00:00 GMT",
+      "query": "merger acquisition rumor",
+      "score": 7,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Reports Suggest Sazerac in Talks With Brown-Forman Following Rumors of Pernod Merger - VinePair",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNcTRISFhfT0dWUkZ0OE96Nm42NW5xMjRndk1qVmFPcnpSeUx4aFNYTUZqZjJ2SWhNeW00YVRrdTZxVWo3ZEdyNXZGbnVOMjFwYnA4aWdvRWpKRnlWV2doX0tCRXczai1LNTN0VGc3QUVlbnFqZWpaQkloWk96Y3ZHOWJmX3hMN0RyVy1Ra0NyY1c?oc=5",
+      "date": "Thu, 09 Apr 2026 07:00:00 GMT",
       "query": "merger acquisition rumor",
       "score": 7,
       "symbols": []
@@ -24,121 +34,85 @@
     {
       "source": "google_news",
       "type": "news_rumor",
-      "title": "Accenture Song/WPP merger rumors swirl, but would it make sense? - The Drum",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTXF6R2paTVpBa2w5QkhNTVpxbmdOalRoVGg5OWs3NFRVNE1LSTEzbTFBVWxYQkNqakRkN01ENXpOekxpd0xBZ29mVnBfOXJTOVlpcGdlS3NocnZ6UnpFWWxDZC15dkc3cElia0pLS1FfWWx6dEtwRktNNDlJeTAySTlJc3M0OXh0aXAyc3pXdUs?oc=5",
-      "date": "Tue, 15 Jul 2025 07:00:00 GMT",
-      "query": "merger acquisition rumor",
-      "score": 7,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "SA analyst upgrades/downgrades: TSLA, AAPL, AMZN, INTC - Seeking Alpha",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNaUkyRzJqcnZCR1ZGdHVOZm84UUJrTGZZamdJVTlpYXVkOXhtN3hDc1dVZHFOZUZaUlBXX3Nqdi1HQTFSSlN5ak0tNlZOd2JZbTk1WFh0enltWVFadXl6ZWswelNSLVktU3hldE9XbjNTMUdYSGdKMlUtMzhfcWpJWGw5UFAzeUZMUWVHaU55MkJTQQ?oc=5",
-      "date": "Tue, 28 Apr 2026 15:44:39 GMT",
+      "title": "Palantir upgraded, Rocket Companies downgraded: Wall Street's top analyst calls - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQY1pJa04xOVBBSTVLUG90cGlGSHdHck02TzNlbGpLZFNEbENqbWVkblpOQWI1c3JjcHktS0YtMVExV3hpU0txR0M2Mk1Wc1I4QTdsMWI0VE9IWlE4aC1oZnVLR2dzR1pGVkdHT1c3RjhMVGFYb3FPM0xkXzRid1o5QzZZRC0zeFZQYnp5SEs2RHllZGExNE1ySmFhQXhybE1OR2tpUWQ3X2VwWU1mMVJv?oc=5",
+      "date": "Tue, 16 Jun 2026 13:40:18 GMT",
       "query": "analyst upgrade stock",
       "score": 6,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Tuesday\u2019s analyst upgrades and downgrades - The Globe and Mail",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPYmdqaHd4QU1MdkgxbTd6dXFHQXhLWGt6eGdZTG80WXQ3cFdSbVNYX3J2VVBocWlwQUIzLU9RRV9aM1Q5NnFTakhGR0dvV3NEWUktQ2F1UDY5eXFOeWFHcVlpaGZpNlZjTURiWVJJbUFzZHlSQUZtYVhkV2VPRDZaZXRtdlQ1N0ljQzB1U1E5SDdFc3pPY0I3blh1dVczd1EyQVVxRUZIU3k3THpoYUVUV0R0d2ZSVW95dlllb09R?oc=5",
-      "date": "Tue, 28 Apr 2026 10:54:19 GMT",
-      "query": "analyst upgrade stock",
-      "score": 6,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Denso withdraws takeover bid for Rohm after failing to win support - Japan Today",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTnA2anBCT1N6VFJmdUR3dmtIX3BYeFduamFhaXpQR3Jsa2VDVG5TWVBxUXd4bi1KX3JNeGxVenNqaGVZRnVZd3Q5c3d1T2RBY3F3NDVOcE9uVlJQR0ZvdU0xYXltTUY2YTJ3WEVwSGxrLWYxUDAyZHlsTjFTNEN1amJXUm44YjhqdmotSjUyT1EwaTlxUnluMjF0czNQeW81RW9GcEJJbWt4alU?oc=5",
-      "date": "Tue, 28 Apr 2026 21:00:00 GMT",
-      "query": "takeover bid company",
-      "score": 5,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "oOh!media shares rally after receiving takeover bid from Pacific Equity Partners - Capital Brief",
-      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPTGJVaDFMd3BxcGFDc0dIYzdlbDROazZiSjJma1JXVGE4UWNYWEJEb1I4dDZfMDFPaXRxTnBRcW4xOEN4RFlxNnVBNUJ2ZE00b2wycElDV0R5MkNEblJCSnRYSmllUjhoTHZKQ1EwNTBJRkdLTGQwZ01rOUZ4OXJ4M3h6aFZTd3QzaG5PSGRsSUNtOHNzSHJoSXVpNmQ3LW1wNjBHVVpKNG9OM0F6RjFZcHU0YU9Gd0RyTmJRVExDVGlRb2swVTZDMy0tVkMzU3VWSVA4Tw?oc=5",
-      "date": "Wed, 29 Apr 2026 04:07:00 GMT",
-      "query": "takeover bid company",
-      "score": 5,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Organon (OGN) Takeover Bid Climbs to $13B, Shares Soar 30.9% - Yahoo Finance",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNdFdraDJJY19UUU44bE5kWUUzOXJhX2Ixb1BVaDVpU2lQemxDVUFYV24tNVNGcEtEeEZIbnJiMEpPeXQzNXhyemZVYmpHWVNwZ2ZVSFFoYm4tclUzdW91SjRZZ09nWlZ1QTRGOWR5ejZPRWlnaHhRcmYtOXBfajk3ME52N29BaXJHaWJ1NDVkVnJhMWRfNXlBa2V4dWo?oc=5",
-      "date": "Sat, 25 Apr 2026 02:00:00 GMT",
-      "query": "takeover bid company",
-      "score": 5,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Business - Warner Bros. shareholders set to vote on Paramount takeover bid - France 24",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPS2FTVkhnci1DVHFibnFIWGdCZnJmTHlnOHZVME9uUm5kRmwzU2c3U1lkRl9ldVRfdWIyZUZwZlNLLXhBLXAwRC15RTk1MFNyMFJqSjg2Umh1VDF2RE9KcU4xbERJLUl5QW1zSHZxWXBDd0JTWTJ0TEVqS2xMeUQtdDNsS3ZPelUtN1NOcWNkRWVCNUdWdVpLOFF4cmFIMDJZSDdZT2tzOXpibnlHOEhGQVFObDdMMTJ5?oc=5",
-      "date": "Thu, 23 Apr 2026 09:54:38 GMT",
-      "query": "takeover bid company",
-      "score": 5,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "UK's Intertek rejects $11.2 billion buyout bid from EQT - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxORzdZVHJGQzR5U1Z2aWFyRHZTcnc4cEplUURPMjdCMk54Q3pfeVF3ajZueDhFZHhTU25Bd1JkS3NOQW5Sdy1XT2xTR3B2M3dQUERWU1BWcmFYTXdBXzBUaHA0UUpCYVVNTDVaVFRjMlVmcmI5aWJfYm8xTUp6cXlIMkFIWGkzVFBpWVBxSUdCSQ?oc=5",
-      "date": "Fri, 24 Apr 2026 17:33:00 GMT",
-      "query": "takeover bid company",
-      "score": 5,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Pleasing Signs As A Number Of Insiders Buy HITIQ Stock - Yahoo Finance",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaF82QU9UOGwzQ3NIZjZiOG1sVlk4NjZEbW1Pa2lwRTlvWF9OZTRiWlFuY3pHRy0yVUhKVDYtb2FwLXFwaXNVcXpwZm1aNVBETmd3bkFEQndnTGQ4c0l6OXV0VXY0YXQ4NzYteTlDWHkzUXptMHJ6SGtPNXhpeUJZZllkRWszOXlYMEFfdjc5ZkZOck5MV0ZEZm5ZVURVcWRp?oc=5",
-      "date": "Wed, 29 Apr 2026 01:37:00 GMT",
-      "query": "insider buying stock",
-      "score": 4,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Top insider buys and sells disclosed for Monday, April 27 - Investing.com",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQbXpDbUJ6bHNZMXBpVEVIU3hpMVhZSFEtV0RPNmVjdlQ5d0ZWOGZfLUh1cUNpRUFtU1ZONHRoU091UFJNWVNTRGdILWtwdzgwYVcweFh5eEFwWFFIWFNKV1YtWXNSOTUtT01kR3IzNW5zYlhya0xfRDZWNzdwR1doWEtfSGhJY3ZrT3hXRlYycnpsTkhuU3FqT29UclVOMF9rNTdYbnJlZ2pxTUNvN2VnSXBVSWVXY3QxN2c?oc=5",
-      "date": "Tue, 28 Apr 2026 13:02:49 GMT",
-      "query": "insider buying stock",
-      "score": 4,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Insider Purchase: Director at $WSBC Buys 200 Shares - Quiver Quantitative",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOWVJPSFdPS3ZHYjI0dFc3enhGRVc0dWxxVmJkU1FqRVltYTlGanZqYkpqRnBQa243TXA1dGpndmluUWlKdzdyNWpxSk11M3JJbkQ0djFWbHJaV1M4TDlTMDRTZjhvcVFSNFBnMHNoRktkOXcyZDMyN3dobkh5bDdpVWUyaGpndjBvQVlIdmdwcV9MQQ?oc=5",
-      "date": "Tue, 28 Apr 2026 15:15:00 GMT",
-      "query": "insider buying stock",
-      "score": 4,
       "symbols": [
-        "WSBC"
+        "PLTR"
       ]
     },
     {
       "source": "google_news",
       "type": "news_rumor",
-      "title": "InterGroup Reaches US$79m Market Cap Benefiting Insider Stock Buying - simplywall.st",
-      "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQQlBXWlZ6ekktZWF2bzU2alFjejlJZXZjTXRBNlRPUmRaTE5mR2hCeFd3bmltRVdlTGVKTzZrQ1BnR0ZlWkFNNjcxdkZjUVZ3M091bVFHdDlYdkVjN3E5YW1tajJQR3F0TDh1NVhuY1JGeWVab21NbkRSQzVNTVBZUWt5U2hkZFJQLXZCZWlZbXlVZU9XUlhNLTlPZWdPSWJLdHVWX1VsY3RqOU43U2RhNVdpN29xdVN6VWNVNnNBMm9pbTlmZnFsU3YyS1UzNWlWa3NlZ2FKLU5hUEZJeUIyM3FzOXdWWnhXSTd2UHhhZV_SAfYBQVVfeXFMTzhNQl9CcVd1ZzZaRERfWGR4ZjhvOGZudnhacV94eHdqcjNTTUZORWJsLWhBUWdZdXZsb3NhWVM4bmlGajMxOXFzR0VNam5Id1UyRy1SdEFtTDJzX0FoRVEtMjZuU2lrbFk0UkhycVZCUlAzbEZUWFpJWXcyMUtocDhQZWxuMUpmTlBCMHBsVjZCZkFPNXJUeDhfcWVrVGNMMW93RlhQVGhzSG1xbVhFMlIteGNWLXdEcGw1aXlZcm5mblZIRUY5Ql9wSThON1NSeG1uZm5nT2h4V2ZSdnU3Z1Fma3hKd2s1WkNCa1FLVkY3djlPTVVn?oc=5",
-      "date": "Tue, 28 Apr 2026 12:00:07 GMT",
+      "title": "Frasers Group launches public takeover bid for the German fashion company HUGO BOSS - leadersleague.com",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPdzN3X0kwOUZGU3MzWVk0a2t4NWJHaEZXa2l3clRuVlRLVi1sb282MmNnWmlrNnNXNS1nZnpUb1BiTE9ROWEzSHFZaHRzTUJKQ3RpcjVjN1VpejlIdWZqd1l2TmwzYTRVV2pFUVg1ckMweW9RbklFUUg3ZW9xZjM3M2NscDB0bGVrR3FSM2JjQlhBZy1Wdkl4c0lQU1BvQTZpVVZNWjNteUVLcXZDVWg5MU5CSXA3RGh0c1R3a3pn?oc=5",
+      "date": "Mon, 15 Jun 2026 10:40:51 GMT",
+      "query": "takeover bid company",
+      "score": 5,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Solana Company rejects Forward Industries takeover bid - Investing.com",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNVprNVN1ZVRrYzRVQUZTSlJqMmhrQ05TbjNxeU13Z3JxNGVmTFlmamRORVZSam5DZEcwbjRwTUxuQk9jY0F4UWJkamF0WmhuQUxsYzRYc09QZ0R6Qkk1ZV8wcXo0V1REVHRpVHl6YURwNU1TRFcwZHNZNThHamEza2tuMUpzaVo1NHVSTHVYWDFrWVdJb1ZPTi0wbllLVkNmRldwci1Wdm1HNHNMWmEyTw?oc=5",
+      "date": "Tue, 16 Jun 2026 12:24:21 GMT",
+      "query": "takeover bid company",
+      "score": 5,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Spirit Airlines acquisition bid submitted by Mooney International, company says - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPM3MxRFVvbzZvX0dwSWtFeTNxeGtqLW1MeTRjTnNfdTBLUkxhR09NLS1PMmNyS3NvZEg3WHBWazlZUzk4eVE3NnUtVXBWZFRYTkRZd2psaUItY2s5Qk1xbk1zcWlLUUU5R2ZSZGhsTXN5RE5jQXh5NkpjNkEzX3NOT0szMTJIQTd1b01aaUlYRzU1bDdvYmhPelRjSEwwRTVEenZXUlFhZWs2c2xRdDBEZW5Ybkk?oc=5",
+      "date": "Sun, 14 Jun 2026 22:17:00 GMT",
+      "query": "takeover bid company",
+      "score": 5,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Woodside Says No Takeover Offer from ExxonMobil - Rigzone",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdTMteVd1dEkzNUtDWjJKT0ZZcFdjR1Bkb2phNUJsQk0ycm9IV3dseDE5Z1hfa2VZX0Vyc29CV1JoekdBelBtR1diMFc0SVlwd3R4OUxWWEpLZmdpaGdiclhDVW9IeEN4OGg5RWhrXzhzdjZPR0ktZnRSLUFCQmo2YjJsczNzZVBlVUZDbHV0Nmw1VXZIVEI1TjVmalZnbnMtcmZsdGZSQkpiZ1BULXc?oc=5",
+      "date": "Mon, 15 Jun 2026 11:46:00 GMT",
+      "query": "takeover bid company",
+      "score": 5,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Insider Purchase: Chief Fin & Op Officer of $PYPL Buys 6,129 Shares - Quiver Quantitative",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPVi1HbjE3Z0I5b1FmUmFnYWM5MmlONjFkZXpHUDVNblc1SWhTa0FmTkpEbHdYM01TRkZ0Z1kyQjZlcnVtN3lOOWVkd1J3ZnJTamN6S09WV2VSZmo4dWZvbHFtaDlsczVuQnNmRlpaSk4zYzZXRjhuck50aWthUE94RUxKTXU4MzFBZ0MyenpoLXVqcktWSnJZQW9FMVdZZHBXY0NXRHo4TldIbE1K?oc=5",
+      "date": "Wed, 17 Jun 2026 01:31:00 GMT",
+      "query": "insider buying stock",
+      "score": 4,
+      "symbols": [
+        "PYPL"
+      ]
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Pleasing Signs As A Number Of Insiders Buy Firebird Metals Stock - Yahoo Finance",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNZWNobVJsaVI2NGVkTjl6cnltYjdCQktVeVVlbm43T1RIMEhoVXRtYW9iTGR4d0dNSzVpUzQ1NlRsTDNwbVE1QUxpc1h6dXp1R2w3OG55aWR5ekF5WnRjRlZxS0NZZl92UjFXNU1KeExUTEU5QXdLT1k2dnRRQngxODBxZEtXZ3NYaFQ2Ylhpd01xVUtBZnlUT1ktRWE5X1Jx?oc=5",
+      "date": "Sun, 14 Jun 2026 22:33:07 GMT",
+      "query": "insider buying stock",
+      "score": 4,
+      "symbols": [
+        "META"
+      ]
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "McGraw Hill stock surges on insider purchase - Investing.com",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaENVRnV1bkdvLUpDajhjTWhaNmY4TlNDb241bjVVQUFFbmUzcVlFZU8xZkJKY3FLQTlRajdiVEhzNFdzQWViRW8zRUVjaDdGcGIteHUxTzlRV3VpNF9FMnAxRDF5bzJrSGI4VkIwVmcyR3ZjVTVwc1FNUm1JZFQ0WXhBajlXaHZwcUxGT25NWUR0Vm91NHJ4WThQdDhfeTFUSGg4OEtKbVBmQQ?oc=5",
+      "date": "Tue, 16 Jun 2026 21:56:04 GMT",
       "query": "insider buying stock",
       "score": 4,
       "symbols": []
@@ -146,41 +120,65 @@
     {
       "source": "google_news",
       "type": "news_rumor",
-      "title": "Stock Market Today, April 27: Nokia Rises After Analyst Upgrade Highlights Optical and IP Demand from Data Center Buildouts - The Motley Fool",
-      "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNRWEwMXpXcFVBT1BrbEZRU1JIOGdmMWlCNVVSejgyakJmLVVWZUFhQWdyOUhRRUtwSjJ1WmowdzZHN3pIaHE3ZFRYMkpJb243MUhrbnJBNkxNZWpIOTdYTEFQSDBPSXUyOUlOdzZpTDJRWTM5YlNSRHJ1T0VZLWI3bHRrRTA4dEpWN1FwOHZMVEtLZVpWWko2WVBEM1VqcjJoREtRYUs2cUJocmlJcU81VUd6al95UXFLMWR6WHotS3JKbmh2dGRzT3lHOVoyV0p3T3ZLYWxFZk1uV0pLUkVPWmttM0p5VDYtMUFlLS1ISW5EX2NnRXNaV0hHWl82Uy1RZVlydUdpc1A1NFVIdFJR?oc=5",
-      "date": "Mon, 27 Apr 2026 23:57:00 GMT",
-      "query": "analyst upgrade stock",
-      "score": 3,
-      "symbols": []
-    },
-    {
-      "source": "google_news",
-      "type": "news_rumor",
-      "title": "Netflix (NASDAQ:NFLX) Trading Up 1% on Analyst Upgrade - MarketBeat",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZmZzSDBoQjVxbWpaSzJQLUZVNWNuUDRMenJ5QkNHQlRjVVRRZkJpMENFNlJ3R0UyaVNCR3UzajVCWUg0NzZMWU94b3E0ZG56MXdDRFhkOHdwbXUxRUphQWhXRDZWVklOUTFTdmNfaW5BTHhTb0xIZUZiUlVpZUtJakx3MWUwLUtnRjhaeW5IYzlhdmVncXgyRGhUbE1NMlVIeEx3czE3MA?oc=5",
-      "date": "Tue, 28 Apr 2026 21:05:13 GMT",
-      "query": "analyst upgrade stock",
-      "score": 3,
+      "title": "Insider Purchase: Director at $VRM Buys 15,595 Shares - Quiver Quantitative",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNLTlXZFFkc2QxWGI0b2dsVDVIY09KaUxWclpCYm1kcktEbjRHM0pNeVlGUGlybkhnb25WV2ZkYmFNWWZwemdqeDlMdFBQVEgtcmZNWjBpRlM0Nk1tT2pvTEVlMVA2U29EXzVXM2N2NzVxOWNEa3hCeGlvZDRfMmF1Vzd2TVNXYkFCQ0xIWkN1X29KME91NnM0?oc=5",
+      "date": "Wed, 17 Jun 2026 01:31:00 GMT",
+      "query": "insider buying stock",
+      "score": 4,
       "symbols": [
-        "NFLX"
+        "VRM"
       ]
     },
     {
       "source": "google_news",
       "type": "news_rumor",
-      "title": "GGB Stock Climbs As Earnings Beat Triggers Analyst Upgrades - StocksToTrade",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE42bjFuNFBYRVVNNDB2XzBDeGdhZGRMVmZEVk40a1UxTGxDYWdyS2VlcFF2ZXdMUEcwZ2dDWGVDX196b2dxYUVMcVBwRmVnTE1IalpNaDByU01xMWU0VDdlVVRpbFBERUplQklRRDJB?oc=5",
-      "date": "Tue, 28 Apr 2026 20:02:00 GMT",
+      "title": "This Analyst Just Upgraded Palantir Stock. Here's Why. - Barchart.com",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUWlEVEJvdDYyZ3o1UHpMazV6eTFzU09hOUZYY2RJNWpwM2lVZTBvY0pvamd3djVuc0Uxa0duUVhYbGM2c2REenR0cVhMeGtkTThuUnVoMzJua2tlZmZ2ZUZRdDVlbGJkTWw2QjhsWlUzR0pVT2hkSWlmTUt5VTJ4UnFvQWRRcTk4di1ScmNXUmllSS1tRldQb3Ezc2k?oc=5",
+      "date": "Tue, 16 Jun 2026 21:42:49 GMT",
+      "query": "analyst upgrade stock",
+      "score": 3,
+      "symbols": [
+        "PLTR"
+      ]
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Is Enpro's (NPO) Analyst Upgrade Justifying Its Richer Valuation Or Stretching The Story? - simplywall.st",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQMld1YVVFeGRnc0NfMDloME1XZXJDSV8xeHRVa1VHOEJfeWxQUUUzc3VBV0ZGcHctbmpGZ3JPeldYNHNQUGRFejUzdlJBSmxxSmFVRnJTZjF0N01JcnA4eksybHFmb3pPNzJKWTF0TjFoVV9hc3N1bTJJV2d6dFFfN3NPdEZNRmFIaU9ld1pNN19tV19xSE13bi01VVFSazJnU2JYWElEVHc4b3BETW1ObUFBaTBrMGFYN2ZQYWZvaHdlaUt60gHKAUFVX3lxTE0wT1MzT2JObWkyNmMwbklZTXpPOTR2RkFJNEVJRXhZdmVzTEhtR1BoZlk3dDNPX1U3YmY4TF9uTnRmeVdLZ2haYzRNeE1TVWhXYVNpdnkwSzVKX0FJLVRwT0lWXzNYSzdkNGRoajY1VTN2U0xtMTNzNlk2TVU2ZTdkUzkyNlN4T1VRUFJreEt4d0RReEZ6bElGUzNuZnM5M0hYdTRLeC1iaHMzM2p0QjRUbHN1LWFmbXBvakFwRDNqZzA1YW9HTk1rdkE?oc=5",
+      "date": "Wed, 17 Jun 2026 01:36:01 GMT",
       "query": "analyst upgrade stock",
       "score": 3,
       "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "UnitedHealth Group Stock (UNH) Opinions on Analyst Upgrades - Quiver Quantitative",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNE9yT0FHbGZTc0VVdGdpTzc5eUZMRjFpc3NoSDYzWXNYUXYxT2s4SS1qdHp0Z2FINHd0VW93cVJlR2FkQWljMTdhQjdsRHAxbmVXbEtoZEE1VVBmZUVsVUVEYmVUa0M1cE80ZWREWks3OTY3VklKX01OS0pGR09nbHNwNDljTC1LZWVneEJtQ0hneXMzeGJabEM4WUQ?oc=5",
+      "date": "Sat, 13 Jun 2026 14:03:00 GMT",
+      "query": "analyst upgrade stock",
+      "score": 3,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Here\u2019s Our AMD Price Target as Top-Ranked Analyst Upgrades Stock - TheStreet Pro",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQd3FwbldHZFU0c3FWM3N1UEpSOHJDendFbEJXaC1RRnBSTVR5dTNNR1dHSGZfOGozdjYxakVLTFZicGJqb092M1hZZjVsSnRrLWJyVExwcEdtMmpIRWVpYUloV2hsbExOSjFuWUdUajJicENpaEVPMUJsT3BqMFdPQjQ2MktYWEJxZEVjWFQ5TVFnR0Z6WTZSNF8tY2F6SFVnQUFJ?oc=5",
+      "date": "Fri, 12 Jun 2026 15:15:00 GMT",
+      "query": "analyst upgrade stock",
+      "score": 3,
+      "symbols": [
+        "AMD"
+      ]
     },
     {
       "source": "google_news",
       "type": "news_rumor",
       "title": "Understanding SEC Investigations - Oberheiden P.C.",
       "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAxYWRWNXpLY0JaR0owajVpQWRUakw4enlCSThQRHdkVmpjdGZQQmtsVjhzX01weUJrWGM0ZlYxbDcxa1laT1lSUWdCNUhvVWpJUG9mc2FKb3JjT0RXV1NIdjNnYjhScl95UTBRaA?oc=5",
-      "date": "Sat, 04 Apr 2026 07:00:00 GMT",
+      "date": "Thu, 04 Jun 2026 07:00:00 GMT",
       "query": "SEC investigation company",
       "score": 3,
       "symbols": []
@@ -188,9 +186,9 @@
     {
       "source": "google_news",
       "type": "news_rumor",
-      "title": "Waldencast announces conclusion of SEC investigation - The Manila Times",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaG10VExVLTVtSmkwR1p2cTdNSk5JOHJtU2VhWFBKd1ItZmhlZnozUFVtR1ltQTc1Q01MTXNqQ1VvSWFaSEpUbGxXZTZieDdTTnRDZXR5djV1cWxPQ1d1cmk1TUkyS3BDVmt3eFlwanM1UEJVWmNteEFoRHR6LUp5c1NYMUd3aHAyaVZ0MnNnQU81NXdnMTZsVGc3VkxKcWVzNjBqMUhiejZRN01sZHhKUGNaZ01vVjFxX2Z1SXUtZ3R2b1Vr0gHKAUFVX3lxTE5fcDJTZUd5c1JDcVJmRnR2MGxUbXg5cmNzRFF4aEQ3NHF5emZ2VkRONEtLcU5VQkYzeTJ6YkRTak96NDRwOEh2U05NNFVJU3A3TThWT19iaU1vdkw4Y3cxV3ZKOXRMSlhwOS1iWkVYWjZOOFZFWTRZMHhfVVlXVGRBMjF5ejVCQzhPd2dFLU5EZGxKLUduU1N1N2xRTzlCZkxzTzhBakNZNjJydG9ZcWJFbkNaaXkyUjUzMnlYUVFZRmlOZE9DVnhEdkE?oc=5",
-      "date": "Tue, 28 Apr 2026 22:21:38 GMT",
+      "title": "Larson, Himes Refer Social Security Commissioner Frank Bisignano for SEC Investigation into Fiserv Stock Divestitures - Congressman John Larson (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOTUhYM3BXNzZxaUdablp0T0h1OHVhSjdyal9MdUJ2VlNpa1N2Mm9zVlV5dmhwV1NtSEM5cGE5V3Q5R0VPR2ZtNmxfcFlPRGpvcnNEVnhMbVU5MTAtUWgzcUROYnNSUGpFREs1UjBuYzVKSGhnb1dqVWx5Sl9PQXFTUks4YWwtdUhkUW9WMGFJemU0QXF2QVFrWFA1dC1kb1VBM0h0S1BQdWNNMVotNWlZdHctQjhjc2lqblJF?oc=5",
+      "date": "Thu, 20 Nov 2025 08:00:00 GMT",
       "query": "SEC investigation company",
       "score": 3,
       "symbols": []
@@ -201,6 +199,16 @@
       "title": "WSP downplays M&A rumors, government shutdown - Construction Dive",
       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQLXBGdzR2Q2xDUWpLUjZvZHZNWlhyanQyMWhOLUQ1dENhdkMtS1FGR1pwN01hSWhtQmlrOTNvTlF6Q3hNdzZvemRka3lmbDZ4S2I3UzVUckhOZXg3S280N2pudVB3UVhKMkVTdG5vM2tHNWIyXzZoc0p4d3lVcjcySThycHNXb2pIMjJGa3RabmUzRW0zWlFXUGNSUQ?oc=5",
       "date": "Fri, 07 Nov 2025 08:00:00 GMT",
+      "query": "merger acquisition rumor",
+      "score": 2,
+      "symbols": []
+    },
+    {
+      "source": "google_news",
+      "type": "news_rumor",
+      "title": "Paramount CEO Focused on 'Building' and 'Transforming' Amid WBD M&A Rumors - ADWEEK",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOR0FndzBwSEN1UFh1ZE5uVld5YV9JLTZsZExUaVljQ1NpY2lMdHlabGMzZFpWeGtLeUZnZWlCMlY0U0FkXzFnTG51VGllem8tZ3BsNkVfVWZBRUJDVFhjMHFka1lBUnZGWGhzeWc2RkN0NmhRSk9pSmltZmdGZ2htcFVkakVLeFhOYlI5VndaRlFPWTZTSUw0ZGZHRmZ3S1lvQk9hTFo0VFZiTGM?oc=5",
+      "date": "Mon, 10 Nov 2025 08:00:00 GMT",
       "query": "merger acquisition rumor",
       "score": 2,
       "symbols": []
