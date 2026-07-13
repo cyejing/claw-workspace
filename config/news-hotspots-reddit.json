@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {"id": "reddit-machinelearning", "enabled": false},
+    {"id": "reddit-localllama", "enabled": false},
+    {"id": "reddit-artificial", "enabled": false},
+    {"id": "reddit-chatgpt", "enabled": false},
+    {"id": "reddit-singularity", "enabled": false},
+    {"id": "reddit-openai", "enabled": false},
+    {"id": "reddit-programming", "enabled": false},
+    {"id": "reddit-anthropic", "enabled": false},
+    {"id": "reddit-experienceddevs", "enabled": false}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {"id": "sama-twitter", "enabled": false},
+    {"id": "openai-twitter", "enabled": false},
+    {"id": "anthropic-twitter", "enabled": false},
+    {"id": "mistral-twitter", "enabled": false},
+    {"id": "googleai-twitter", "enabled": false},
+    {"id": "xai-twitter", "enabled": false},
+    {"id": "karpathy-twitter", "enabled": false},
+    {"id": "andrewng-twitter", "enabled": false},
+    {"id": "jimfan-twitter", "enabled": false},
+    {"id": "hf-twitter", "enabled": false},
+    {"id": "elon-twitter", "enabled": false},
+    {"id": "sundar-twitter", "enabled": false},
+    {"id": "levie-twitter", "enabled": false},
+    {"id": "demis-twitter", "enabled": false},
+    {"id": "dario-twitter", "enabled": false},
+    {"id": "twitter-clementdelangue", "enabled": false},
+    {"id": "rusttrending-twitter", "enabled": false},
+    {"id": "thisweekinrust-twitter", "enabled": false},
+    {"id": "supfin-twitter", "enabled": false},
+    {"id": "uschinatoday-twitter", "enabled": false},
+    {"id": "abcchinese-twitter", "enabled": false},
+    {"id": "usnews-twitter", "enabled": false},
+    {"id": "reuters-twitter", "enabled": false},
+    {"id": "cnn-twitter", "enabled": false},
+    {"id": "bbcbreaking-twitter", "enabled": false},
+    {"id": "realdonaldtrump-twitter", "enabled": false},
+    {"id": "steipete-twitter", "enabled": false}
+  ]
+}

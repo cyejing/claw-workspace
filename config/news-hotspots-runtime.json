@@ -1,0 +1,8 @@
+{
+  "fetch": {
+    "google": {
+      "request_timeout_s": 5,
+      "cooldown_s": 0
+    }
+  }
+}
