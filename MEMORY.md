@@ -27,68 +27,69 @@
 
 ---
 
-## Promoted From Short-Term Memory (2026-07-10)
+## Promoted From Short-Term Memory (2026-07-17)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:9:9 -->
-- Conversation Summary: user: Use the "news-hotspots" skill for this request. [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:13:13 -->
+- Conversation Summary: assistant: 📰 **2026-07-06 每日全球科技与 AI 热点报告** [score=0.837 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:17:17 -->
+- Conversation Summary: **本次热点汇总：** 今日共精选 40 篇文章，各来源收录情况：API（44→2）、GitHub（4→2）、GitHub Trending（4→3）、Google（218→11）、Reddit（239→7）、RSS（481→7）、头条（20→1）、Twitter（196→7）、V2EX（7→0）、知乎（20→0），生成时间 2026-07-06 11:39。 [score=0.837 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:17-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:23:23 -->
+- 🧠 AI 前沿: ⭐8.9 | **阿里巴巴封禁 Anthropic 的 Claude Code，疑因发现隐藏的中国检测后门** — 据报道，员工已被告知切换至 Qoder，双方关系持续恶化据悉此前 Anthropic 已指控阿里巴巴通义实验室对其 Claude 模型实施了史上已知最大规模的蒸馏攻击。 | *google - Tom's Hardware* [score=0.837 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:23-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:25:25 -->
+- 🧠 AI 前沿: ⭐7.5 | **AI Agent 独立完成勒索软件攻击，无需人类干预** — 研究人员描述了首例自主式勒索软件攻击事件，AI 利用漏洞自行完成了整个攻击流程…… | *google - BankInfoSecurity* [score=0.828 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:25-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:27:27 -->
+- 🧠 AI 前沿: ⭐7.5 | **#AIRadarDaily — @CogniSwitch** — 我们在企业 AI 领域遇到了一个有趣的僵局。我们向组织承诺自主提速，但一旦将 Agent 部署到医疗、金融等高度监管的环境中，就会立刻感到恐慌。因为大语言模型本质上具有概率性…… | *twitter - avinashraghava* | *likes=1* [score=0.828 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:27-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:29:29 -->
+- 🧠 AI 前沿: ⭐7.0 | **[仇恨内容] 当丑陋的书籍角色被好莱坞化** | *reddit - r/TopCharacterTropes* | *comments=470, score=2154* [score=0.820 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:29-29]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:3:5 -->
+- Session: 2026-07-13 12:19:32 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: 1f6efe6e-b230-42c2-9eae-9bdca7e4b835; **Source**: feishu [score=0.820 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:31:31 -->
+- 🧠 AI 前沿: ⭐6.8 | **AI 私立学校向美国富裕家庭推销个性化学习，取代传统教育** — 富裕家庭越来越多地将孩子送往 Alpha School 等 AI 学校，该校结合每天两小时 AI 辅导与项目制工作坊，每年学费高达 75,000 美元。这一趋势凸显了 AI 时代日益扩大的教育鸿沟，传统学校在采用技术方面面临困境——如果使用不当，AI 可能弊大于利。文章…… | *rss - The Decoder* [score=0.820 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:31-31]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:35:35 -->
+- 📦 开源动态: ⭐8.0 | **ChaitanyaEswarRajeshJakki/gemini-youtube-automation** — 一个完全自主的 AI Agent/Python 流水线，利用 Gemini 等大语言模型生成内容、制作视频，并自动上传至 YouTube 的教育视频。 | *github_trending - GitHub Trending* [score=0.807 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:35-35]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:37:37 -->
+- 📦 开源动态: ⭐7.0 | **SewLightningTake35/claude-fable-5-free-desktop-app** — 免费 Claude 5 Fable，Anthropic 大语言模型，LLM 前沿推理，自主 Agent 工作流，长时自主性，Claude Code 终端 claude.ai pro max 替代方案镜像仓库 | *github_trending - GitHub Trending* [score=0.807 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:37-37]
 
-## Promoted From Short-Term Memory (2026-07-11)
+## Promoted From Short-Term Memory (2026-07-18)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:18:18 -->
-- 每日新闻热点报告（已完成）: **报告已通过 Feishu 发送。** [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-07.md:18-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:22:22 -->
-- 每日新闻热点报告（已完成）: **备注：** Pipeline 执行正常，耗时约 443 秒（数据抓取）+ 112 秒（合并处理）。 [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-07.md:22-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:7:7 -->
-- 每日新闻热点报告（已完成）: **数据来源：** [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-07.md:7-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-03-1105.md:30:33 -->
-- 方案 1：直接让 multica 跳过 `openclaw config file`（推荐）: 在 workspace 的 `openclaw-config.json` 里设置 `OPENCLAW_CONFIG_PATH`，multica 可能通过环境变量读取而不是调用 CLI： assistant: 先快速回一下那个 mention，然后继续修这个 bug。 assistant: 好，继续修这个 bug。真正的解决方案是创建一个 `openclaw` wrapper，让 `config file` 子命令走快速路径： assistant: 找到了！`openclaw.mjs` launcher 会 spawn 另一个 node 子进程来处理命令。**总共两个 node 进程**（launcher + child），各 3-4 秒 = 总共 7-10 秒。 [score=0.849 recalls=0 avg=0.620 source=memory/2026-07-03-1105.md:30-33]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-03-1105.md:44:44 -->
-- 方案 1：直接让 multica 跳过 `openclaw config file`（推荐）: **根因：** `openclaw config file` 命令需要 7-10 秒（Node 冷启动 + launcher spawn 子进程），Multica daemon 在 `prepare execution environment` 阶段调用它时超时被 kill。 [score=0.849 recalls=0 avg=0.620 source=memory/2026-07-03-1105.md:44-44]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-03-1105.md:46:46 -->
-- 方案 1：直接让 multica 跳过 `openclaw config file`（推荐）: **修复：** 在 PATH 第一位（`~/.nvm/versions/node/v24.14.0/bin/openclaw`）放置了一个 wrapper 脚本，让 `config file` 子命令直接返回配置路径，绕过 Node 冷启动。执行时间从 7-10 秒降到 **1-2 毫秒**。 [score=0.849 recalls=0 avg=0.620 source=memory/2026-07-03-1105.md:46-46]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:11:11 -->
-- 每日新闻热点报告（已完成）: **主要热点：** [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-07.md:11-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:12:15 -->
-- 每日新闻热点报告（已完成）: 🧠 AI 安全：AI 智能体首次实施完全自主的勒索软件攻击（Langflow 漏洞）; ⚙️ AI 基础设施：AMD 股价大涨，Anthropic 签署 190 亿美元数据中心租约; 💼 商业：Rivian 股价下跌，A股三大股指齐跌科创50逆势上涨; 🌍 国际：澳大利亚牛肉 55% 关税落地，山姆澳洲牛肉涨价 [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-07.md:12-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:16:16 -->
-- 每日新闻热点报告（已完成）: 📦 开源：PythonRobotics、home-llm、awesome-agent-evolution 等项目热度上升 [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-07.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:5:5 -->
-- 每日新闻热点报告（已完成）: **执行时间：** 11:32 - 11:41（约 9 分钟） [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-07.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:39:39 -->
+- 📦 开源动态: ⭐7.0 | **langchain langchain-mistralai==1.1.6** — 自 langchain-mistralai==1.1.5 以来的变更（mistralai）：1.1.6 (#38684) 新功能：暴露聊天响应中的引用元数据 (#37008) 维护：更新模型配置数据 (#38663) 维护：更新依赖包 (#38302)(#38304)(#38210) 文档：更新 README 安装与资源 (#38119) 发布：核心 1.4.7…… | *github - LangChain* [score=0.866 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:39-39]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:41:41 -->
+- 📦 开源动态: ⭐6.5 | **thu-pacman/chitu** — 高性能大语言模型推理框架，注重效率、灵活性和可用性。 | *github_trending - GitHub Trending* [score=0.866 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:41-41]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:43:43 -->
+- 📦 开源动态: ⭐4.5 | **rust 1.96.1** — Cargo：修复超时/重试行为 — Cargo：修补 CVE-2025-15661、CVE-2026-55199、CVE-2026-55200 — rustc：修复 MIR 优化中的错误编译 | *github - Rust* [score=0.866 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:43-43]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1219.md:9:12 -->
+- Conversation Summary: user: [message_id: om_x100b6ba96921e8a4c1f67811ebcb5a1] ou_77fa18f196aa0559f70cdd7e1ffdd567: 你是什么模型 assistant: [assistant turn failed before producing content] assistant: 我当前跑的是 **cp/free** 🦐 [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1219.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1314.md:13:16 -->
+- Conversation Summary: | 名称 | 状态 | 上次运行 | 下次执行 | |------|------|----------|----------| | 🧠 Memory Dreaming Promotion | ✅ 启用 | ok | 查看详情 | | 📰 每日新闻热点 | ✅ 启用 | ❌ error | 查看详情 | [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1314.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1314.md:17:18 -->
+- Conversation Summary: | 📊 每周行情汇报 | ✅ 启用 | ❌ error | 查看详情 | | 🔍 每日传闻扫描 | ⛔ 已禁用 | ok | — | [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1314.md:17-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1314.md:22:22 -->
+- Conversation Summary: **⚠️ 有两个任务上次运行出错了**，要不要我查看一下详细日志？ [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1314.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1314.md:26:26 -->
+- Conversation Summary: 工具使用：`cron` (list) [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1314.md:26-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1314.md:3:5 -->
+- Session: 2026-07-13 13:14:06 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: aa3691be-36a5-4ad2-84a2-0415b8dfcb2b; **Source**: feishu [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1314.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-13-1314.md:9:11 -->
+- Conversation Summary: user: [message_id: om_x100b6a723b199cacc0fc81140542e94] ou_77fa18f196aa0559f70cdd7e1ffdd567: 查看定时任务 assistant: **📋 当前定时任务列表** [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-13-1314.md:9-11]
 
-## Promoted From Short-Term Memory (2026-07-12)
+## Promoted From Short-Term Memory (2026-07-19)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:45:48 -->
-- ⚙️ AI 基础设施: ⭐8.5 | 中国的科技崛起重塑全球太空竞赛 — 中国在科研排名中稳步前进，太空野心不断扩大 | DW.com; ⭐7.5 | 32GB Corsair Vengeance DDR5 降至 359 美元 — Woot 促销，数月来最低价 | Tom's Hardware; ⭐7.4 | AI 算力主题蓄势大反攻！非农仅增 5.7 万远不及预期，美联储鹰派叙事遭重创？ — 美国 6 月招聘速度急剧放缓，非农仅增 5.7 万人 | Moomoo; ⭐7.2 | Apple 的"隐藏我的邮箱"服务被曝轻易泄露真实邮箱 — 苹果已知情一年仍未修复 | Tom's Hardware [score=0.879 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:45-48]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:49:49 -->
-- ⚙️ AI 基础设施: ⭐7.1 | 字节跳动开始在巴西建设 384 亿美元的数据中心 — 位于巴西塞阿拉州的佩森港 | W.Media [score=0.879 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:49-49]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:53:56 -->
-- 🌍 国际: ⭐7.5 | "为了多肽而来"：未获批减肥药在布鲁克林小卖部出售 — 实验性减肥药 retatrutide 被违法销售 | CBS News; ⭐7.5 | "千年一遇"的探险行动启航，调查两艘传奇沉船 — 研究人员将前往北大西洋海底，调查两艘与 19 世纪极地探险家相关的传奇沉船 | CBS News; ⭐7.5 | 俄罗斯对基辅发动"最大规模"袭击，至少 20 人死亡 — 基辅市长宣布哀悼日 | BBC World; ⭐7.5 | "我们要为他赢下世界杯" — 葡萄牙队带着迪奥戈·若塔的记忆征战 2026 世界杯 | BBC News [score=0.879 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:53-56]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07.md:8:9 -->
-- 每日新闻热点报告（已完成）: 总计 40 篇精选文章; RSS (7篇)、Twitter (7篇)、Google News (11篇)、Reddit (7篇)、GitHub Trending (3篇)、GitHub (2篇)、API (2篇)、头条 (1篇) [score=0.862 recalls=0 avg=0.620 source=memory/2026-07-07.md:8-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:37:40 -->
-- 📦 开源动态: ⭐8.5 | jd-opensource/JoySafeter — 企业级 AI Agent 平台：不仅聊天，还能构建、运行、测试和追踪自主 Agent 团队，支持可视化编排 | GitHub Trending; ⭐7.2 | simonw/llm — 从命令行访问大语言模型 | GitHub Trending; ⭐6.5 | skalesapp/skales — 你的个人 AI 桌面代理，支持 Windows/macOS/Linux/Android。设定目标后自主工作，支持团队协作、Agent2Agent、工作流 | GitHub Trending; ⭐6.0 | Ollama v0.31.1 — Apple Silicon 上 Gemma 4 速度提升近 90%，通过多 token 预测（MTP）实现，自动调优无需配置 | GitHub [score=0.847 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:37-40]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:41:41 -->
-- 📦 开源动态: ⭐4.5 | OpenClaw v2026.6.11 — 修复了渠道投递可靠性问题，覆盖 Telegram、WhatsApp、Matrix、Google Chat、iMessage、飞书等多个渠道 | GitHub [score=0.847 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:41-41]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:57:57 -->
-- 🌍 国际: ⭐7.5 | 两名帝国大厦攀爬者被捕，据称在塔顶求婚 — 两人爬到帝国大厦顶部展开横幅，然后求婚 | CBS News [score=0.847 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:57-57]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-03-1105.md:35:38 -->
-- 方案 1：直接让 multica 跳过 `openclaw config file`（推荐）: 最简单的修复：在 PATH 里放一个 wrapper，让 `config file` 子命令走快速路径： assistant: 现在我完全理解了。创建一个 wrapper 在 PATH 更靠前的位置，快速处理 `config file`： assistant: `/home/clawd/.nvm/versions/node/v24.14.0/bin` 在 PATH 第一位，所以 wrapper 会生效。验证一下： assistant: **从 7-10 秒降到 2 毫秒！** 现在重启 multica daemon 让新配置生效： [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-03-1105.md:35-38]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-03-1105.md:39:42 -->
-- 方案 1：直接让 multica 跳过 `openclaw config file`（推荐）: assistant: Daemon 重启成功（PID 2588861）。等 10 秒让它连上，然后触发一个任务测试： assistant: Daemon 正常运行，3 个 runtime 都连上了。让我确认 wrapper 在 daemon 环境里也能生效： assistant: Daemon 的 PATH 第一位就是 `/home/clawd/.nvm/versions/node/v24.14.0/bin`，wrapper 会对 daemon 生效。直接用 daemon 的 PATH 测试： assistant: **修复完成！** [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-03-1105.md:39-42]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-03-1105.md:49:51 -->
-- 方案 1：直接让 multica 跳过 `openclaw config file`（推荐）: Daemon 已重启（PID 2588861）; Wrapper 在 daemon PATH 里生效; `openclaw config file` 现在只需 1ms [score=0.834 recalls=0 avg=0.620 source=memory/2026-07-03-1105.md:49-51]
-
-## Promoted From Short-Term Memory (2026-07-13)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:61:64 -->
-- 💼 商业: ⭐7.5 | AI 产能过剩疑虑引爆芯片股抛售潮，韩国"国民财富"面临重估 — Meta 出售算力资源引发全球芯片股抛售。三星电子、SK 海力士自 6 月高点已跌 21%-30%。半导体占韩国出口超两成 | Wall Street CN; ⭐7.4 | 36氪 AI 工具测评，正在找第一批"抢跑者" — 发起 AI 工具使用社群，搭建高密度碰撞平台，帮助小白和资深用户一起进步 | 36氪; ⭐7.1 | 能源价格之外：海湾供应中断的连锁效应 | ECB Blog; ⭐7.1 | 买翻新电子产品？避免这些重大错误 — 分享购买二手 / 翻新电子产品的注意事项和防骗指南 | NBC News [score=0.879 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:61-64]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:65:65 -->
-- 💼 商业: ⭐5.9 | 如果美联储不加息，市场会替它加 | Wall Street CN [score=0.879 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:65-65]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:81:81 -->
-- 🧠 AI 前沿: ⭐5.0 | 2026 年 6 月 Google AI 新闻汇总 | Google AI Blog [score=0.879 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:81-81]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:69:72 -->
-- 🫂 社会: ⭐7.5 | 00 后本科生抱儿子参加毕业典礼 | 头条热榜; ⭐7.2 | BLG 对战 T1 这场比赛有多重要？一场 Bo5 保底前三！ — MSI 正赛首轮相遇，胜者有望直通胜决锁定前三。Knight 对 Faker、Bin 对 Doran 是关键对位 | 腾讯新闻; ⭐6.0 | 一考生因嫉妒篡改 7 人高考志愿，被判破坏计算机信息系统 — 教育部发布预警，提醒考生保护个人信息，严防志愿被篡改 | 知乎热榜; ⭐5.7 | 开启 2026 年 7 月：跟着 TODAY 健身挑战动起来 — 全身力量训练和夏日健康饮食建议 | NBC News Health [score=0.847 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:69-72]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:73:73 -->
-- 🫂 社会: ⭐5.7 | ZYN 尼古丁袋比吸烟更安全吗？FDA 表态 — 机构授权称使用该产品比吸烟的健康风险更低 | NBC News Health [score=0.847 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:73-73]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-05-1141.md:77:80 -->
-- 🧠 AI 前沿: ⭐7.4 | AI 大模型品牌数据监测平台发布 — 国家广告研究院 AI 品牌数据分析中心正式挂牌成立 | 中国广告论坛; ⭐7.3 | Agentic AI 测试新加坡治理能力 — 企业采用 AI Agent 提升生产力，但治理差距引发对控制和问责的质疑 | Singapore Business Review; ⭐7.2 | Benchmark Co. 维持 Datadog(DDOG.US)买入评级，目标价上调至 330 美元 | Moomoo; ⭐5.5 | 纽约市教育工作者和行业领袖齐聚 Google 办公室，共议 AI 课堂未来 | Google AI Blog [score=0.847 recalls=0 avg=0.620 source=memory/2026-07-05-1141.md:77-80]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:20:23 -->
+- 黄金: 现货黄金约4080美元/盎司（14日晚），15日通胀数据低于预期后大涨冲至4112美元; COMEX黄金期货收4058美元，涨1.31%; 核心逻辑：美6月CPI环比六年来首次下降 → 加息预期降温 → 金价反弹; 地缘：美对伊海上封锁持续，油价上行，通胀担忧仍存 [score=0.863 recalls=0 avg=0.620 source=memory/2026-07-15.md:20-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:44:44 -->
+- 待办/备注: 008254 华宝致远限购是否有变化待确认（需对比上周记录） [score=0.863 recalls=0 avg=0.620 source=memory/2026-07-15.md:44-44]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:6:6 -->
+- 股票持仓（25只）: 亮点：AAPL +8.37%强势领跑，MU +5.05%，METV +6.26%；GLD -4.77%最大跌幅，ARKQ -5.11% [score=0.863 recalls=0 avg=0.620 source=memory/2026-07-15.md:6-6]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:13:16 -->
+- 基金限购（9只，全部限大额）: 021277 广发全球精选：限200元/天; 013328 嘉实全球价值：限100元/天; 008254 华宝致远：**近期限额提升**（之前？）; 016701 银华海外数字经济：限1000元/天（相对宽松） [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-15.md:13-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:26:29 -->
+- 中国楼市: 政策持续宽松：降首付、降利率、松限购组合拳密集; 一线城市关注度最高，北京/上海/深圳; 海南：政策信息较少，关注海南频道; LPR 5年以上3.50%（基准） [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-15.md:26-29]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:32:35 -->
+- AI产业链: HBM4 SK海力士已正式向英伟达Vera Rubin平台量产出货（7月15日）; HBM价格2027年预计翻倍（2→4-5美元/千兆比特）; 瑞银预测HBM需求2026年同比+90%，2027年再+77%; 三星、海力士、美光三大寡头，订单已被大客户锁定3-5年 [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-15.md:32-35]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:38:41 -->
+- IPO: **长鑫科技（688825）**：7月16日（明日）申购，发行价8.66元，募资295亿，科创板历史第二大; **长江存储**：IPO辅导首期完成，中信+中信建投联合护航; **Anthropic**：6月1日秘密向SEC提交S-1，估值9650亿美元，最快今秋纳斯达克; **OpenAI**：IPO推迟至2027年，高管流失，市场热情降温 [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-15.md:38-41]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:9:12 -->
+- 基金限购（9只，全部限大额）: 017641 摩根标普500：限10元/天; 270042 广发纳斯达克100：限10元/天（已持续）; 014528 汇添富MSCI中国A50：**开放申购**（无限制）; 539002 建信新兴市场：限100元/天 [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-15.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-15.md:17:17 -->
+- 基金限购（9只，全部限大额）: 000043 嘉实美国成长：限100元/天 [score=0.821 recalls=0 avg=0.620 source=memory/2026-07-15.md:17-17]
