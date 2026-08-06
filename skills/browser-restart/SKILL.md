@@ -23,55 +23,52 @@ description: 当用户说"重启浏览器""重启谷歌浏览器""重启 Chrome"
 
 ---
 
-## 一、重启流程
+## 一、重启流程（单窗口版）
 
 ### 核心规则
 
-1. 不要只重启 Chrome 进程；必须同时校验 **Chrome CDP → bb-browser daemon → Zhihu 抓取** 这条链。
-2. 完成定义不是"浏览器启动了"，而是：
-   - Chrome 已启动并开放 CDP
-   - bb-browser daemon 健康
-   - `bb-browser site zhihu/hot --json` 成功返回
+1. **单窗口原则**：重启过程只产生一个 Chrome 窗口（你的 profile），
+   不允许出现第二个空 profile 窗口。
+2. 完成定义：
+   - Chrome 已启动（端口 9222，你的 profile）
+   - bb-browser daemon 自动重连
+   - `bb-browser site zhihu/hot --json` 成功返回 20 条
    - 明确汇报抓取条数
 3. 如果最终抓取失败，必须如实说明失败原因；**不能伪造"已恢复"**。
 
-### 默认执行方式
-
-直接运行：
+### 执行方式
 
 ```bash
 python3 <SKILL_DIR>/scripts/restart_browser.py
 ```
 
-默认行为：
-- 关闭所有 Chrome 相关进程
-- 清理残留 `bb-browser daemon`
-- 用稳定参数启动 Chrome
-- 重启 `bb-browser daemon`
-- 打开知乎热榜页面并重试抓取
-- 输出最终 JSON 汇总
+**流程（5步）：**
+1. 停掉 bb-browser daemon（防止它拉起独立 Chrome）
+2. 杀掉所有 Chrome 进程
+3. 用你的 profile 启动 Chrome（端口 9222，打开知乎热榜）
+4. 等热榜页面加载完成（cookie 写入），再重启 daemon（它自动重连）
+5. 验证 `bb-browser site zhihu/hot --json` 返回条数
 
 ### 参数
 
 ```bash
 python3 <SKILL_DIR>/scripts/restart_browser.py \
   --display :0 \
-  --cdp-port 19825
+  --cdp-port 9222 \
+  --wait-seconds 8
 ```
 
 常用可调参数：
-- `--chrome-bin`：Chrome 可执行文件
 - `--display`：X11 display，默认 `:0`
-- `--cdp-port`：默认 `19825`
-- `--zhihu-open-retries`：知乎页面打开重试次数
-- `--zhihu-site-retries`：`zhihu/hot` 抓取重试次数
-- `--wait-seconds`：重试间等待秒数
+- `--cdp-port`：默认 `9222`（bb-browser daemon 默认端口）
+- `--wait-seconds`：热榜页面加载等待时间，默认 8 秒
 
 ### 固定约束
 
 - Chrome `user-data-dir` 必须固定为 `/home/clawd/.cache/chrome`
-- 不要把 `user-data-dir` 暴露为可选参数
+- CDP 端口固定为 `9222`（daemon 默认端口）
 - 不要在调用时额外传入别的 profile 路径
+- **不要**杀掉 bb-browser daemon 后手动起新 Chrome，daemon 会拉起独立窗口
 
 ### 向用户汇报
 
@@ -130,3 +127,9 @@ python3 <SKILL_DIR>/scripts/check_browser_status.py
 
 如需查看这台机器上已验证过的现象与限制，读：
 - `references/testing-notes.md`
+
+## 变更记录
+
+- 2026-08-05：从"脚本拉起 Chrome + daemon 独立窗口"改为"单窗口"模式。
+  根因：bb-browser daemon 启动时若找不到已有 Chrome，会自己拉起一个空 profile 的 Chrome（端口 9222，`~/.bb-browser/browser/user-data`），造成双窗口。
+  修复：先杀 Chrome 再用用户 profile 启动（端口 9222），然后重启 daemon 自动重连。
