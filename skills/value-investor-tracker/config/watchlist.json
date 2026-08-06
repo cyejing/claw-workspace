@@ -1,0 +1,16 @@
+{
+  "investors": [
+    {
+      "name": "Berkshire Hathaway",
+      "alias": ["巴菲特", "Buffett"],
+      "cik": "0001067983",
+      "note": "伯克希尔哈撒韦，巴菲特掌舵"
+    },
+    {
+      "name": "H&H International Investment",
+      "alias": ["段永平", "Duan Yongping"],
+      "cik": "0001759760",
+      "note": "段永平美股持仓主体"
+    }
+  ]
+}

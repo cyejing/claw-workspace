@@ -6,16 +6,24 @@
 
 import json
 import time
+import os
 import psutil
 import platform
 import subprocess
 import sys
 
+def _pid_exists(pid):
+    """检查 PID 是否仍然存活（兼容各平台）"""
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+
 def get_top_processes(limit=5, threshold=5.0):
     """获取 CPU 或内存任一超过阈值的进程，去重后按消耗程度综合排序，取前N个
     优化：单次遍历同时获取 CPU 和内存，避免两次 process_iter"""
-    # 先用一次 process_iter 拿 CPU（需要 interval 参数）
-    # 然后再用 oneshot 批量拿内存信息，减少 /proc 访问次数
     procs = []
     for p in psutil.process_iter(['pid', 'name', 'memory_percent', 'memory_info']):
         try:
@@ -23,23 +31,23 @@ def get_top_processes(limit=5, threshold=5.0):
                 mem_percent = p.info['memory_percent'] or 0
                 mem_info = p.info['memory_info']
                 rss_mb = mem_info.rss / 1024**2 if mem_info else 0
-            # 内存超阈值的直接加入，不逐个测 CPU（太慢）
             if mem_percent > threshold:
                 procs.append({'pid': p.info['pid'], 'name': p.info['name'],
                               'cpu_percent': 0.0, 'mem_percent': round(mem_percent, 1),
                               'rss_mb': round(rss_mb, 1)})
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
-    # 对候选进程测一次 CPU（只测内存没超的候选太多了，这里只测已入围的）
     for proc in procs:
+        pid = proc['pid']
+        if not _pid_exists(pid):
+            proc['cpu_percent'] = 0.0
+            continue
         try:
-            p = psutil.Process(proc['pid'])
+            p = psutil.Process(pid)
             proc['cpu_percent'] = round(p.cpu_percent(interval=0.0), 1)
         except (psutil.NoSuchProcess, psutil.AccessDenied):
-            pass
-    # 过滤：CPU > threshold 或 内存 > threshold
+            proc['cpu_percent'] = 0.0
     filtered = [v for v in procs if v['cpu_percent'] > threshold or v['mem_percent'] > threshold]
-    # 按 max(cpu, mem) 排序
     filtered.sort(key=lambda x: max(x['cpu_percent'], x['mem_percent']), reverse=True)
     return filtered[:limit]
 
