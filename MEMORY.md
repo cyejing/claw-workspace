@@ -94,3 +94,12 @@
 - Session: 2026-07-30 17:14:45 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: e9cfbb50-a2eb-4f5e-8d02-4c188bd16f96; **Source**: feishu [score=0.830 recalls=0 avg=0.620 source=memory/2026-07-30-1714.md:3-5]
 <!-- openclaw-memory-promotion:memory:memory/2026-07-30-1714.md:9:12 -->
 - Conversation Summary: user: [message_id: om_x100b69afd4c934a0ddadb7a749e2eb5] ou_77fa18f196aa0559f70cdd7e1ffdd567: 清理归档文件，重新跑一下每日定时新闻任务 assistant: 好的，归档文件已清理（`temp/news-hotspots-rerun-2026-04-20`，3.4M）。现在手动触发今日新闻热点任务： assistant: 搞定 🦐 [score=0.830 recalls=0 avg=0.620 source=memory/2026-07-30-1714.md:9-12]
+
+## Promoted From Short-Term Memory (2026-08-07)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:44:46 -->
+- Conversation Summary: **1. npm 缓存（纯缓存，绝对安全）** assistant: 好，现在清 uv 缓存和 pnpm store： assistant: 清理完毕 🦐 成果汇报： [score=0.815 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:44-46]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:57:57 -->
+- Conversation Summary: **磁盘从 80% → 68%，可用空间从 12G → 19G** 🎉 [score=0.815 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:57-57]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:81:81 -->
+- Conversation Summary: **磁盘：80% → 67%，可用 19G** [score=0.815 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:81-81]
