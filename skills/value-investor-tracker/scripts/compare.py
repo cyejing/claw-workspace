@@ -4,19 +4,13 @@ Fetch the latest two 13F filings from SEC EDGAR and diff them directly.
 No local baseline needed — SEC itself keeps the history.
 
 Usage:
-  python3 compare.py --config config/watchlist.json --mode check [--workspace <WS>]
-  python3 compare.py --config config/watchlist.json --mode fetch [--top N] [--workspace <WS>]
-
-  check: 最新一期 vs 上一期（SEC 官方历史），输出变化 + 前10大持仓
-  fetch: 最新一期全量展示，不做对比
+  python3 compare.py --config config/watchlist.json
 """
 import argparse
 import json
-import sys
 import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
-from pathlib import Path
 
 SEC_SUBMISSIONS = "https://data.sec.gov/submissions/CIK{cik}.json"
 SEC_INDEX = "https://www.sec.gov/Archives/edgar/data/{num}/{acc_no_dash}/index.json"
@@ -141,7 +135,7 @@ def compare(current, previous):
 
 
 def status_tag(c):
-    """返回单只股票的变动状态标签（用于按占比排序的持仓明细）"""
+    """返回单只股票的变动状态标签"""
     if c is None:
         return "—"
     if c["type"] == "new":
@@ -156,16 +150,12 @@ def status_tag(c):
     return "—"
 
 
-def fmt_holdings_with_status(items, change_map, top=0):
+def fmt_holdings_with_status(items, change_map):
     """按占比从大到小排序，一行一个：名称 市值(占比%) | 变动状态"""
     lines = []
-    shown = items if top == 0 else items[:top]
-    for h in shown:
+    for h in items:
         tag = status_tag(change_map.get(h["cusip"]))
         lines.append(f"- {h['name']} ${h['value']/1e9:.1f}B ({h['pct']:.1f}%) | {tag}")
-    rest = len(items) - len(shown)
-    if rest > 0:
-        lines.append(f"- …（等 {rest} 只未列出）")
     return lines
 
 
@@ -175,11 +165,8 @@ def format_sold(c):
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--config", required=True)
-    ap.add_argument("--workspace", default=".", help="保留兼容，已不依赖本地状态")
-    ap.add_argument("--mode", required=True, choices=["check", "fetch"])
-    ap.add_argument("--top", type=int, default=0, help="fetch 模式只显示前 N 只（0=全部）")
+    ap = argparse.ArgumentParser(description="SEC 13F 两期持仓对比（无需本地基线）")
+    ap.add_argument("--config", required=True, help="监控对象配置文件路径")
     args = ap.parse_args()
 
     with open(args.config) as f:
@@ -199,27 +186,10 @@ def main():
             output_lines.append(f"❌ {name}（{alias}）：抓取失败 - {e}")
             continue
 
-        if args.mode == "fetch":
-            # 最新一期全量展示
-            output_lines.append(f"### {name}（{alias}）")
-            output_lines.append(
-                f"📅 申报日期：{current['filing_date']} | "
-                f"共 {current['holdings_count']} 只 | "
-                f"组合总值 ${current['total_value']/1e9:.1f}B")
-            shown = current["holdings"] if args.top == 0 else current["holdings"][:args.top]
-            for h in shown:
-                output_lines.append(
-                    f"- {h['name']} ${h['value']/1e9:.1f}B ({h['pct']:.1f}%) | —")
-            if args.top > 0 and len(current["holdings"]) > args.top:
-                rest = len(current["holdings"]) - args.top
-                output_lines.append(f"- …（等 {rest} 只未列出，共 {current['holdings_count']} 只）")
-            output_lines.append("")
-            continue
-
-        # check 模式：与 SEC 上上一期对比
         if len(filings) < 2:
             output_lines.append(f"ℹ️ {name}（{alias}）：仅有一期 13F 申报，无法对比")
             continue
+
         try:
             previous = fetch_filing(cik, *filings[1])
         except Exception as e:
@@ -227,12 +197,13 @@ def main():
             previous = None
 
         output_lines.append(f"### {name}（{alias}）")
+
         if previous is None:
             output_lines.append(
                 f"📅 申报日期：{current['filing_date']} | "
                 f"共 {current['holdings_count']} 只 | "
                 f"组合总值 ${current['total_value']/1e9:.1f}B")
-            output_lines.extend(fmt_holdings(current["holdings"], 10))
+            output_lines.extend(fmt_holdings_with_status(current["holdings"], {}))
             output_lines.append("")
             continue
 
@@ -240,20 +211,22 @@ def main():
         change_map = {c["cusip"]: c for c in changes
                       if c["type"] in ("new", "changed")}
         sold = [c for c in changes if c["type"] == "sold"]
+
         output_lines.append(
             f"📅 本期 {current['filing_date']} vs 上期 {previous['filing_date']} | "
             f"{current['holdings_count']}只 | ${current['total_value']/1e9:.1f}B")
 
         output_lines.append("**持仓明细（按占比排序）：**")
-        output_lines.extend(
-            fmt_holdings_with_status(current["holdings"], change_map, top=0))
+        output_lines.extend(fmt_holdings_with_status(current["holdings"], change_map))
 
         if sold:
             output_lines.append("**已清仓：**")
             for c in sold:
                 output_lines.append(format_sold(c))
+
         if not changes:
             output_lines.append("✅ 与上期相比无显著变化")
+
         output_lines.append("")
 
     print("\n".join(output_lines))
