@@ -27,15 +27,6 @@
 
 ---
 
-## Promoted From Short-Term Memory (2026-08-07)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:44:46 -->
-- Conversation Summary: **1. npm 缓存（纯缓存，绝对安全）** assistant: 好，现在清 uv 缓存和 pnpm store： assistant: 清理完毕 🦐 成果汇报： [score=0.815 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:44-46]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:57:57 -->
-- Conversation Summary: **磁盘从 80% → 68%，可用空间从 12G → 19G** 🎉 [score=0.815 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:57-57]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:81:81 -->
-- Conversation Summary: **磁盘：80% → 67%，可用 19G** [score=0.815 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:81-81]
-
 ## Promoted From Short-Term Memory (2026-08-08)
 
 <!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:14:14 -->
@@ -79,3 +70,26 @@
 - Conversation Summary: RSS 源：751 条 → 55 条精选; API 源：44 条 → 15 条精选; 微博/头条/知乎/Google News/Twitter：抓取失败（限流/网络问题）; 共汇聚 **70 条热点** [score=0.806 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:22-25]
 <!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:3:5 -->
 - Session: 2026-08-05 10:39:16 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: 0305ee52-1539-4334-96ea-4b592199e27d; **Source**: feishu [score=0.806 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:3-5]
+
+## Promoted From Short-Term Memory (2026-08-10)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:21:21 -->
+- Conversation Summary: **📡 抓取概要** [score=0.820 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:21-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:9:12 -->
+- Conversation Summary: user: [message_id: om_x100b682f4f735ca0b208c37fcc44191] ou_77fa18f196aa0559f70cdd7e1ffdd567: 运行 定时任务 每日新闻热点 assistant: 收到！正在抓取今日新闻热点，稍等 15-30 分钟 🦐 assistant: 任务已启动 (session quiet-orbit)，正在抓取中，我持续监控进度。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:13:13 -->
+- Conversation Summary: assistant: 发现了！新的 daemon（PID 121165）命令行里参数是对的，但 PPID=1（systemd），说明它被 systemd 重启了。更关键的是——它在读 `~/.bb-browser/browser/cdp-port` 的默认值（9222），而不是用命令行传的 19825。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:15:16 -->
+- Conversation Summary: 让我换个思路，直接用 Python + CDP 绕过 daemon 来做抓取，彻底甩掉这个双 Chrome 问题： assistant: 问题清楚了！`bb-browser open zhihu/hot` 会自动启动一个新 daemon（用默认参数 `--cdp-port 9222`），它又拉起一个 Chrome。两条链路互不干扰。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:15-16]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:18:21 -->
+- Conversation Summary: 彻底解决要绕开 daemon CLI，改用 Python 直连 CDP。写一个小脚本替代： assistant: WebSocket 连接有问题，让我换更简单的方式——用 Python 直接调用 bb-sites 的 adapter 代码，不走 CLI： assistant: 好，Chrome 只剩一个（19825）了，daemon 那边的也清了。现在让我看一下 bb-sites 的 adapter 源码，找一个不触发 CLI 自动起 daemon 的调用方式： assistant: adapter 用的是 `fetch` API 调知乎接口，需要登录态。我换一个更简单的思路：Chrome 打开知乎页面后，直接用 CDP 执行 JavaScript 提取渲染后的 DOM 数据： [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:22:25 -->
+- Conversation Summary: assistant: 让我用一个更简单的方案——用 `node` 直接调用 bb-sites adapter，不走 bb-browser CLI： assistant: 让我换个角度——把 Chrome 的 cookie 直接注入 adapter 来绕过登录态问题： assistant: 只有一个 Chrome 了 ✅ 验证一下： assistant: 双窗口问题彻底解决了 🦐 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:22-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:3:5 -->
+- Session: 2026-08-05 11:33:31 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: 8bef2e74-e46f-46df-9ea7-755e31ae3867; **Source**: feishu [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:9:12 -->
+- Conversation Summary: assistant: PPID 是 systemd --user，不是 daemon 自己。说明有 systemd user service 在自动拉 Chrome。查一下： assistant: `--no-chrome` 也没挡住，daemon 依然拉了 Chrome。让我看 daemon 源码确认 `--no-chrome` 实际行为，同时换个策略： assistant: 问题找到了——`--no-chrome` 改进去了，但 `--cdp-port` 还是没生效。让我当场确认脚本当前内容并重新修复： assistant: 脚本里确实写了 `--no-chrome --cdp-port 19825`，但进程显示 daemon 用的是 `--cdp-port 9222` 且没带 `--no-chrome`。说明还有另一个 daemon 实例！让我查一下： [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1140.md:11:11 -->
+- Conversation Summary: **2026-08-05 daily 全球科技与 AI 热点** [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1140.md:11-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1140.md:15:15 -->
+- Conversation Summary: **今日最突出的信号是 AI 基础设施的"军备竞赛"与地缘政治博弈交织。** 企业层面，Anthropic 与一家成立仅 6 个月的云计算初创公司 Volta 签下 100 亿美元算力协议，AMD 数据中心收入同比翻倍突破 67 亿美元，Arista 单季营收首破 30 亿美元——这些数字共同勾勒出一个事实：算力需求远未饱和，供应链（尤其是网络层）才是下一瓶颈。Google 则通过与 Broadcom、Apollo 的复杂融资结构，悄悄将 Anthropic 芯片风险从资产负债表转移出去，规避监管压力。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1140.md:15-15]
