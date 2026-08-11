@@ -27,29 +27,6 @@
 
 ---
 
-## Promoted From Short-Term Memory (2026-08-08)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:14:14 -->
-- Conversation Summary: `/` 根分区：59G 总容量，已用 48G，可用 8.4G（使用率 85%） [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1144.md:14-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:16:19 -->
-- Conversation Summary: **主要占用（~2G 以上）** | 路径 | 大小 | 说明 | |------|------|------| | `/var/log/syslog` | 4.5G | 系统日志，非常大 | [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1144.md:16-19]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:20:23 -->
-- Conversation Summary: | `/var/log/journal` | 3.5G | systemd 日志 | | `/home/clawd/.cache/chrome` | 1.3G | Chrome 浏览器缓存 | | `~/.cache/uv` | 322M | uv 包管理器缓存 | | `~/.cache/pnpm` | 211M | pnpm 缓存 | [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1144.md:20-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:3:5 -->
-- Session: 2026-08-04 11:44:51 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: a350374d-32e0-4603-b5a4-dcefaae64696; **Source**: feishu [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1144.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:9:11 -->
-- Conversation Summary: user: [message_id: om_x100b6821b34578acde77cb070117710] ou_77fa18f196aa0559f70cdd7e1ffdd567: 查看磁盘情况，清理磁盘空间 assistant: 磁盘情况如下： [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1144.md:9-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:13:14 -->
-- Conversation Summary: assistant: 系统日志已清理掉 2.9G。再清几块明确安全的残留（apt 包缓存、任务临时目录、测试缓存目录）： assistant: 清理完毕 🦐 汇报： [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:13-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:18:21 -->
-- Conversation Summary: | 项目 | 释放空间 | |------|---------| | journalctl 历史日志归档 | **2.9 GB** | | apt 包缓存 | ~108 MB | [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:22:23 -->
-- Conversation Summary: | news-hotspots pipeline 临时文件 | ~7 MB | | chrome 测试缓存目录 | ~13 MB | [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:22-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:3:5 -->
-- Session: 2026-08-04 17:25:36 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: 6e581db6-de1c-4d44-b6e9-52ed82b00a8c; **Source**: feishu [score=0.828 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:9:12 -->
-- Conversation Summary: user: [message_id: om_x100b68224a4800a0dee18d3f9c63cd8] ou_77fa18f196aa0559f70cdd7e1ffdd567: 可以安全清理的就清理掉，系统日志的话识别安全的进行清理 assistant: 系统盘已用 85%（48G/59G），日志是大头。先全面看下还有哪些可清理的： assistant: 已释放 2.9G 日志空间。继续检查更多可清理项： [score=0.818 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:9-12]
-
 ## Promoted From Short-Term Memory (2026-08-09)
 
 <!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:13:13 -->
@@ -93,3 +70,26 @@
 - Conversation Summary: **2026-08-05 daily 全球科技与 AI 热点** [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1140.md:11-11]
 <!-- openclaw-memory-promotion:memory:memory/2026-08-05-1140.md:15:15 -->
 - Conversation Summary: **今日最突出的信号是 AI 基础设施的"军备竞赛"与地缘政治博弈交织。** 企业层面，Anthropic 与一家成立仅 6 个月的云计算初创公司 Volta 签下 100 亿美元算力协议，AMD 数据中心收入同比翻倍突破 67 亿美元，Arista 单季营收首破 30 亿美元——这些数字共同勾勒出一个事实：算力需求远未饱和，供应链（尤其是网络层）才是下一瓶颈。Google 则通过与 Broadcom、Apollo 的复杂融资结构，悄悄将 Anthropic 芯片风险从资产负债表转移出去，规避监管压力。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1140.md:15-15]
+
+## Promoted From Short-Term Memory (2026-08-11)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:66:67 -->
+- ⚙️ AI 基础设施: AMD 收购 Taalas 落地：将模型刻入硅片提升推理性能，"模型即芯片"路线获实质进展，多源同步报道; Agentic 工作负载挤压 CPU：亚马逊内部 EC2 CPU 需求激增、等待时间从小时延至天，Agentic AI 的 CPU-GPU 协同瓶颈显现 [score=0.831 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:66-67]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:41:43 -->
+- 💼 商业: AI 债务狂潮遇冷：英伟达、亚马逊等科技巨头今年在美投资级债市融资超 2000 亿美元，新债普遍破发、二级市场走弱，华尔街开始重新审视 AI 基建融资的可持续性; AI 语音克隆入侵华尔街：黑客用 3 秒样本生成高度相似声音实施"语音钓鱼"，攻击成本降至几十美元且已产业化，金融、律所、医疗轮番陷落; OpenAI Astra 安全疑云：OpenAI 承认 Astra 尚未发布、无法排除其具备关键网络攻击能力，已发布初步网络安全评估 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:41-43]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:46:47 -->
+- 🫂 社会: Anthropic 官宣造芯：首次确认组建内部芯片团队，最高 327 万年薪招揽芯片工程师，协同优化模型与硬件; 乌克兰防空危机：7 月俄发射 195 枚弹道导弹仅拦截 29 枚，泽连斯基紧急求援，美方称援乌致自身库存锐减 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:46-47]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:50:51 -->
+- 🌍 国际: 泰国校园枪击：一名受霸凌青少年先杀祖父母、再枪杀 5 名教职工，震动泰国社会; 欧洲极端高温：多瑙河水位骤降暴露二战沉船、韩国热浪被定为"国家灾难"，气候议题持续升温 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:50-51]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:54:55 -->
+- 🔬 科技: 字节 10 万亿参数大模型：TikTok 母公司训练参数规模达 10 万亿的模型，直接对标 Anthropic，中国大模型军备竞赛再升级; AI 创作悖论：WAIC 2026 上"10 万人排队、一键出片"背后，AI 让创作变简单却让爆款更难做，引发行业反思 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:54-55]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:58:59 -->
+- 🐦 推特动态: Musk 叙事刷屏：多条高互动推文（"建墙的是坏人"2.6 万赞、Grok Build V1.0 发布、Terafab 香蕉类比），太空+AI 叙事持续霸榜; Altman 双线操作：一边详谈 HuggingFace "留言板"事件与模型对齐问题，一边祝贺 Oklo 核反应堆临界，OpenAI 安全与能源布局并进 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:58-59]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:62:63 -->
+- 🧠 AI 前沿: Agentic AI 加速落地：Salesforce 数据显示 agent workforce 年增超一倍、部署周期缩短；Credo AI 警示"agent 部署即获全权是设计错误"，治理成为新焦点; ChatGPT 免费扩容：GPT-5.6 Sol 聊天体验提升、Luna 向免费用户开放无限聊天，AI 普惠化继续推进 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:62-63]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:71:71 -->
+- 📌 今日总结: **AI 安全与治理成今日最强主线：** OpenAI 承认 Astra 模型潜在网络攻击能力、HuggingFace "留言板"对齐事件持续发酵，Credo AI 在伯克利峰会上警示"agent 部署即获全权是设计错误"——三条信号共同指向一个趋势：行业关注点正从"能力竞赛"快速转向"可控性与安全边界"，多源共振明显。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:71-71]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:73:73 -->
+- 📌 今日总结: **AI 基建融资现分化：** 一面是英伟达、亚马逊等巨头在债市融资超 2000 亿美元却遭遇新债破发、华尔街重新审视可持续性；另一面是 AMD 收购 Taalas、Anthropic 自研芯片、亚马逊 CPU 因 Agentic 负载告急——资本与算力都在从"通用堆量"转向"专用优化"，供需错配开始暴露。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:73-73]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:75:75 -->
+- 📌 今日总结: **中国大模型军备再升级：** 字节跳动 10 万亿参数模型浮出水面，直接对标 Anthropic；与此同时 AI 语音克隆已产业化入侵华尔街，显示中国 AI 应用与安全攻防同步进入实战阶段。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:75-75]

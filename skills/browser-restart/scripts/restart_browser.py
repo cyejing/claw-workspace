@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
-重启浏览器 - 单窗口版
+重启浏览器 - 单窗口版（修复版）
 
-核心变化：不再由脚本启动 Chrome，只杀 Chrome 进程，然后重启 bb-browser daemon，
-让它自动重连 Chrome。整个过程只有一个浏览器窗口（你的 profile）。
+根因修复：
+1. bb-browser daemon 读取 ~/.bb-browser/browser/cdp-port 来决定连接哪个 Chrome
+2. daemon 默认端口是 19825，会自己启动一个空 profile 的 Chrome
+3. 'bb-browser daemon stop' 会把 daemon 进程和所有 Chrome 都杀掉（包括我们的）
+4. 正确做法：杀 daemon 进程，重写 cdp-port，再启动我们的 Chrome，让 bb-browser 自己重连
 
 流程：
-  1. 停掉 bb-browser daemon（避免它监控老 Chrome）
-  2. 杀掉所有 Chrome 进程
-  3. 用你的 profile 启动 Chrome（端口 9222，即 bb-browser daemon 默认端口）
-  4. 重启 daemon，它会自动找到新 Chrome 并重连
-  5. 等 zhihu 热榜页面加载完成（cookie 写入）
-  6. 验证 zhihu/hot 抓取
+  1. 杀掉 daemon 进程 + 所有 Chrome
+  2. 用你的 profile 启动 Chrome（端口 9222，打开知乎热榜）
+  3. 写入 cdp-port 文件，告诉 daemon 连接 9222
+  4. 等热榜页面加载完成
+  5. 验证 zhihu/hot 抓取
 """
 import argparse
 import json
@@ -25,12 +27,13 @@ import urllib.error
 from pathlib import Path
 
 DEFAULT_DISPLAY = ':0'
-DEFAULT_CDP_PORT = 9222          # bb-browser daemon 默认端口
+DEFAULT_CDP_PORT = 9222
 FIXED_USER_DATA_DIR = '/home/clawd/.cache/chrome'
 DEFAULT_CHROME_BIN = 'google-chrome-stable'
 DEFAULT_ZHIHU_URL = 'https://www.zhihu.com/hot'
-DAEMON_JSON = Path.home() / '.bb-browser' / 'daemon.json'
 CHROME_LOG = '/tmp/browser-restart-chrome.log'
+MANAGED_BROWSER_DIR = Path.home() / '.bb-browser' / 'browser'
+MANAGED_PORT_FILE = MANAGED_BROWSER_DIR / 'cdp-port'
 
 
 def log(msg: str):
@@ -126,31 +129,24 @@ def wait_for_cdp(port: int, timeout=30):
 
 def daemon_status() -> dict:
     """Check daemon status and return parsed output."""
-    out = run_cmd(['bb-browser', 'daemon', 'status'])
-    connected = 'CDP connected:  yes' in out
-    tabs = []
-    if 'Tabs' in out:
-        # Parse tab count
-        for line in out.splitlines():
-            if line.strip().startswith(('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')):
-                parts = line.strip().split()
-                if len(parts) >= 2:
-                    tabs.append(parts[0])
-    return {'connected': connected, 'tabs': tabs, 'raw': out}
+    out = run_cmd(['bb-browser', 'daemon', 'status', '--json'], timeout=8)
+    try:
+        raw = json.loads(out)
+        connected = raw.get('data', {}).get('connected', False) or raw.get('data', {}).get('CDP connected') == 'yes'
+        tabs = raw.get('data', {}).get('tabs', [])
+        return {'connected': connected, 'tabs': tabs, 'raw': raw}
+    except Exception:
+        # fallback: check if daemon connected via HTTP
+        return {'connected': None, 'tabs': [], 'raw': out}
 
 
 def test_zhihu_hot() -> dict:
-    """Test zhihu/hot via bb-browser and return parsed result.
-    
-    bb-browser returns: {"result": {"count": N, "items": [...]}}
-    or on error: {"error": {"message": "..."}}
-    """
+    """Test zhihu/hot via bb-browser and return parsed result."""
     out = run_cmd(['bb-browser', 'site', 'zhihu/hot', '--json'], timeout=30)
     try:
         raw = json.loads(out)
-        # bb-browser wraps result under a "result" key
-        if 'result' in raw:
-            return raw['result']
+        if raw.get('success') and 'data' in raw:
+            return raw['data']
         return raw
     except Exception:
         return {'error': {'message': out[:200]}}
@@ -180,8 +176,11 @@ def launch_chrome(chrome_bin: str, display: str, cdp_port: int):
             shell_parts.append(p)
     shell_cmd = ' '.join(shell_parts)
     log(f'[INFO] Launching Chrome: {shell_cmd}')
-    subprocess.Popen(f'nohup {shell_cmd} > {CHROME_LOG} 2>&1 &',
-                     shell=True, executable='/bin/bash', start_new_session=True)
+    subprocess.Popen(
+        f'nohup {shell_cmd} > {CHROME_LOG} 2>&1 &',
+        shell=True, executable='/bin/bash',
+        start_new_session=True,
+    )
 
 
 def main():
@@ -196,51 +195,47 @@ def main():
     parent_pid = os.getppid()
     exclude_pids = {self_pid, parent_pid}
 
-    # Step 1: stop daemon (prevents it from spawning a new Chrome)
-    log('[INFO] Stopping bb-browser daemon...')
-    run_cmd(['bb-browser', 'daemon', 'stop'], timeout=10)
-    time.sleep(1)
-    if DAEMON_JSON.exists():
-        DAEMON_JSON.unlink()
-        log('[INFO] Removed daemon.json')
+    # Step 1: kill bb-browser daemon node process and all Chrome windows
+    # (bb-browser daemon stop kills ALL Chrome windows via SIGTERM cascade,
+    #  so we do it manually to control the order)
+    log('[INFO] Stopping bb-browser daemon and all Chrome processes...')
 
-    # Step 2: kill all Chrome processes
-    chrome_pairs = find_processes(
-        lambda cl: ('/chrome ' in f' {cl} ' or 'google-chrome' in cl or 'chromium' in cl),
+    # Kill all Chrome processes
+    all_chrome_pairs = find_processes(
+        lambda cl: '/chrome ' in f' {cl} ' or 'google-chrome' in cl or 'chromium' in cl,
         exclude_pids=exclude_pids,
     )
-    kill_processes(chrome_pairs, 'Chrome')
+    kill_processes(all_chrome_pairs, 'Chrome')
+
+    # Kill bb-browser daemon node process (if any)
+    daemon_pairs = find_processes(
+        lambda cl: ('node' in cl or 'bb-browser' in cl) and 'dist/cli.js' in cl,
+        exclude_pids=exclude_pids,
+    )
+    kill_processes(daemon_pairs, 'bb-browser daemon')
     time.sleep(2)
 
-    # Step 3: launch Chrome with our profile
+    # Step 2: launch Chrome with our profile
     launch_chrome(args.chrome_bin, args.display, args.cdp_port)
     cdp = wait_for_cdp(args.cdp_port, timeout=30)
     if not cdp:
         raise SystemExit('[FAIL] Chrome CDP did not become ready in time')
     log(f"[INFO] Chrome CDP ready: {cdp.get('Browser', 'unknown')}")
 
+    # Step 3: write our port into bb-browser's cdp-port file
+    # This tells bb-browser daemon to connect to OUR Chrome instead of launching its own
+    MANAGED_BROWSER_DIR.mkdir(parents=True, exist_ok=True)
+    MANAGED_PORT_FILE.write_text(str(args.cdp_port))
+    log(f'[INFO] Written cdp-port={args.cdp_port} to {MANAGED_PORT_FILE}')
+
     # Step 4: wait for zhihu page to load (cookies get written)
     log(f'[INFO] Waiting {args.wait_seconds}s for zhihu page to load...')
     time.sleep(args.wait_seconds)
 
-    # Step 5: restart daemon so it reconnects to our Chrome
-    log('[INFO] Restarting bb-browser daemon...')
-    run_cmd(['bb-browser', 'daemon', 'stop'], timeout=5)
-    time.sleep(1)
-    run_cmd(['bb-browser', 'daemon', 'start'], timeout=10)
-    time.sleep(3)
-
-    # Step 6: check daemon status
-    status = daemon_status()
-    log(f"[INFO] Daemon: connected={status['connected']}, tabs={len(status['tabs'])}")
-
-    # Step 7: verify zhihu/hot
-    # Try twice: first attempt might hit still-loading page
+    # Step 5: verify zhihu/hot
+    # bb-browser commands auto-connect via discoverCdpPort() which reads cdp-port file
+    log('[INFO] Verifying bb-browser zhihu/hot...')
     data = test_zhihu_hot()
-    if 'error' in data:
-        log(f'[WARN] First attempt failed: {data["error"]["message"]}, retrying in 5s...')
-        time.sleep(5)
-        data = test_zhihu_hot()
 
     if 'error' in data:
         result = {
