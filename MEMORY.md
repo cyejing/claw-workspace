@@ -27,27 +27,6 @@
 
 ---
 
-## Promoted From Short-Term Memory (2026-08-09)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1144.md:13:13 -->
-- Conversation Summary: **磁盘整体** [score=0.841 recalls=0 avg=0.620 source=memory/2026-08-04-1144.md:13-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-04-1725.md:16:16 -->
-- Conversation Summary: **已清理（安全）** [score=0.841 recalls=0 avg=0.620 source=memory/2026-08-04-1725.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-02.md:13:14 -->
-- 主要议题: SK海力士股价"深V"反转; 房企前七月销售总额1.8万亿 [score=0.830 recalls=0 avg=0.620 source=memory/2026-08-02.md:13-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-02.md:4:6 -->
-- 热点新闻任务: 执行了 news-hotspots daily pipeline; 归档: /home/clawd/.openclaw/workspace/archive/news-hotspots/2026-08-02/markdown/daily.md; 产出 36 条热点（API 10条 + RSS 26条） [score=0.830 recalls=0 avg=0.620 source=memory/2026-08-02.md:4-6]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-02.md:9:12 -->
-- 主要议题: 伊朗政治危机（哈梅内伊去世后应急决策）; 中东局势升温（卡塔尔LNG船霍尔木兹海峡遭袭）; AI前沿：Word文档自传播蠕虫、OpenAI Astra数学突破、ByteDance Seedance 2.5视频生成; 政治局会议定调逆周期调节加码 [score=0.830 recalls=0 avg=0.620 source=memory/2026-08-02.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:13:16 -->
-- Conversation Summary: assistant: 还在跑，已抓完 RSS(751) 和 API(44)，微博/头条/知乎源失败（可能被限流）。继续等待剩余源完成。 assistant: Google News 抓了 5 分钟也扑空了。继续等... assistant: 第 6 个源（Google News）已完，还剩最后 1 个源（应该是 X/Twitter，通常耗时最长）。继续等。 assistant: 抓取完成！现在读取归档报告： [score=0.806 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:13-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:17:17 -->
-- Conversation Summary: assistant: **🦐 今日全球科技与 AI 热点 · 2026-08-04** [score=0.806 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:17-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:22:25 -->
-- Conversation Summary: RSS 源：751 条 → 55 条精选; API 源：44 条 → 15 条精选; 微博/头条/知乎/Google News/Twitter：抓取失败（限流/网络问题）; 共汇聚 **70 条热点** [score=0.806 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:22-25]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:3:5 -->
-- Session: 2026-08-05 10:39:16 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: 0305ee52-1539-4334-96ea-4b592199e27d; **Source**: feishu [score=0.806 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:3-5]
-
 ## Promoted From Short-Term Memory (2026-08-10)
 
 <!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:21:21 -->
@@ -93,3 +72,13 @@
 - 📌 今日总结: **AI 基建融资现分化：** 一面是英伟达、亚马逊等巨头在债市融资超 2000 亿美元却遭遇新债破发、华尔街重新审视可持续性；另一面是 AMD 收购 Taalas、Anthropic 自研芯片、亚马逊 CPU 因 Agentic 负载告急——资本与算力都在从"通用堆量"转向"专用优化"，供需错配开始暴露。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:73-73]
 <!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:75:75 -->
 - 📌 今日总结: **中国大模型军备再升级：** 字节跳动 10 万亿参数模型浮出水面，直接对标 Anthropic；与此同时 AI 语音克隆已产业化入侵华尔街，显示中国 AI 应用与安全攻防同步进入实战阶段。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:75-75]
+
+## Promoted From Short-Term Memory (2026-08-15)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-11-0106.md:26:29 -->
+- 🫂 社会: iPhone物料成本: iPhone 18 Pro 物料成本预计同比大涨近40%，内存占比从10%飙升至34%，苹果面临毛利率压力; 🔥 哥伦比亚地震: 哥伦比亚7.4级地震，已致 Cali 市至少20栋建筑倒塌，与厄瓜多尔均有震感（RSS 与 API 同步报道）; FIFA信任危机: 欧足联、亚足联、中北美洲及加勒比海足联联名发公开信，指责国际足联主席因凡蒂诺欺骗破坏信任，目前因凡蒂诺已宣布竞选连任; 伯克希尔Q2: 伯克希尔Q2净利润256.67亿美元，时隔3年首次净买入股票，现金储备降至3655亿美元，回购约45亿美元库存股 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-11-0106.md:26-29]
+
+## Promoted From Short-Term Memory (2026-08-16)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-11-1207.md:23:26 -->
+- 🌍 国际: 加拿大野火：加拿大 Okanagan 地区周末爆发野火，迫使超过 12000 人撤离，居民担忧家园是否仍在; 地震：哥伦比亚 7.4 级地震至少已致 50 人死亡，震中距 San José del Palmar 约 5 公里; 特朗普与伊朗：Trump 拒绝 6 月 MOU 后，伊朗被指掌握主动权，筹码上升；制裁解除、停火等条件已不再适用，现在需谈赔偿与资产解冻; 30 年悬案：Tupac 遇害案时隔 30 年，一名昔日对手将接受审判 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-11-1207.md:23-26]
