@@ -8,6 +8,7 @@ import json
 import subprocess
 import sys
 import tempfile
+import urllib.request
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).parent.parent
@@ -42,15 +43,25 @@ def check_chrome() -> bool:
 
 
 def check_daemon() -> tuple[bool, bool]:
-    """检查 bb-browser daemon 健康状态"""
-    rc, out, err = run_cmd(["bb-browser", "daemon", "status"])
-    daemon_ok = rc == 0
+    """检查 CDP 端口连通性（代替 bb-browser daemon status）
+
+    ⚠️ bb-browser 2026-10-19 起的版本存在 bug：`daemon status` 命令在 CLI
+    路由中 fall-through 到 `close`（关闭当前标签页）。Chrome 只剩一个
+    标签页时会直接退出浏览器。因此禁止调用 `bb-browser daemon status`，
+    改为直接探测 ~/.bb-browser/browser/cdp-port 指向的 CDP 端口。
+    """
+    port_file = Path.home() / ".bb-browser" / "browser" / "cdp-port"
+    daemon_ok = False
     cdp_connected = False
-    if daemon_ok:
-        for line in out.splitlines():
-            if "CDP connected:" in line:
-                cdp_connected = "yes" in line.lower()
-                break
+    if port_file.exists():
+        try:
+            port = int(port_file.read_text().strip())
+            req = urllib.request.Request(f"http://127.0.0.1:{port}/json/version")
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                daemon_ok = resp.status == 200
+                cdp_connected = daemon_ok
+        except (ValueError, OSError):
+            pass
     RESULT["daemon_ok"] = daemon_ok
     RESULT["daemon_cdp_connected"] = cdp_connected
     return daemon_ok, cdp_connected

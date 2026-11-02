@@ -41,9 +41,15 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
 - "Mental notes" don't survive session restarts. Files do.
 - When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
-- When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
+- When you learn a lesson → update AGENTS.md or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
+
+## 产物落盘规则（老板明确要求）
+
+- 定时任务/一次性任务的报告、日志、中间产物，**禁止写到 workspace 根目录**
+- 归档类放 `archive/`，临时类放 `temp/`，结构化数据放 `data/`；对应目录不存在就创建
+- 根目录只保留：身份文件（SOUL/USER/IDENTITY/MEMORY/DREAMS/AGENTS）、`memory/`、`skills/`、`config/`、`state/` 等结构性内容
 
 ## Red Lines
 
@@ -115,7 +121,9 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 ## Tools
 
-Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
+### Local notes
+
+Skills define how tools work. Keep environment-specific local notes in this section.
 
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
@@ -124,6 +132,22 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 - **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
 - **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
 - **WhatsApp:** No headers — use **bold** or CAPS for emphasis
+
+### Local notes (migrated from TOOLS.md)
+
+# TOOLS.md - 本地配置笔记
+
+> 这里存放你的**个性化配置**，比如设备名称、偏好设置等。Skills 是共享的通用工具，这个文件是你的私人备忘录。
+
+---
+
+## Tool gotchas
+
+- `stock-analysis` 首次用 `uv run .../watchlist.py check` 可能会先下载/构建 `numpy`、`pandas`、`curl-cffi`、`multitasking` 等依赖，用户面前容易超时或被 SIGTERM 中断。
+- 如果只是要快速查看现有观察列表行情，优先准备轻量兜底方案；需要正式告警检查时，再考虑预热依赖后运行原脚本。
+- 在这台机器上，`chrome`（含 `--remote-debugging-port` 的自动化/调试实例）、`next-server`、`openclaw-gateway` 默认视为正常常驻进程；不要仅凭 RSS 高、运行时间长就判定为“无效浪费内存”，除非老板明确说暂时不用或先核实用途。
+
+<!-- OPENCLAW_CACHE_BOUNDARY -->
 
 ## 💓 Heartbeats - Be Proactive!
 

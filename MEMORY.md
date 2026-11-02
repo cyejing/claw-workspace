@@ -8,8 +8,21 @@
 - ⚠️ **重要传闻**相关输出：**列表格式**，不用表格（飞书表格不好查看）
 
 ## 用户偏好
-- 🚫 **对加密货币不感兴趣** — 股票分析时只关注股票，过滤加密货币
-- 🔥 **新闻热点查看** — 当用户说"查看今日新闻热点"时，使用news-hotspots技能
+- 🚫 **对加密货币不感兴趣** — 股票分析时只关注股票，过滤加密货币；新闻热点（news-hotspots）也已过滤：工作区配置 `<WORKSPACE>/config/news-hotspots-runtime.json` 的 `content_filters.blocked_keywords: ["比特币","bitcoin","btc"]`，在最终热点输出前剔除命中条目（2026-10-30 实测过滤 4 条、0 漏网）
+- 🔥 **新闻热点查看** — 当用户说“查看今日新闻热点”时，使用news-hotspots技能
+
+## 搜索后端优先级（2026-10-30 实测固化）
+搜索需求按以下顺序调用，某一层失败就降级到下一层，直到拿到结果：
+1. **web_search**（首选，后端 gemini grounding，中英文质量最高）
+2. **Exa 搜索**（skills/shikamaru-web-search，免 key，返回原文高亮+发布时间，质量高；中英文都好，适合找文档/评测/深度内容）
+3. **Bing CN**（web_fetch 抓 cn.bing.com/search；国际内容加 `&ensearch=1`）
+4. **搜狗网页**（sogou.com/web）；查公众号文章用**搜狗微信**（wx.sogou.com/weixin?type=2&query=…）
+5. **bb-browser 站点抓取**（google/news、zhihu/hot 等，走 Chrome 登录态；浏览器健康时用）
+6. **scrapling-web-fetch**（反爬正文抓取；首次超时先重试一次再判定失败）
+7. **360 搜索**（so.com，结果薄，仅作垫底兑底）
+- ❌ 别浪费时间尝试：Google/DuckDuckGo 等国际引擎直连（网关拦截内网 IP 解析）、百度（验证码）
+- 搜索结果可疑/后端疑似坏了 → 先跑 `search-backend-audit` 技能实测再选路
+- 已删除的失效后端：online-search、universal-search、tavily、alibabacloud-iqs-search（需 ALIYUN_IQS_API_KEY，已删）、temp 备份已按老板指示清空（详见 2026-10-30 日记）
 
 ## 工作习惯记录
 - 以后给出答复的时候，需要在尾部标注使用了哪个工具/技能
@@ -27,65 +40,54 @@
 
 ---
 
-## Promoted From Short-Term Memory (2026-08-10)
+## Promoted From Short-Term Memory (2026-08-22)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:21:21 -->
-- Conversation Summary: **📡 抓取概要** [score=0.820 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:21-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1039.md:9:12 -->
-- Conversation Summary: user: [message_id: om_x100b682f4f735ca0b208c37fcc44191] ou_77fa18f196aa0559f70cdd7e1ffdd567: 运行 定时任务 每日新闻热点 assistant: 收到！正在抓取今日新闻热点，稍等 15-30 分钟 🦐 assistant: 任务已启动 (session quiet-orbit)，正在抓取中，我持续监控进度。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1039.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:13:13 -->
-- Conversation Summary: assistant: 发现了！新的 daemon（PID 121165）命令行里参数是对的，但 PPID=1（systemd），说明它被 systemd 重启了。更关键的是——它在读 `~/.bb-browser/browser/cdp-port` 的默认值（9222），而不是用命令行传的 19825。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:13-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:15:16 -->
-- Conversation Summary: 让我换个思路，直接用 Python + CDP 绕过 daemon 来做抓取，彻底甩掉这个双 Chrome 问题： assistant: 问题清楚了！`bb-browser open zhihu/hot` 会自动启动一个新 daemon（用默认参数 `--cdp-port 9222`），它又拉起一个 Chrome。两条链路互不干扰。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:15-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:18:21 -->
-- Conversation Summary: 彻底解决要绕开 daemon CLI，改用 Python 直连 CDP。写一个小脚本替代： assistant: WebSocket 连接有问题，让我换更简单的方式——用 Python 直接调用 bb-sites 的 adapter 代码，不走 CLI： assistant: 好，Chrome 只剩一个（19825）了，daemon 那边的也清了。现在让我看一下 bb-sites 的 adapter 源码，找一个不触发 CLI 自动起 daemon 的调用方式： assistant: adapter 用的是 `fetch` API 调知乎接口，需要登录态。我换一个更简单的思路：Chrome 打开知乎页面后，直接用 CDP 执行 JavaScript 提取渲染后的 DOM 数据： [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:22:25 -->
-- Conversation Summary: assistant: 让我用一个更简单的方案——用 `node` 直接调用 bb-sites adapter，不走 bb-browser CLI： assistant: 让我换个角度——把 Chrome 的 cookie 直接注入 adapter 来绕过登录态问题： assistant: 只有一个 Chrome 了 ✅ 验证一下： assistant: 双窗口问题彻底解决了 🦐 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:22-25]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:3:5 -->
-- Session: 2026-08-05 11:33:31 GMT+8: **Session Key**: agent:main:feishu:direct:ou_77fa18f196aa0559f70cdd7e1ffdd567; **Session ID**: 8bef2e74-e46f-46df-9ea7-755e31ae3867; **Source**: feishu [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1133.md:9:12 -->
-- Conversation Summary: assistant: PPID 是 systemd --user，不是 daemon 自己。说明有 systemd user service 在自动拉 Chrome。查一下： assistant: `--no-chrome` 也没挡住，daemon 依然拉了 Chrome。让我看 daemon 源码确认 `--no-chrome` 实际行为，同时换个策略： assistant: 问题找到了——`--no-chrome` 改进去了，但 `--cdp-port` 还是没生效。让我当场确认脚本当前内容并重新修复： assistant: 脚本里确实写了 `--no-chrome --cdp-port 19825`，但进程显示 daemon 用的是 `--cdp-port 9222` 且没带 `--no-chrome`。说明还有另一个 daemon 实例！让我查一下： [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1133.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1140.md:11:11 -->
-- Conversation Summary: **2026-08-05 daily 全球科技与 AI 热点** [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1140.md:11-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-05-1140.md:15:15 -->
-- Conversation Summary: **今日最突出的信号是 AI 基础设施的"军备竞赛"与地缘政治博弈交织。** 企业层面，Anthropic 与一家成立仅 6 个月的云计算初创公司 Volta 签下 100 亿美元算力协议，AMD 数据中心收入同比翻倍突破 67 亿美元，Arista 单季营收首破 30 亿美元——这些数字共同勾勒出一个事实：算力需求远未饱和，供应链（尤其是网络层）才是下一瓶颈。Google 则通过与 Broadcom、Apollo 的复杂融资结构，悄悄将 Anthropic 芯片风险从资产负债表转移出去，规避监管压力。 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-05-1140.md:15-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-17-1240.md:30:33 -->
+- 伯克希尔哈撒韦（巴菲特）: 🍎 苹果 $66.0B 22.0% —（无变化）; 💳 美国运通 $51.3B 17.1% —; 🥤 可口可乐 $32.5B 10.9% —; 🔍 Alphabet（谷歌） $37.8B 12.6% 🔼 **+45% / +658%** ← 本季最大动作 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-17-1240.md:30-33]
 
-## Promoted From Short-Term Memory (2026-08-11)
+## Promoted From Short-Term Memory (2026-08-23)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:66:67 -->
-- ⚙️ AI 基础设施: AMD 收购 Taalas 落地：将模型刻入硅片提升推理性能，"模型即芯片"路线获实质进展，多源同步报道; Agentic 工作负载挤压 CPU：亚马逊内部 EC2 CPU 需求激增、等待时间从小时延至天，Agentic AI 的 CPU-GPU 协同瓶颈显现 [score=0.831 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:66-67]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:41:43 -->
-- 💼 商业: AI 债务狂潮遇冷：英伟达、亚马逊等科技巨头今年在美投资级债市融资超 2000 亿美元，新债普遍破发、二级市场走弱，华尔街开始重新审视 AI 基建融资的可持续性; AI 语音克隆入侵华尔街：黑客用 3 秒样本生成高度相似声音实施"语音钓鱼"，攻击成本降至几十美元且已产业化，金融、律所、医疗轮番陷落; OpenAI Astra 安全疑云：OpenAI 承认 Astra 尚未发布、无法排除其具备关键网络攻击能力，已发布初步网络安全评估 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:41-43]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:46:47 -->
-- 🫂 社会: Anthropic 官宣造芯：首次确认组建内部芯片团队，最高 327 万年薪招揽芯片工程师，协同优化模型与硬件; 乌克兰防空危机：7 月俄发射 195 枚弹道导弹仅拦截 29 枚，泽连斯基紧急求援，美方称援乌致自身库存锐减 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:46-47]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:50:51 -->
-- 🌍 国际: 泰国校园枪击：一名受霸凌青少年先杀祖父母、再枪杀 5 名教职工，震动泰国社会; 欧洲极端高温：多瑙河水位骤降暴露二战沉船、韩国热浪被定为"国家灾难"，气候议题持续升温 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:50-51]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:54:55 -->
-- 🔬 科技: 字节 10 万亿参数大模型：TikTok 母公司训练参数规模达 10 万亿的模型，直接对标 Anthropic，中国大模型军备竞赛再升级; AI 创作悖论：WAIC 2026 上"10 万人排队、一键出片"背后，AI 让创作变简单却让爆款更难做，引发行业反思 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:54-55]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:58:59 -->
-- 🐦 推特动态: Musk 叙事刷屏：多条高互动推文（"建墙的是坏人"2.6 万赞、Grok Build V1.0 发布、Terafab 香蕉类比），太空+AI 叙事持续霸榜; Altman 双线操作：一边详谈 HuggingFace "留言板"事件与模型对齐问题，一边祝贺 Oklo 核反应堆临界，OpenAI 安全与能源布局并进 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:58-59]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:62:63 -->
-- 🧠 AI 前沿: Agentic AI 加速落地：Salesforce 数据显示 agent workforce 年增超一倍、部署周期缩短；Credo AI 警示"agent 部署即获全权是设计错误"，治理成为新焦点; ChatGPT 免费扩容：GPT-5.6 Sol 聊天体验提升、Luna 向免费用户开放无限聊天，AI 普惠化继续推进 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:62-63]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:71:71 -->
-- 📌 今日总结: **AI 安全与治理成今日最强主线：** OpenAI 承认 Astra 模型潜在网络攻击能力、HuggingFace "留言板"对齐事件持续发酵，Credo AI 在伯克利峰会上警示"agent 部署即获全权是设计错误"——三条信号共同指向一个趋势：行业关注点正从"能力竞赛"快速转向"可控性与安全边界"，多源共振明显。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:71-71]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:73:73 -->
-- 📌 今日总结: **AI 基建融资现分化：** 一面是英伟达、亚马逊等巨头在债市融资超 2000 亿美元却遭遇新债破发、华尔街重新审视可持续性；另一面是 AMD 收购 Taalas、Anthropic 自研芯片、亚马逊 CPU 因 Agentic 负载告急——资本与算力都在从"通用堆量"转向"专用优化"，供需错配开始暴露。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:73-73]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-08-0135.md:75:75 -->
-- 📌 今日总结: **中国大模型军备再升级：** 字节跳动 10 万亿参数模型浮出水面，直接对标 Anthropic；与此同时 AI 语音克隆已产业化入侵华尔街，显示中国 AI 应用与安全攻防同步进入实战阶段。 [score=0.801 recalls=0 avg=0.620 source=memory/2026-08-08-0135.md:75-75]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-18-1911.md:26:26 -->
+- 新增脚本: `scripts/check_bb_browser.py` — bb-browser 可用性探测，核心逻辑： [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-18-1911.md:26-26]
 
-## Promoted From Short-Term Memory (2026-08-15)
+## Promoted From Short-Term Memory (2026-08-25)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-08-11-0106.md:26:29 -->
-- 🫂 社会: iPhone物料成本: iPhone 18 Pro 物料成本预计同比大涨近40%，内存占比从10%飙升至34%，苹果面临毛利率压力; 🔥 哥伦比亚地震: 哥伦比亚7.4级地震，已致 Cali 市至少20栋建筑倒塌，与厄瓜多尔均有震感（RSS 与 API 同步报道）; FIFA信任危机: 欧足联、亚足联、中北美洲及加勒比海足联联名发公开信，指责国际足联主席因凡蒂诺欺骗破坏信任，目前因凡蒂诺已宣布竞选连任; 伯克希尔Q2: 伯克希尔Q2净利润256.67亿美元，时隔3年首次净买入股票，现金储备降至3655亿美元，回购约45亿美元库存股 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-11-0106.md:26-29]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-20-1923.md:22:22 -->
+- 抓取概要句: 本次热点汇总：共抓取 90 篇文章，主要来源包括 Google 新闻（217→26篇）、RSS（387→20篇，1个订阅源部分失败）、Twitter（243→33篇）、API（29→4篇）、雪球（20→3篇）、今日头条（20→2篇）、知乎（20→2篇）、微博（20→2篇，全部成功）。 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-20-1923.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-20-1923.md:28:31 -->
+- 💼 商业: 🔥 **Anthropic IPO 前冲刺**：年化收入已突破 650 亿美元，较去年底增速提升逾七倍，IPO 前信贷融资金额也将突破百亿美元，创始团队获超级投票权以保持控制权; 🔥 **H200 出口松绑**：北京允许小批量 Nvidia H200 芯片进口，助头部科技集团追赶美国竞争对手; 🔥 **AI 泡沫 vs 铁路泡沫**：科技分析师以 19 世纪铁路泡沫类比当前 AI 热潮——资本链条可能先于回报断裂，电力基础设施或成泡沫破裂后最大遗产; 🔥 **债市风暴冲击 AI 供应链**：美欧日长债收益率逼近数十年高点，AI 相关发债规模已达 4890 亿美元，芯片股与数据中心股集体承压 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-20-1923.md:28-31]
 
-## Promoted From Short-Term Memory (2026-08-16)
+## Promoted From Short-Term Memory (2026-08-28)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-08-11-1207.md:23:26 -->
-- 🌍 国际: 加拿大野火：加拿大 Okanagan 地区周末爆发野火，迫使超过 12000 人撤离，居民担忧家园是否仍在; 地震：哥伦比亚 7.4 级地震至少已致 50 人死亡，震中距 San José del Palmar 约 5 公里; 特朗普与伊朗：Trump 拒绝 6 月 MOU 后，伊朗被指掌握主动权，筹码上升；制裁解除、停火等条件已不再适用，现在需谈赔偿与资产解冻; 30 年悬案：Tupac 遇害案时隔 30 年，一名昔日对手将接受审判 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-11-1207.md:23-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-20-1923.md:39:42 -->
+- ⚙️ AI 基础设施: 🔥 **Unitree 港股上市首日大涨**：全球最大人形机器人制造商登陆科创板，股票首日表现强劲; 🔥 **AMD 能效四倍提升**：2026 年中数据中心 AI 系统能效预计提升四倍，缓解算力耗电焦虑; AMD 最大规模发债 50 亿美元直投 Anthropic，Nvidia、微软同步押注; BlackBerry 获新设计订单：Momenta 和 XHEART 选用 QNX OS for Safety 作为自动驾驶平台底座 [score=0.842 recalls=0 avg=0.620 source=memory/2026-08-20-1923.md:39-42]
 
-## Promoted From Short-Term Memory (2026-08-18)
+## Promoted From Short-Term Memory (2026-08-29)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-08-13-1100.md:20:23 -->
-- 💼 商业: 朱镕基逝世：前国务院总理朱镕基因病于 8 月 12 日在北京逝世，享年 98 岁，被评价为党和国家的卓越领导人。🔥; 石油供应告急：IEA 警告三季度全球原油缺口预期翻倍，中东战事致每日约 180 万桶产能关闭，全年缺口或创五年新高。🔥; 但斌调仓：东方港湾海外基金清仓苹果、特斯拉、纳斯达克 3X ETF，大举买入英特尔、超威半导体、Arm 等，七只新进标的中英特尔成为第二大持仓，超越英伟达。🔥; 三星 × Claude 提效：三星系统 LSI 引入 Anthropic Claude Code，SoC 验证从一月压缩至两天，新手工程师一日完成原本一月的工作量。🔥 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-13-1100.md:20-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-08-13-1100.md:24:27 -->
-- 💼 商业: AI 资本开支持续：T. Rowe Price 基金经理预计 2027 年 AI 资本支出或达 1.6 万亿美元，当前更多呈现 1998 年而非互联网泡沫特征。; AI 未带来就业灾难：经济学家曾预言 AI 大规模替代白领岗位，但实际冲击远低于预期，岗位形态正在改变而非消失。; 英国应对热浪：首相召开紧急 Cobra 会议，此前多地出现野火与干旱，凸显极端气候已成常态治理议题。; 央行政策表态：二季度货币政策执行报告称适度宽松政策效果持续显现，金融服务实体经济质效提升。 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-13-1100.md:24-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-20-1923.md:43:43 -->
+- ⚙️ AI 基础设施: 中国贵州数据中心的乡村化：欧洲风格建筑群中隐藏的低功耗数据中心，为 AI 提供电力 [score=0.804 recalls=0 avg=0.620 source=memory/2026-08-20-1923.md:43-43]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-24.md:12:12 -->
+- AI 产业链: SpaceX Starship 第13次飞行完成回收，计划9月15日第14次并首次塔架捕获；年度第100次发射完成；宣布 Terafab 芯片项目 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-24.md:12-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-24.md:15:18 -->
+- 中国楼市: 上海"沪八条"8月21日执行：外环外二套首付15%，购房补贴最高8万元; 北京：非京籍购房社保降至1年，公积金最高贷340万; LPR 5年期 3.5%（连续15个月未变）；公积金利率1月下调25BP; 海南安居房政策：100%产权，满5年可上市；多县购房补贴最高1.6万/套 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-24.md:15-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-24.md:4:5 -->
+- 价值投资 SEC 13F（2026-08-14 申报）: 巴菲特：增持 Alphabet（+45%/658%），新建仓 D.R. Horton，清仓 Constellation Brands；现金储备 Q1 $3970亿 → Q2 $3650亿（开始净买入）; 段永平：减持英伟达 -55%、谷歌 -47%；增持拼多多 +27%（跃升第三大）；新建仓阿里巴巴；港股增持泡泡玛特至 7.7%（第二大股东） [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-24.md:4-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-08-24.md:8:11 -->
+- AI 产业链: 谷歌云 Q1 增长 63%，完成 $320亿 Wiz 收购，2026年投入 $1750-1850亿; 英伟达 Blackwel/Rubin 需求上调至 $1万亿，2027年涨价 15%+，Q3 收入 $57B; HBM 市场规模 $546亿（+58%），美光全年售罄，SK海力士 59% 份额; 特斯拉 Cybercab 9月3日发布；Q2 交付 48万辆（+25%），运营利润降 57%；中国召回 300万辆 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-24.md:8-11]
+
+## Promoted From Short-Term Memory (2026-08-31)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-20-1923.md:47:49 -->
+- 🌍 国际: 🔥 **美加关税暂停**：特朗普在 50% 对加关税最后时刻宣布三天暂缓并声称接近达成协议，同时暗示重启 Keystone XL 输油管道; 🔥 **加拿大危机谈判**：加总理 Mark Carney 与美方展开"紧张"谈判，成功避免对 200 亿美元商品的冲击性关税; Vinted 误封争议：数千用户反映被错误封禁二手衣物交易平台账号，引发英国及欧洲多国投诉 [score=0.812 recalls=0 avg=0.620 source=memory/2026-08-20-1923.md:47-49]
+
+## Promoted From Short-Term Memory (2026-09-02)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-08-20-1923.md:32:35 -->
+- 💼 商业: 🔥 **高盛警告美联储两难**：债券供给压力空前叠加传统买家萎缩，长端利率被迫走高，美联储或被迫在数据走弱时仍加息; ABC 诉特朗普政府：ABC 正式起诉 FCC，指控其暂停电视执照威胁违反第一修正案; Cerebras 押注专用芯片：后 IPO 股价低迷，寄望专用芯片在 AI Agent 时代弯道超车; 西孟加拉酒店火灾：加尔各答五层酒店凌晨起火，9 人遇难、6 人受伤 [score=0.803 recalls=0 avg=0.620 source=memory/2026-08-20-1923.md:32-35]
+
+## Promoted From Short-Term Memory (2026-09-07)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-09-02.md:11:13 -->
+- 待办/后续关注: [ ] 关注 GPT-6 正式发布动态（预计9月3日）; [ ] 关注 Claude Fable 5.1 实际落地效果; [ ] 关注宇树科技后续舆情 [score=0.847 recalls=0 avg=0.620 source=memory/2026-09-02.md:11-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-09-02.md:5:7 -->
+- 今日热点报告: Pipeline 正常运行：87篇，来源覆盖 RSS/API/Twitter/雪球/知乎; 主要热点：OpenAI Astra 发布（Critical 阈值）、Anthropic Fable 5.1 降价45%、GPT-6 即将灰测、NVIDIA 35亿美元投资 MediaTek、宇树管理争议、华为问界/小米销量; 本次报告由 cron 定时任务自动生成并投递 [score=0.847 recalls=0 avg=0.620 source=memory/2026-09-02.md:5-7]

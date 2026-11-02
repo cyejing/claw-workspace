@@ -154,8 +154,8 @@ def test_zhihu_hot() -> dict:
 
 def launch_chrome(chrome_bin: str, display: str, cdp_port: int):
     Path(FIXED_USER_DATA_DIR).mkdir(parents=True, exist_ok=True)
-    cmd = [
-        'env', f'DISPLAY={display}', 'nohup', chrome_bin,
+    chrome_args = [
+        chrome_bin,
         f'--remote-debugging-port={cdp_port}',
         f'--user-data-dir={FIXED_USER_DATA_DIR}',
         '--no-first-run',
@@ -166,21 +166,24 @@ def launch_chrome(chrome_bin: str, display: str, cdp_port: int):
         '--disable-features=Translate,MediaRouter',
         '--disable-session-crashed-bubble',
         '--hide-crash-restore-bubble',
+        # 锚点标签页：防最后一个真实标签被关/重定向时导致 Chrome 整体退出
+        'about:blank',
+        'about:blank',
         DEFAULT_ZHIHU_URL,
     ]
-    shell_parts = []
-    for p in cmd:
-        if ' ' in p:
-            shell_parts.append(f'"{p}"')
-        else:
-            shell_parts.append(p)
-    shell_cmd = ' '.join(shell_parts)
-    log(f'[INFO] Launching Chrome: {shell_cmd}')
-    subprocess.Popen(
-        f'nohup {shell_cmd} > {CHROME_LOG} 2>&1 &',
-        shell=True, executable='/bin/bash',
-        start_new_session=True,
-    )
+    # ⚠️ 必须用 systemd-run 独立 user scope 启动：
+    # 从 OpenClaw exec 会话内直接 spawn 的 Chrome 会被归入 exec 的 systemd
+    # scope，会话结束时被连带清理（start_new_session 只换进程组，不换 cgroup），
+    # 表现为 Chrome 启动后 ~10-60s 靜默退出。独立 scope 已验证可存活。
+    cmd = ['systemd-run', '--user', '--unit=browser-chrome', '--same-dir',
+           f'env DISPLAY={display}', *chrome_args]
+    log(f'[INFO] Launching Chrome (isolated systemd scope): {" ".join(cmd)}')
+    # 若旧 unit 存在（上次异常残留），先停掉避免 systemd-run 报冲突
+    subprocess.run(['systemctl', '--user', 'stop', 'browser-chrome.service'],
+                   capture_output=True, timeout=15)
+    subprocess.run(cmd, capture_output=True, timeout=30)
+    with open(CHROME_LOG, 'a') as f:
+        f.write(f'\n[launcher] launched via systemd-run at {time.strftime("%F %T")}\n')
 
 
 def main():
