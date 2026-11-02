@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "registry": "https://clawhub.ai",
+  "slug": "shikamaru-web-search",
+  "ownerHandle": "shikamaru-cc",
+  "installedAt": 1793327264520,
+  "artifact": {
+    "kind": "archive",
+    "sha256": "f825062be795c7f110e4b1b406d80aec120e197bfa4534b79e9f2c28fa7c1288",
+    "integrity": "sha256-+CUGK+eVx/EQ5LG0BtgK7BIOGXv6RTS3np8sKPp8Eog="
+  },
+  "skillFile": {
+    "path": "SKILL.md",
+    "sha256": "73ed76842ddc863aa650cc1bdeadc86f5f0009fefa57ceaba909af4c1a4b0f4c"
+  },
+  "fileTreeSha256": "sha256:cb13b25e7ca7cf8589f9b3010af2ccc03689ac138fe3aca75da4d5df66053a24",
+  "installedVersion": "1.0.1"
+}

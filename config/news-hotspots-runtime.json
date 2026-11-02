@@ -1,0 +1,5 @@
+{
+  "content_filters": {
+    "blocked_keywords": ["比特币", "bitcoin", "btc"]
+  }
+}
